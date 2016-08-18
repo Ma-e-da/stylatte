@@ -40,11 +40,15 @@ group :development, :test do
   gem 'spring', '1.1.3'
 end
 
-group :test do
-  gem 'minitest-reporters', '1.0.5'
-  gem 'mini_backtrace', '0.1.3'
-  gem 'guard-minitest', '2.3.1'
-end
+#テスト関連のgemは高度なので、minitestだけ使って下のは今はやらない。参照；http://railstutorial.jp/chapters/static_pages?version=4.2#sec-advanced_testing_setup
+#group :test do
+  #色で結果を見れる。
+  #gem 'minitest-reporters', '1.0.5'
+  #テスト失敗時の道筋（バックトレース）をみれる。
+  #gem 'mini_backtrace', '0.1.3'
+  #guardは、springと競合することがある、上のサイト参照。
+  #gem 'guard-minitest', '2.3.1'
+#end
 
 group :production do
   gem "mysql2", "0.4.4"
