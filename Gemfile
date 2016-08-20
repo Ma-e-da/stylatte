@@ -7,6 +7,8 @@ gem 'rails', '4.2.6'
 gem 'bcrypt', '3.1.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '5.0.2'
+# 実際にありそうなユーザー名とメールアドレスを持つサンプルユーザーを自動的に作成する
+gem 'faker', '1.4.2'
 # 追加
 gem 'bootstrap-sass', '3.2.0.0'
 # Use Uglifier as compressor for JavaScript assets
