@@ -6,7 +6,7 @@ gem 'rails', '4.2.6'
 #追加、パスワードの暗号化
 gem 'bcrypt', '3.1.7'
 # Use SCSS for stylesheets
-gem 'sass-rails', '5.0.2'
+gem 'sass-rails', '5.0.6'
 # 実際にありそうなユーザー名とメールアドレスを持つサンプルユーザーを自動的に作成する
 gem 'faker', '1.4.2'
 #　ページネーションをつける。
