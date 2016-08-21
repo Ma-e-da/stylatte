@@ -1,7 +1,22 @@
 require 'test_helper'
-
+# ログイン済みかどうかを確かめるテスト
 class PostsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+#１）正しいリクエストを各アクションに向けて発行してみる
+  def setup
+    @post = posts(:orange)
+  end
+#２）ポストの数が変化していないかどうか
+  test "should redirect create when not logged in" do
+    assert_no_difference 'Post.count' do
+      post :create, post: { content: "Lorem ipsum" }
+    end
+    assert_redirected_to login_url
+  end
+#３）リダイレクトされるかどうかを確かめる。
+  test "should redirect destroy when not logged in" do
+    assert_no_difference 'Post.count' do
+      delete :destroy, id: @post
+    end
+    assert_redirected_to login_url
+  end
 end
