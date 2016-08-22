@@ -21,7 +21,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
- test "email addresses should be unique" do
+  test "email addresses should be unique" do
     duplicate_user = @user.dup
     duplicate_user.email = @user.email.upcase
     @user.save
@@ -48,5 +48,15 @@ class UserTest < ActiveSupport::TestCase
     assert_difference 'Post.count', -1 do
       @user.destroy
     end
+  end
+
+  test "should follow and unfollow a user" do
+    michael = users(:michael)
+    archer  = users(:archer)
+    assert_not michael.following?(archer)
+    michael.follow(archer)
+    assert michael.following?(archer)
+    michael.unfollow(archer)
+    assert_not michael.following?(archer)
   end
 end
