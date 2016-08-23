@@ -12,4 +12,17 @@
     </strong>
     followers
   </a>
+  <!--とりあえず上のにならって、stylingsとstars作ってみた、まだ動かない。TODO-->
+  <a href="#">
+    <strong id="stylings" class="stat">
+      <%= @user.followers.count %>
+    </strong>
+    stylings
+  </a>
+  <a href="#">
+    <strong id="stars" class="stat">
+      <%= @user.followers.count %>
+    </strong>
+    stars
+  </a>
 </div>
