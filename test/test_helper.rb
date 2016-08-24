@@ -5,12 +5,12 @@ require 'rails/test_help'
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
-
+  # 演習　リスト5.36: テスト環境でもApplicationヘルパーを使えるようにする。
+  include ApplicationHelper
   # テストユーザーがログイン中の場合にtrueを返す
   def is_logged_in?
     !session[:user_id].nil?
   end
-
   # テストユーザーとしてログインする
   def log_in_as(user, options = {})
     password    = options[:password]    || 'password'
