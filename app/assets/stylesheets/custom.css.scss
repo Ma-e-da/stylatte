@@ -166,6 +166,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  font-family: 'Roboto', sans-serif;
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
@@ -173,6 +174,7 @@ h1 {
 }
 
 h2 {
+  font-family: 'Roboto', sans-serif;
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
@@ -182,6 +184,7 @@ h2 {
 }
 
 p {
+  font-family: 'Roboto', sans-serif;
   font-size: 1.1em;
   line-height: 1.7em;
 }
@@ -192,14 +195,15 @@ p {
 #logo {
   float: left;
   margin-right: 10px;
+  font-family: 'Roboto', sans-serif;
   font-size: 1.7em;
-  color: white;
+  color: black;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: white;
+    color: green;
     text-decoration: none;
   }
 }
