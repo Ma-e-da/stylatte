@@ -85,6 +85,7 @@ aside {
 .gravatar {
   float: left;
   margin-right: 10px;
+  border-radius: 50%; 
 }
 
 .gravatar_edit {
@@ -293,15 +294,6 @@ span.picture {
     border: 0;
   }
 }
-
-/*
- * イメージを丸型に。参考サイト；http://www.nishishi.com/css/trim-image-to-circle.html
- */
-
-
-
-
-
 
 /*http://photoshopvip.net/91115のButton Shadowより
 ボタンbuttonはbutton1に名前変えています。*/
