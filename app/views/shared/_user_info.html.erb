@@ -1,9 +1,12 @@
 <div class="card">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <%= link_to gravatar_for(current_user, size: 50), current_user %>
   <div class="card-block">
     <h4 class="card-title"><%= current_user.name %></h4>
-    <p class="card-text"><%= link_to "view my profile", current_user %></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
+  <%= link_to gravatar_for(current_user, size: 100), current_user %>
+  <div class="card-block">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <p>
+    <%= link_to "Edit", current_user %>
+  </p>
 </div>
