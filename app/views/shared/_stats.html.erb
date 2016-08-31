@@ -1,32 +1,37 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <a href="<%= current_user.posts.count %>">
-    <strong id="following" class="stat">
-      <%= @current_user.posts.count %>
-    </strong>
-    posts
-  </a>
   <a href="<%= following_user_path(@user) %>">
-    <strong id="following" class="stat">
+    <strong class="stat">
       <%= @user.following.count %>
     </strong>
     following
   </a>
   <a href="<%= followers_user_path(@user) %>">
-    <strong id="followers" class="stat">
+    <strong class="stat">
       <%= @user.followers.count %>
     </strong>
     followers
   </a>
-  <!--とりあえず上のにならって、stylingsとstars作ってみた、まだ動かない。TODO-->
+  <a href="<%= current_user.posts.count %>">
+    <strong class="stat">
+      <%= @current_user.posts.count %>
+    </strong>
+    posts
+  </a>
   <a href="#">
-    <strong id="stylings" class="stat">
+    <strong class="stat">
       <%= @user.followers.count %>
     </strong>
     stylings
   </a>
   <a href="#">
-    <strong id="stars" class="stat">
+    <strong class="stat">
+      <%= @user.followers.count %>
+    </strong>
+    keeps
+  </a>
+  <a href="#">
+    <strong class="stat">
       <%= @user.followers.count %>
     </strong>
     stars
