@@ -216,6 +216,33 @@ p {
   }
 }
 
+.intro {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+  background: url(RONyPwknRQOO3ag4xf3R_Kinsey.jpg) no-repeat bottom center scroll;
+  background-size: cover;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+.intro .intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+.intro .intro-body .brand-heading {
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+}
+.intro .intro-body .intro-text {
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+}
 /* footer */
 
 footer {
@@ -316,6 +343,7 @@ html, body {
   justify-content: center;
 }
 
+// ボタン類
 
 .button1 {
   width: 250px;
@@ -339,118 +367,6 @@ html, body {
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
   transform: translateY(-7px);
-}
-
-
-// priceリスト。
-
-.flexbox {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-}
-
-/*
-TABLE
-================================================ */
-table {
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    width: 100%;
-    margin-bottom: 15px;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid #ddd;
-    -webkit-overflow-scrolling: touch;
-}
-th, td {
-    padding: 15px;
-  text-align: center;
-    vertical-align: top;
-    border-top: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-}
-tr:nth-child(even)>td,
-tr:nth-child(even)>th {
-    background-color: #efefef;
-}
-th,
-.plan-price {
-    color: #fff;
-}
-.plan-price {
-    font-size: 2.5rem;
-  border-top: 1px solid rgba(255,255,255,.2);
-  padding: 25px 0;
-}
-.plan-price span {
-    font-size: 1rem;
-}
-
-/* Background colour */
-.plan-free th,
-.plan-free .plan-price {
-    background: linear-gradient(-90deg, #009ADB, #00DB9A);
-}
-.plan-premium th,
-.plan-premium .plan-price {
-    background: linear-gradient(-90deg, #EE52FF, #009ADB);
-}
-
-/*
-LARGE DISPLAY
-================================================ */
-@media ( min-width : 700px ){
-    .flexbox {
-        -webkit-flex-direction: row;
-        flex-direction: row;
-    }
-  .plan-table {
-    margin-left: 3%;
-  }
-  .plan-table:first-of-type {
-    margin-left: 0;
-  }
-}
-
-//ボタン3
-/* Mixins */
-@mixin gradientBg($startColor, $endColor) {
-    background: $startColor;
-    background: -moz-linear-gradient(left,  $startColor 0%, $endColor 80%,$endColor 100%);
-    background: -webkit-linear-gradient(left,  $startColor 0%, $endColor 80%,$endColor 100%);
-    background: linear-gradient(to right,  $startColor 0%, $endColor 80%,$endColor 100%);
-}
-
-/* bg shortcodes */
-.bg-gradient1 span,
-.bg-gradient1:before {
-    @include gradientBg(#52A0FD, #00e2fa);
-}
-.bg-gradient2 span,
-.bg-gradient2:before {
-    @include gradientBg(#44ea76, #39fad7);
-}
-.bg-gradient3 span,
-.bg-gradient3:before {
-    @include gradientBg(#fa6c9f, #ffe140);
-}
-
-/* General */
-.wrapper {
-    margin: 5% auto;
-    text-align: center;
-}
-a {
-    text-decoration: none;
-
-    &:hover,
-    &:focus,
-    &:active {
-      text-decoration: none;
-  }
 }
 
 /* fancy Button */
@@ -542,32 +458,114 @@ a {
         }
     }
 }
+
+//ボタン3
+/* Mixins */
+@mixin gradientBg($startColor, $endColor) {
+    background: $startColor;
+    background: -moz-linear-gradient(left,  $startColor 0%, $endColor 80%,$endColor 100%);
+    background: -webkit-linear-gradient(left,  $startColor 0%, $endColor 80%,$endColor 100%);
+    background: linear-gradient(to right,  $startColor 0%, $endColor 80%,$endColor 100%);
+}
+
+
+
+// priceリスト。
+
+.flexbox {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
 /*
-*/
-.intro {
-  display: table;
-  width: 100%;
-  height: auto;
-  padding: 100px 0;
+PriceList TABLE
+================================================ */
+table {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+    -webkit-overflow-scrolling: touch;
+}
+th, td {
+    padding: 15px;
   text-align: center;
-  color: white;
-  background: url(RONyPwknRQOO3ag4xf3R_Kinsey.jpg) no-repeat bottom center scroll;
-  background-size: cover;
-  background-color: black;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
 }
-.intro .intro-body {
-  display: table-cell;
-  vertical-align: middle;
+tr:nth-child(even)>td,
+tr:nth-child(even)>th {
+    background-color: #efefef;
 }
-.intro .intro-body .brand-heading {
-  font-size: 40px;
-  font-family: 'Roboto', sans-serif;
+th,
+.plan-price {
+    color: #fff;
 }
-.intro .intro-body .intro-text {
-  font-size: 18px;
-  font-family: 'Roboto', sans-serif;
+.plan-price {
+    font-size: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,.2);
+  padding: 25px 0;
+}
+.plan-price span {
+    font-size: 1rem;
+}
+
+/* Background colour */
+.plan-free th,
+.plan-free .plan-price {
+    background: linear-gradient(-90deg, #009ADB, #00DB9A);
+}
+.plan-premium th,
+.plan-premium .plan-price {
+    background: linear-gradient(-90deg, #EE52FF, #009ADB);
+}
+
+/*
+LARGE DISPLAY
+================================================ */
+@media ( min-width : 700px ){
+    .flexbox {
+        -webkit-flex-direction: row;
+        flex-direction: row;
+    }
+  .plan-table {
+    margin-left: 3%;
+  }
+  .plan-table:first-of-type {
+    margin-left: 0;
+  }
+}
+
+/* bg shortcodes */
+.bg-gradient1 span,
+.bg-gradient1:before {
+    @include gradientBg(#52A0FD, #00e2fa);
+}
+.bg-gradient2 span,
+.bg-gradient2:before {
+    @include gradientBg(#44ea76, #39fad7);
+}
+.bg-gradient3 span,
+.bg-gradient3:before {
+    @include gradientBg(#fa6c9f, #ffe140);
+}
+
+.wrapper {
+    margin: 5% auto;
+    text-align: center;
+}
+a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+  }
 }
