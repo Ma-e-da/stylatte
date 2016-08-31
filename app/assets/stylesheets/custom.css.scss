@@ -195,6 +195,11 @@ p {
 
 /* header */
 
+#mainNav {
+  color: black;
+  background-color: white;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -547,6 +552,7 @@ a {
   text-align: center;
   color: white;
   background: url(RONyPwknRQOO3ag4xf3R_Kinsey.jpg) no-repeat bottom center scroll;
+  background-size: cover;
   background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
