@@ -33,3 +33,5 @@ Please feel free to use a different markup language if you do not plan to run
 [*Ruby on Railsチュートリアル:
 実例を使ってRailsを学ぼう*](http://railstutorial.jp/)
 [Michael Hartl](http://www.michaelhartl.com/)著
+* TODO
+gravatarをEditしアバター変えようとしたら、gravatorのhomepageに移行してしまう。これを、最初のアバター設定のところに移行するようにする。
