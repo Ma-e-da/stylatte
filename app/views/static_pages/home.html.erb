@@ -18,25 +18,26 @@
 </div>
 
 <% else %>
-<div class="jumbotron jumbotron-fluid">
-  <div class="row">
+<header class="intro">
+  <div class="intro-body">
     <div class="container">
-        <h1 class="cover-heading">Make your style new.</h1>
-        <p class="lead">Free, you can get advices from cool friends all over world.</p>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1 class="cover-heading">Make your style new.</h1>
+          <p class="lead">Free, you can get advices from cool friends all over world.</p>
 
-      <div class="wrap">
-        <button class="button1">
-          <%= link_to "Sign Up for free", signup_path %>
-        </button>
-      </div>
+          <div class="wrap">
+            <button class="button1">
+              <%= link_to "Sign Up for free", signup_path %>
+            </button>
+          </div>
 
-      <div class="inner">
-        <p>Want to become a stylist? <a href="#">3 steps</a>
-          <br> more info here<a href="#"> Docs</a></p>
-          <%= link_to image_tag("rails.png", :size => "30x30", alt: "Rails logo"),
-          'http://rubyonrails.org/' %>
+          <div class="inner">
+            <p>Want to become a stylist? <a href="#">3 steps</a>
+              <br> more info here<a href="#"> Docs</a></p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
+    </header>
 <% end %>
