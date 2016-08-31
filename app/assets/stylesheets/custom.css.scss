@@ -13,6 +13,15 @@ $gray-medium-light: #eaeaea;
 
 /* forms */
 
+legend {
+  border-bottom: 1px solid #2EE59D;
+  font-size: 1.4em;
+  font-family: 'Roboto', sans-serif;
+}
+
+radio {
+  color: #2EE59D;
+}
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
@@ -108,7 +117,7 @@ aside {
     }
     &:hover {
       text-decoration: none;
-      color: yellow;
+      color: #2EE59D;
     }
   }
   strong {
@@ -211,7 +220,7 @@ p {
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: green;
+    color: #2EE59D;
     text-decoration: none;
   }
 }

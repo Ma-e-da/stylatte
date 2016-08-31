@@ -1,13 +1,161 @@
 <%= form_for(@post, html: { multipart: true }) do |f| %>
+
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Let's ask your new styling..." %>
+
+<form>
+
+  <legend>Free message</legend>
+  <!-- メッセージ入力欄 -->
+  <div class="form-group">
+    <label for="exampleTextarea">Message</label>
+      <%= f.text_area :content, placeholder: "I need a new hat suitable for me ...Any idea?" %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
-  <span class="picture">
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-  </span>
+
+
+
+<legend>I am</legend>
+  <!--インラインボタン  -->
+  <div class="form-group">
+  <label class="form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> man
+  </label>
+  <label class="form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> female
+  </label>
+  <label class="form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> dog/cat
+  </label>
+  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+ </div>
+
+ <!-- 選ぶ一覧 -->
+ <div class="form-group">
+   <label for="exampleSelect1">Age</label>
+   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+   <select class="form-control" id="exampleSelect1">
+     <option>no choice</option>
+     <option>10's</option>
+     <option>20's</option>
+     <option>30's</option>
+     <option>40's</option>
+     <option>50's</option>
+     <option>60's</option>
+     <option>70's</option>
+     <option>80's</option>
+     <option>more</option>
+   </select>
+ </div>
+
+ <!-- 選ぶ一覧 -->
+ <div class="form-group">
+   <label for="exampleSelect1">Size</label>
+   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+   <select class="form-control" id="exampleSelect1">
+     <option>no choice</option>
+     <option>XXS</option>
+     <option>XS</option>
+     <option>S</option>
+     <option>M</option>
+     <option>L</option>
+     <option>XL</option>
+     <option>XXL</option>
+     <option>more</option>
+   </select>
+ </div>
+
+ <legend>I have choices</legend>
+  <!-- 選ぶ一覧 -->
+  <div class="form-group">
+    <label for="exampleSelect1">Season</label>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <select class="form-control" id="exampleSelect1">
+      <option>no choice</option>
+      <option>spring</option>
+      <option>summer</option>
+      <option>automn</option>
+      <option>winter</option>
+    </select>
+  </div>
+
+  <!-- 選ぶ一覧 （さいしょから選択肢がみえている版）-->
+  <div class="form-group">
+    <label for="exampleSelect2">Mood</label>
+    <select multiple class="form-control" id="exampleSelect2">
+      <option>no choice</option>
+      <option>formal</option>
+      <option>casual</option>
+      <option>cool</option>
+      <option>cute</option>
+    </select>
+  </div>
+
+  <!--色  -->
+  <div class="form-group row">
+    <label for="example-color-input" class="col-xs-2 col-form-label">Color</label>
+    <div class="col-xs-10">
+      <input class="form-control" type="color" value="#563d7c" id="example-color-input">
+    </div>
+  </div>
+
+<!--プライス  -->
+  <div class="form-group">
+    <label for="exampleSelect1">Price</label>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <select class="form-control" id="exampleSelect1">
+      <option>no choice</option>
+      <option>~$10</option>
+      <option>~$100</option>
+      <option>$1000~</option>
+    </select>
+  </div>
+
+  <legend>Hint pics?</legend>
+  <!-- ファイル選択 -->
+  <div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <span class="picture">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    </span>
+    <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input.</small>
+  </div>
+
+<legend>You need a style until..</legend>
+  <!-- ラジオボタン -->
+  <fieldset class="form-group">
+    <div class="radio">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+        Option that&mdash;be sure
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+        option one
+      </label>
+    </div>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </fieldset>
+
+<legend>You need a style until..</legend>
+<!-- 日 -->
+  <div class="form-group row">
+    <label for="example-date-input" class="col-xs-2 col-form-label">Until</label>
+    <div class="col-xs-10">
+      <input class="form-control" type="date" value="No deatline" id="example-date-input">
+    </div>
+  </div>
+
+
+<legend>Ready?</legend>
+
+<%= f.submit "Go", class: "button1" %>
+
+</form>
+
 <% end %>
+
+
 
 <script type="text/javascript">
   $('#post_picture').bind('change', function() {
