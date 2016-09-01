@@ -573,32 +573,3 @@ a {
       text-decoration: none;
   }
 }
-
-
-/* Material iconsを利用する */
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 64px;  /* 推奨サイズ */
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  line-height: 1;
-  text-transform: none;
-  color: yellow;
-
-  /* WebKitブラウザサポート */
-  -webkit-font-smoothing: antialiased;
-  /* Chrome、Safariサポート */
-  text-rendering: optimizeLegibility;
-
-  /* Firefoxサポート */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* IEサポート */
-  font-feature-settings: 'liga';
-}
-
-.material-icons.md-18 { font-size: 18px; }
