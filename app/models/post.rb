@@ -6,6 +6,8 @@ class Post < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: 140 }
   validate :picture_size
 
+  self.per_page = 12
+
   private
 
   # アップロード画像のサイズを検証する
