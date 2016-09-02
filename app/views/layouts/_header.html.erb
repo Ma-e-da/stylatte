@@ -13,20 +13,19 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
+    <% if logged_in? %>
+      <ul class="nav navbar-nav navbar-center">
+            <li class="button1"><%= link_to "Styling Mode", root_path %></li>
+      </ul>
+    <% end %>
       <ul class="nav navbar-nav navbar-right">
 
         <li class="page-scroll">
-          <li><%= link_to "Styling", root_path %></li>
           <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Help", help_path %></li>
-        </li>
-
-
-        <li class="page-scroll">
+          <li><%= link_to "Docs", help_path %></li>
           <% if logged_in? %>
           <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
               <%= link_to current_user.name, users_path %> <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
@@ -34,6 +33,7 @@
               <li class="divider"></li>
               <li><%= link_to "Log out", logout_path, method: "delete" %></li>
             </ul>
+            <%= link_to gravatar_for(current_user, size: 50), current_user %>
           </div>
           <% else %>
           <%= link_to "Log in", login_path %>
