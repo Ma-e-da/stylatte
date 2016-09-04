@@ -22,10 +22,51 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.label :country %>
+      <%= f.text_field :country, class: 'form-control' %>
+
+      <%= f.label :status %>
+      <%= f.text_field :status, class: 'form-control' %>
+
+      <%= f.label :public %>
+      <%= f.text_field :public, class: 'form-control' %>
+
+      <%= f.label :sns %>
+      <%= f.text_field :sns, class: 'form-control' %>
+
+      <%= f.label :appeal_message %>
+      <%= f.text_field :appeal_message, class: 'form-control' %>
+
+      <%= f.label :body_size %>
+      <%= f.text_field :body_size, class: 'form-control' %>
+
+      <%= f.label :hair_color %>
+      <%= f.text_field :hair_color, class: 'form-control' %>
+
+      <%= f.label :hair_style %>
+      <%= f.text_field :hair_style, class: 'form-control' %>
+
+      <%= f.label :eyes_color %>
+      <%= f.text_field :eyes_color, class: 'form-control' %>
+
+      <%= f.label :age %>
+      <%= f.text_field :age, class: 'form-control' %>
+
+      <%= f.label :favoritepeople %>
+      <%= f.text_field :favorite_people, class: 'form-control' %>
+
+      <%= f.label :favoritebrands %>
+      <%= f.text_field :favorite_brands, class: 'form-control' %>
+
+      <%= f.label :otherfavorites %>
+      <%= f.text_field :favorite_anything, class: 'form-control' %>
+
       <span class="picture">
        <% if current_user.picture? %>
        <%= image_tag current_user.picture.url %>
        <% else %>
+       <%= f.label :image %>
        <%= f.file_field :picture %>
        <% end %>
       </span>
