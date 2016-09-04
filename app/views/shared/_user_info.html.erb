@@ -6,6 +6,7 @@
   <div class="card-block">
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
+  <%= image_tag current_user.picture.url if current_user.picture? %>
   <p>
     <%= link_to "Edit profile", edit_user_path(current_user) %>
   </p>

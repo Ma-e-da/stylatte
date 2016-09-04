@@ -8,7 +8,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
+    <%= form_for(@user, html: { multipart: true }) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name %>
@@ -22,8 +22,15 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
-
+      <span class="picture">
+       <% if current_user.picture? %>
+       <%= image_tag current_user.picture.url %>
+       <% else %>
+       <%= f.file_field :picture %>
+       <% end %>
+      </span>
       <%= f.submit "Save changes", class: "btn btn-primary" %>
+
     <% end %>
   </div>
 </div>
