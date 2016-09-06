@@ -3,9 +3,7 @@
     <h4 class="card-title"><%= current_user.name %></h4>
   </div>
   <%= link_to gravatar_for(current_user, size: 100), current_user %>
-  <div class="card-block">
-    <p class="card-text"><%= current_user.appeal_message %></p>
-  </div>
+  
   <%= image_tag current_user.picture.url if current_user.picture? %>
   <p>
     <%= link_to "Edit profile", edit_user_path(current_user) %>
