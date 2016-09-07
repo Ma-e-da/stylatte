@@ -7,4 +7,10 @@ module ApplicationHelper
       base_title
     end
   end
+
+  # 現在のユーザーのstylistカラムにt入っていたら、trueを返す
+  def stylist?
+    current_user(:stylist, true)
+  end
+  
 end

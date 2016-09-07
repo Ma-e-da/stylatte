@@ -102,10 +102,7 @@ class User < ActiveRecord::Base
   def following?(other_user)
     following.include?(other_user)
   end
-  # 現在のユーザーのstylistカラムにt入っていたら、trueを返す
-  def stylist?
-    current_user(:stylist, true)
-  end
+  
 
 
   private
