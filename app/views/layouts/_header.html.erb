@@ -17,7 +17,7 @@
       <% if logged_in? && current_user.stylist? %>
         <button type="button" class="btn btn-default"><%= link_to "Stylingする", new_post_path %></button>
       <% else %>
-      <button type="button" class="btn btn-default"><%= link_to "Stylistになる", new_post_path %></button>
+      <button type="button" class="btn btn-default"><%= link_to "Stylistになる", stylists_path %></button>
       <% end %>
       <ul class="nav navbar-nav navbar-right">
 

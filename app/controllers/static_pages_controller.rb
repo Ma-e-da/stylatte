@@ -15,6 +15,6 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
-  def price
+  def stylists
   end
 end
