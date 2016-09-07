@@ -13,11 +13,11 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <button type="button" class="btn btn-default"><%= link_to "Post", new_post_path %></button>
+        <button type="button" class="btn btn-default"><%= link_to "Ask a new styling", new_post_path %></button>
       <% if logged_in? && current_user.stylist? %>
-        <button type="button" class="btn btn-default"><%= link_to "Stylingする", new_post_path %></button>
+        <button type="button" class="btn btn-default"><%= link_to "Post a Styling", new_post_path %></button>
       <% else %>
-      <button type="button" class="btn btn-default"><%= link_to "Stylistになる", stylists_path %></button>
+      <button type="button" class="btn btn-default"><%= link_to "Become a Stylist", stylists_path %></button>
       <% end %>
       <ul class="nav navbar-nav navbar-right">
 

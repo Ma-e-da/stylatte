@@ -1,58 +1,176 @@
-<div class="flexbox">
-  <div class="plan-table plan-free">
-    <table>
-      <tr><th>無料プラン</th></tr>
-      <tr><td class="plan-price">無料</td></tr>
-      <tr><td>Liveレッスン視聴</td></tr>
-      <tr><td>無料イベント参加</td></tr>
-      <tr><td>お知らせニュースレター購読</td></tr>
-    </table>
-    <div class="wrapper">
-      <a href="#" class="fancy-button bg-gradient2"><span><i class="fa fa-envelope"></i>Messages</span></a>
+<!-- トップでひきつけるスローガン的な -->
+<div class="intro">
+  <div class="intro-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1 class="cover-heading">Your idea may help someone.</h1>
+          <p class="lead">Free, you can get advices from cool friends all over world.</p>
+
+          <div class="inner">
+            <p>read more details  <a href="#">Questions</a>
+              <br> I understand <a href="#"> Privacy Statement</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="plan-table plan-premium">
-    <table>
-      <tr><th>プレミアムプラン</th></tr>
-      <tr><td class="plan-price">3,000<span> 円／月</span></td></tr>
-      <tr><td>Liveレッスン視聴</td></tr>
-      <tr><td>全イベント参加</td></tr>
-      <tr><td>お知らせニュースレター購読</td></tr>
-      <tr><td>テキストダウンロード可</td></tr>
-      <tr><td>字幕表示</td></tr>
-    </table>
-    <div class="wrapper">
-     <a href="#" class="fancy-button bg-gradient1"><span><i class="fa fa-wheelchair-alt"></i>Follow Me</span></a>
+  <!-- プライスリスト -->
+  <h1 class="cover-heading">Course</h1>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="plan-table plan-free">
+          <table>
+            <tr><th>Stylist</th></tr>
+            <tr><td class="plan-price">Free</td></tr>
+            <tr><td>Liveレッスン視聴</td></tr>
+            <tr><td>無料イベント参加</td></tr>
+            <tr><td>お知らせニュースレター購読</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="plan-table plan-plus">
+          <table>
+            <tr><th>Stylist-Plus</th></tr>
+            <tr><td class="plan-price">3,000<span> 円／月</span></td></tr>
+            <tr><td>Liveレッスン視聴</td></tr>
+            <tr><td>全イベント参加</td></tr>
+            <tr><td>お知らせニュースレター購読</td></tr>
+            <tr><td>テキストダウンロード可</td></tr>
+            <tr><td>字幕表示</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="plan-table plan-premium">
+          <table>
+            <tr><th>Stylist-Premium</th></tr>
+            <tr><td class="plan-price">10,000<span> 円／月</span></td></tr>
+            <tr><td>Liveレッスン視聴</td></tr>
+            <tr><td>無料イベント参加</td></tr>
+            <tr><td>お知らせニュースレター購読</td></tr>
+            <tr><td>お知らせニュースレター購読</td></tr>
+            <tr><td>お知らせニュースレター購読</td></tr>
+            <tr><td>お知らせニュースレター購読</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <h2>question?</h2>
+    <h2>Need more? contact us.</h2>
+
+  </div>
+
+<!-- スタイリストサインイン 選んだコースによって、（上のボタンで）出てくるフォームがかわる。）-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      <h1 class="cover-heading">You hava already account and use it? <br> or Make other account or completely New to this site</h1>
+      <button class="button1">
+        <%= link_to "Use my user account", login_path %>
+      </button>
+      <button class="button1">
+        <%= link_to "New account", signup_path %>
+      </button>
+
+        <%= form_for(:session, url: login_path) do |f| %>
+
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+
+        <%= f.label :password %>
+        <%= link_to "(forgot password)", new_password_reset_path %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>Remember me on this computer</span>
+        <% end %>
+
+        <%= f.submit "Log in", class: "btn btn-primary" %>
+        <% end %>
+
+        <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+      </div>
     </div>
   </div>
 
-  <div class="plan-table plan-premium">
-    <table>
-      <tr><th>プレミアムプラン</th></tr>
-      <tr><td class="plan-price">3,000<span> 円／月</span></td></tr>
-      <tr><td>Liveレッスン視聴</td></tr>
-      <tr><td>全イベント参加</td></tr>
-      <tr><td>お知らせニュースレター購読</td></tr>
-      <tr><td>テキストダウンロード可</td></tr>
-      <tr><td>字幕表示</td></tr>
-    </table>
-    <div class="wrapper">
-     <a href="#" class="fancy-button pop-onhover bg-gradient3"><span>Share Channel</span></a>
+  <h1 class="cover-heading">Questions</h1>
+
+  <!-- よくある質問コーナー -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <dl>
+          <dt>
+            Description lists
+          </dt>
+          <dd>
+            A description list is perfect for defining terms.
+          </dd>
+          <dt>
+            Euismod
+          </dt>
+          <dd>
+            Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+          </dd>
+          <dd>
+            Donec id elit non mi porta gravida at eget metus.
+          </dd>
+          <dt>
+            Malesuada porta
+          </dt>
+          <dd>
+            Etiam porta sem malesuada magna mollis euismod.
+          </dd>
+          <dt>
+            Felis euismod semper eget lacinia
+          </dt>
+          <dd>
+            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+          </dd>
+        </dl>
+      </div>
+
+      <div class="col-md-6">
+        <dl>
+          <dt>
+            Description lists
+          </dt>
+          <dd>
+            A description list is perfect for defining terms.
+          </dd>
+          <dt>
+            Euismod
+          </dt>
+          <dd>
+            Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+          </dd>
+          <dd>
+            Donec id elit non mi porta gravida at eget metus.
+          </dd>
+          <dt>
+            Malesuada porta
+          </dt>
+          <dd>
+            Etiam porta sem malesuada magna mollis euismod.
+          </dd>
+          <dt>
+            Felis euismod semper eget lacinia
+          </dt>
+          <dd>
+            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+          </dd>
+        </dl>
+      </div>
     </div>
   </div>
-
-  <div class="plan-table plan-free">
-    <table>
-      <tr><th>無料プラン</th></tr>
-      <tr><td class="plan-price">無料</td></tr>
-      <tr><td>Liveレッスン視聴</td></tr>
-      <tr><td>無料イベント参加</td></tr>
-      <tr><td>お知らせニュースレター購読</td></tr>
-    </table>
-    <div class="wrapper">
-      <a href="#" class="fancy-button pop-onhover bg-gradient1"><span>Post A Comment</span></a>
-    </div>
-  </div>
-
-</div>
