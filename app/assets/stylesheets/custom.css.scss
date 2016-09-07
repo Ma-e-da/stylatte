@@ -10,6 +10,22 @@ $gray-medium-light: #eaeaea;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }
+// ユーザーカード
+
+.card {
+  border: 1px solid #e8e8e8;
+  margin: 10px 10px 10px 10px;
+  padding: 10px;
+}
+.card-block {
+  border: 1px solid #e8e8e8;
+  margin: 1px 3px 20px 3px;
+  padding: 20px;
+}
+.card-title {
+  font-size: 1.4em;
+  font-family: 'Roboto', sans-serif;
+}
 
 /* forms */
 
@@ -349,6 +365,7 @@ html, body {
 }
 
 // ボタン類
+
 
 .button1 {
   width: 250px;

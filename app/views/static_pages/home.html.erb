@@ -2,19 +2,30 @@
 <div class="container-fluid">
   <div class="row">
     <aside class="col-md-4">
-      <section class="user_info">
-        <%= render 'shared/user_info' %>
-      </section>
-      <section class="stats">
-        <%= render 'shared/stats' %>
-      </section>
+      <div class="card">
+        <div class="card-block">
+          <section class="user_info">
+            <%= render 'shared/user_info' %>
+          </section>
+        </div>
+        <section class="stats">
+          <%= render 'shared/stats' %>
+        </section>
+      </div>
       <section class="post_form">
         <%= render 'shared/post_form' %>
       </section>
     </aside>
-    <div class="col-md-8">
-      <h3>Post Feed</h3>
+    <div class="col-md-6">
+      <h3>My Feed</h3>
       <%= render 'shared/feed' %>
+    </div>
+    <div class="col-md-2">
+      <div class="card">
+        <div class="card-block">
+        <h3>Sponsored</h3>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -27,7 +38,7 @@
         <div class="col-md-8 col-md-offset-2">
           <h1 class="cover-heading">Make your style new.</h1>
           <p class="lead">Free, you can get advices from cool friends all over world.</p>
-          
+
           <div class="wrap">
             <button class="button1">
               <%= link_to "Sign Up for free", signup_path %>
