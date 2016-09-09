@@ -25,7 +25,7 @@
     keeps
   </a>
   <% if logged_in? && current_user.stylist? %>
-    <a href="<%= followers_user_path(@user) %>">
+    <a href="<%= post_scomments_path(@user) %>">
       <strong class="stat">
         <%= @current_user.scomments.count %>
       </strong>
