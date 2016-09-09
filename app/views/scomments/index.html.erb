@@ -1,0 +1,15 @@
+<div class="container-fluid">
+
+  <% provide(:title, 'All stylings') %>
+
+  <h1>My stylings</h1>
+
+
+  <ul class="scomments">
+    <%= render @scomments %>
+  </ul>
+
+  <%= will_paginate @scomments %>
+
+</div>
+<!-- ページネートgemが自動でとってきてくれる。_scomments.html.erbから。 -->
