@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
+  # 依頼した側はたくさんのコメントを受け取る。ではなく、スタイリストであるユーザーがもつ。
+  has_many :scomments
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:  :destroy
@@ -102,7 +104,7 @@ class User < ActiveRecord::Base
   def following?(other_user)
     following.include?(other_user)
   end
-  
+
 
 
   private
