@@ -4,7 +4,8 @@
   <span class="content">
   　<%= post.content %>
     <%= image_tag post.picture.url if post.picture? %>
-</span>
+  </span>
+  <p><%= post.scomments.count %> styling comments!</p>
   <span class="timestamp">
     <%= time_ago_in_words(post.created_at) %> ago.
     <% if current_user?(post.user) %>
