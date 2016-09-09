@@ -12,28 +12,30 @@
     </strong>
     followers
   </a>
-  <a href="<%= current_user.posts.count %>">
+  <a href="<%= posts_path(@user) %>">
     <strong class="stat">
-      <%= @current_user.posts.count %>
+      <%= @user.followers.count %>
     </strong>
     posts
   </a>
-  <a href="#">
+  <a href="<%= followers_user_path(@user) %>">
     <strong class="stat">
       <%= @user.followers.count %>
     </strong>
     keeps
   </a>
-  <a href="#">
-    <strong class="stat">
-      <%= @user.followers.count %>
-    </strong>
-    stylings
-  </a>
-  <a href="#">
-    <strong class="stat">
-      <%= @user.followers.count %>
-    </strong>
-    stars
-  </a>
+  <% if logged_in? && current_user.stylist? %>
+    <a href="<%= followers_user_path(@user) %>">
+      <strong class="stat">
+        <%= @current_user.scomments.count %>
+      </strong>
+      stylings
+    </a>
+    <a href="<%= followers_user_path(@user) %>">
+      <strong class="stat">
+        <%= @user.followers.count %>
+      </strong>
+      stars
+    </a>
+  <% end %>
 </div>
