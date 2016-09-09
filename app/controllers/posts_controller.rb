@@ -9,8 +9,8 @@ end
 def index
   # @posts = current_user.post.paginate(page: params[:page])
   # @post = current_user.posts
-  # @posts = current_user.post.paginate(:page => params[:page], :per_page => 12)
-    @posts = Post.paginate(:page => params[:page], :per_page => 10)
+  @posts = current_user.posts.paginate(:page => params[:page], :per_page => 12)
+    # @posts = Post.paginate(:page => params[:page], :per_page => 10)
 end
 
 def create
