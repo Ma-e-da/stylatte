@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20160909021351) do
 
   add_index "scomments", ["post_id"], name: "index_scomments_on_post_id"
   add_index "scomments", ["user_id", "created_at"], name: "index_scomments_on_user_id_and_created_at"
-  add_index "scomments", ["user_id"], name: "index_scomments_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
