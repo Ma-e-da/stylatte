@@ -1,26 +1,15 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1>ポストShowページ</h1>
 
-<h1>ポストShowページ</h1>
+      <%= @post.content %>
 
-<%= @post.content %>
 
-<!-- simple_formatヘルパーメソッドこれは、改行などを認識して表示するメソッドです。 -->
-<h2>コメント一覧</h2>
-<% @post.scomments.each do |scomment| %>
-<p>
-<%= simple_format scomment.content %>
-</p>
-<% end %>
+      <%= render @post.scomments %>
 
-<!-- コメントは、ポストにネストさせているので、form_forでもネスト。/posts/1/commentsのようなルートを作成します。 -->
-<li>
-<h2>コメント投稿欄:</h2>
-<%= form_for( [@post, @post.scomments.build] ) do |f| %>
-  <div class="field">
-  <%= f.label :content %><br />
-  <%= f.text_area :content %>
+      <%= render 'shared/scomment_form' %>
+
+    </div>
   </div>
-  <div class="actions">
-  <%= f.submit %>
-  </div>
-<% end %>
-</li>
+</div>
