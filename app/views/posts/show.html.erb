@@ -3,6 +3,7 @@
 
 <%= @post.content %>
 
+<!-- simple_formatヘルパーメソッドこれは、改行などを認識して表示するメソッドです。 -->
 <h2>コメント一覧</h2>
 <% @post.scomments.each do |scomment| %>
 <p>
@@ -10,7 +11,7 @@
 </p>
 <% end %>
 
-
+<!-- コメントは、ポストにネストさせているので、form_forでもネスト。/posts/1/commentsのようなルートを作成します。 -->
 <li>
 <h2>コメント投稿欄:</h2>
 <%= form_for( [@post, @post.scomments.build] ) do |f| %>
