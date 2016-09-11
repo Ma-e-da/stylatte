@@ -3,8 +3,9 @@
   <span class="content">
   　<%= scomment.content %>
     <%= scomment.user_id %>
-
   </span>
-
+<p>
+<%= link_to 'コメント削除', [scomment.post, scomment], method: :delete, data: { confirm: '削除しますか？' } %>
+</p>
 
 </li>

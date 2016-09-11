@@ -1,5 +1,6 @@
 class ScommentsController < ApplicationController
-
+  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :correct_user,  only: :destroy
 
   def create
     @post= Post.find(params[:post_id])
@@ -14,6 +15,12 @@ class ScommentsController < ApplicationController
         end
   end
 
+  def destroy
+    @post= Post.find(params[:post_id])
+    @scomment = @post.scomments.find(params[:id])
+    @scomment.destroy
+    redirect_to (:back)
+  end
 
   private
 
