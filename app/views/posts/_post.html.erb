@@ -1,11 +1,15 @@
 <li id="post-<%= post.id %>">
   <%= link_to gravatar_for(post.user, size: 50), post.user %>
+
   <span class="user"><%= link_to post.user.name, post.user %></span>
+
   <span class="content">
   　<%= post.content %>
     <%= image_tag post.picture.url if post.picture? %>
   </span>
+
   <p><%= post.scomments.count %> styling comments!</p>
+
   <span class="timestamp">
     <%= time_ago_in_words(post.created_at) %> ago.
     <% if current_user?(post.user) %>
@@ -13,4 +17,11 @@
                                       data: { confirm: "You sure?" } %>
     <% end %>
   </span>
+
 </li>
+
+
+      <tr>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      </tr>

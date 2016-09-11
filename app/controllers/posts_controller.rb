@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :logged_in_user, only: [:new, :index, :create, :destroy]
+  before_action :logged_in_user, only: [:new, :index, :show, :create, :destroy]
   before_action :correct_user,  only: :destroy
 
 def new
@@ -8,7 +8,10 @@ end
 
 def index
   @posts = current_user.posts.paginate(:page => params[:page], :per_page => 12)
-    # @posts = Post.paginate(:page => params[:page], :per_page => 10)
+end
+
+def show
+  @post = Post.find(params[:id])
 end
 
 def create
