@@ -5,13 +5,16 @@
       <h1>Post</h1>
       <%= @post.content %>
 
-      <h1>Comment below!</h1>
-      <%= render @post.scomments %>
+      <% if current_user?(@post.user) %>
+        <h1>Comment below!</h1>
+        <%= render @post.scomments %>
+      <% end %>
 
       <% if logged_in? && current_user.stylist? %>
         <h1>Send Styling from here!</h1>
         <%= render 'shared/scomment_form' %>
       <% end %>
+
     </div>
   </div>
 </div>
