@@ -8,20 +8,27 @@
     <%= image_tag post.picture.url if post.picture? %>
   </span>
 
-  <p><%= post.scomments.count %> styling comments!</p>
-
   <span class="timestamp">
     <%= time_ago_in_words(post.created_at) %> ago.
+  </span>
+
+  <button type="button" class="btn btn-default">
     <% if current_user?(post.user) %>
-      <%= link_to "delete", post, method: :delete,
+      <%= link_to "Delete this post", post, method: :delete,
                                       data: { confirm: "You sure?" } %>
     <% end %>
-  </span>
+  </button>
 
 </li>
 
 
-      <tr>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      </tr>
+<% if logged_in? && current_user.stylist? %>
+  <button type="button" class="btn btn-default">
+    <%= link_to 'Send Styling!', post %>
+  </button>
+<% else %>
+  <p>You have <%= post.scomments.count %> stylings!</p>
+  <button type="button" class="btn btn-default">
+    <%= link_to 'Show', post %>
+  </button>
+<% end %>

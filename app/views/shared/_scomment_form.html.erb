@@ -1,14 +1,15 @@
-<%= form_for( [@post, @post.scomments.create] ) do |f| %>
-  <div class="field">
-  <%= f.label :content %><br />
-  <%= f.text_area :content %>
-  <%= f.hidden_field :user_id %>
-  </div>
-  <div class="actions">
-  <button class="button1"><%= f.submit %></button>
-  </div>
+<% if logged_in? && current_user.stylist? %>
+  <%= form_for( [@post, @post.scomments.create] ) do |f| %>
+    <div class="field">
+      <%= f.label :content %><br />
+      <%= f.text_area :content %>
+      <%= f.hidden_field :user_id %>
+    </div>
+    <div class="actions">
+      <button class="button1"><%= f.submit %></button>
+    </div>
+  <% end %>
 <% end %>
-
 
 <!--
 <script type="text/javascript">
