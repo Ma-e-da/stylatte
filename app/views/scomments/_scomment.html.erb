@@ -3,6 +3,7 @@
 
   <span class="content">
   　<%= scomment.content %>
+    <%= image_tag scomment.picture.url if scomment.picture? %>
   </span>
   <span class="timestamp">
     <%= time_ago_in_words(scomment.created_at) %> ago.
