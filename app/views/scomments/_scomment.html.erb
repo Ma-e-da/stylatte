@@ -1,11 +1,12 @@
+
 <li id="scomment-<%= scomment.id %>">
 
   <span class="content">
   　<%= scomment.content %>
     <%= scomment.user_id %>
   </span>
-<p>
-<%= link_to 'コメント削除', [scomment.post, scomment], method: :delete, data: { confirm: '削除しますか？' } %>
-</p>
+  <p>
+    <%= link_to 'Delete this comment', [scomment.post, scomment], method: :delete, data: { confirm: '削除しますか？' } %>
+  </p>
 
 </li>
