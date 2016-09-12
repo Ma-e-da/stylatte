@@ -6,7 +6,7 @@
     <%= scomment.user_id %>
   </span>
   <p>
-    <%= link_to 'Delete this comment', [scomment.post, scomment], method: :delete, data: { confirm: '削除しますか？' } %>
+    <%= link_to 'Delete this comment', [scomment.post, scomment], method: :delete, data: { confirm: 'Really delete?' } %>
   </p>
 
 </li>
