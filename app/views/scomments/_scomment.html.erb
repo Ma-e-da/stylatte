@@ -1,12 +1,15 @@
 
-<li id="scomment-<%= scomment.id %>">
+<div id="scomment-<%= scomment.id %>">
 
   <span class="content">
   　<%= scomment.content %>
-    <%= scomment.user_id %>
   </span>
-  <p>
-    <%= link_to 'Delete this comment', [scomment.post, scomment], method: :delete, data: { confirm: 'Really delete?' } %>
-  </p>
+  <span class="timestamp">
+    <%= time_ago_in_words(scomment.created_at) %> ago.
+  </span>
 
-</li>
+  <p>From.
+    <span class="user"><%= link_to scomment.user.name, scomment.user %></span>
+  </p>
+</div>
+    <%= link_to 'Delete', [scomment.post, scomment], method: :delete, data: { confirm: 'Really delete?' } %>
