@@ -24,18 +24,4 @@
     </strong>
     keeps
   </a>
-  <% if logged_in? && current_user.stylist? %>
-    <a href="<%= post_scomments_path(@user) %>">
-      <strong class="stat">
-        <%= @current_user.scomments.count %>
-      </strong>
-      stylings
-    </a>
-    <a href="<%= followers_user_path(@user) %>">
-      <strong class="stat">
-        <%= @user.followers.count %>
-      </strong>
-      stars
-    </a>
-  <% end %>
 </div>

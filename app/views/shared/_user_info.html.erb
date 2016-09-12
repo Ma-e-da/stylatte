@@ -3,3 +3,11 @@
 <button type="button" class="btn btn-default">
   <%= link_to "Edit profile", edit_user_path(current_user) %>
 </button>
+
+<% if logged_in? && current_user.stylist? %>
+  <button type="button" class="btn btn-default">
+    <%= link_to "See My StylingBook", user %>
+  </button>
+  <p>Sent<%= @current_user.scomments.count %> styling comments!</p>
+  <p>Now <%= @current_user.scomments.count %> stars got!</p>
+<% end %>
