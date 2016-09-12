@@ -17,10 +17,12 @@
       <% if logged_in? && current_user.stylist? %>
         <button type="button" class="btn btn-default"><%= link_to "Post a Styling", new_post_path %></button>
       <% else %>
-      <button type="button" class="btn btn-default"><%= link_to "Become a Stylist", stylists_path %></button>
+        <button type="button" class="btn btn-default"><%= link_to "Become a Stylist", stylists_path %></button>
       <% end %>
-      <ul class="nav navbar-nav navbar-right">
 
+        <button type="button" class="btn btn-default"><%= link_to "Find Users", users_path %></button>
+
+      <ul class="nav navbar-nav navbar-right">
         <li class="page-scroll">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Docs", help_path %></li>
