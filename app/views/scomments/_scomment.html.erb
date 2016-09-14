@@ -17,7 +17,7 @@
     <div id="hint"></div>
 
     <%= link_to 'Delete', [scomment.post, scomment], method: :delete, data: { confirm: 'Really delete?' } %>
-
+    <%= link_to "お気に入りに登録", add_post_scomment_path(scomment), method: :post %>
 </div>
 
 
