@@ -207,3 +207,8 @@ ja:
     show:
      My posts: "スタイリングポスト"
      Comment below!: "コメント一覧"
+ja:
+  views:
+    static_pages:
+      home:
+       Make your style new!: "一番似合うスタイルをみつけよう！"
