@@ -1,5 +1,5 @@
 
-<div id="scomment-<%= scomment.id %>">
+<div id="scomment-<%= scomment.id %>" class=scomment-index>
 
   <span class="content">
   　<%= scomment.content %>
@@ -8,9 +8,36 @@
   <span class="timestamp">
     <%= time_ago_in_words(scomment.created_at) %> ago.
   </span>
-
   <p>From.
     <span class="user"><%= link_to scomment.user.name, scomment.user %></span>
   </p>
-</div>
+
+    <div id="star_rank"></div>
+    <!-- target数字hint -->
+    <div id="hint"></div>
+
     <%= link_to 'Delete', [scomment.post, scomment], method: :delete, data: { confirm: 'Really delete?' } %>
+
+</div>
+
+
+
+
+
+    <script type="text/javascript">
+      <!--
+      $(function(){
+        $('#star_rank').raty({
+          starOff  : '<%= asset_path('star-off.png') %>',
+          starOn   : '<%= asset_path('star-on.png') %>',
+          target    : '#hint',
+          targetType: 'number',
+          targetKeep: true,
+        click: function(score, evt) {
+    //	      alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt); //選択時に要素をアラート
+          $("#star_rank_score").val(score);
+        }
+      });
+      });
+      //-->
+      </script>
