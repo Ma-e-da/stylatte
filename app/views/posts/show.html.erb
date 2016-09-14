@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
 
-      <h1>Post</h1>
+      <h1><%= t 'views.posts.show.My posts' %></h1>
       <%= @post.content %>
 
       <% if current_user?(@post.user) %>
-        <h1>Comment below!</h1>
+        <h1><%= t 'views.posts.show.Comment below!' %></h1>
         <%= render @post.scomments %>
       <% end %>
 
