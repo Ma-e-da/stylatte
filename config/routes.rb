@@ -16,13 +16,14 @@ Rails.application.routes.draw do
     end
 
     resources :posts do
-      resources :scomments  do
-        member do
-          post "add", to: "favorites#create"
-        end
+      resources :scomments
+    end
+    
+    resources :scomments  do
+      member do
+        post "add", to: "favorites#create"
       end
     end
-
     resources :account_activations, only: [:edit]
     resources :password_resets,     only: [:new, :create, :edit, :update]
     resources :relationships,      only: [:create, :destroy]

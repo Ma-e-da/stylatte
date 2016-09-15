@@ -1,14 +1,10 @@
 <p>My Favorite Comments</p>
 <table>
-  <thead>
-    <tr>
-      <th>お気に入り内容</th>
-    </tr>
-  </thead>
   <tbody>
     <% @user.scomments.each do |scomment| %>
     <tr>
       <td><%= scomment.content %></td>
+      <td><%= link_to scomment.user.name, scomment.user %></td>
     </tr>
     <% end %>
   </tbody>

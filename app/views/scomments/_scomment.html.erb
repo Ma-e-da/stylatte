@@ -12,12 +12,14 @@
     <span class="user"><%= link_to scomment.user.name, scomment.user %></span>
   </p>
 
+
+    <%= link_to 'Delete', [scomment.post, scomment], method: :delete, data: { confirm: 'Really delete?' } %>
+
+    <%= link_to "Favorites", add_scomment_path(scomment), method: :post %>
+    <%= link_to "UnFavorite",favorite_path, method: :delete %>
     <div id="star_rank"></div>
     <!-- target数字hint -->
     <div id="hint"></div>
-
-    <%= link_to 'Delete', [scomment.post, scomment], method: :delete, data: { confirm: 'Really delete?' } %>
-    <%= link_to "お気に入りに登録", add_post_scomment_path(scomment), method: :post %>
 </div>
 
 
