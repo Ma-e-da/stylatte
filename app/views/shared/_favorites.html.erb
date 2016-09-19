@@ -5,6 +5,7 @@
     <tr>
       <td><%= scomment.content %></td>
       <td><%= link_to scomment.user.name, scomment.user %></td>
+      <td><button type="button" class="btn btn-default"><%= link_to "UnFavorite",favorite_path, method: :delete, data: { confirm: 'Really delete?' } %></button></td>
     </tr>
     <% end %>
   </tbody>
