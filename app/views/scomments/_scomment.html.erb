@@ -1,31 +1,45 @@
-
-<div id="scomment-<%= scomment.id %>" class=scomment-index>
+<!-- スタイリングコメント -->
+<li id="scomment-<%= scomment.id %>" >
 
   <span class="content">
   　<%= scomment.content %>
     <%= image_tag scomment.picture.url if scomment.picture? %>
   </span>
-  <span class="timestamp">
+
+  <p class="timestamp">
     <%= time_ago_in_words(scomment.created_at) %> ago.
-  </span>
+  </p>
+
   <p>From.
     <span class="user"><%= link_to scomment.user.name, scomment.user %></span>
   </p>
 
+  <button type="button" class="btn btn-default">
+      <%= link_to 'Delete', [scomment.post, scomment], method: :delete, data: { confirm: 'Really delete?' } %>
+  </button>
 
-    <%= link_to 'Delete', [scomment.post, scomment], method: :delete, data: { confirm: 'Really delete?' } %>
 
-    <%= link_to "Favorites", add_scomment_path(scomment), method: :post %>
-    <%= link_to "UnFavorite",favorite_path, method: :delete %>
-    <div id="star_rank"></div>
+<!-- お気に入り -->
+  <button type="button" class="btn btn-default">
+      <%= link_to "Favorites", add_scomment_path(scomment), method: :post, data: { confirm: 'Added to favorites!' } %>
+  </button>
+
+  <button type="button" class="btn btn-default">
+      <%= link_to "UnFavorite",favorite_path, method: :delete, data: { confirm: 'Really delete?' } %>
+  </button>
+
+<!-- 星の評価 -->
+  <div id="star_rank"></div>
     <!-- target数字hint -->
-    <div id="hint"></div>
-</div>
+  <div id="hint"></div>
+
+</li>
 
 
 
 
 
+<!-- 星の評価の動き -->
     <script type="text/javascript">
       <!--
       $(function(){

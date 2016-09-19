@@ -6,7 +6,7 @@
       <%= @post.content %>
 
       <% if current_user?(@post.user) %>
-        <h1><%= t 'views.posts.show.Comment below!' %></h1>
+        <h1><%= t 'views.posts.show.Comments below!' %></h1>
         <%= render @post.scomments %>
       <% end %>
 
