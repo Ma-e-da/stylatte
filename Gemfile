@@ -7,23 +7,20 @@ gem 'rails', '4.2.6'
 gem 'bcrypt', '3.1.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '5.0.6'
-# 実際にありそうなユーザー名とメールアドレスを持つサンプルユーザーを自動的に作成する
-gem 'faker', '1.4.2'
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '4.1.0'
+
 #画像アップ関係
 gem 'carrierwave', '0.10.0'
 gem 'mini_magick',  '3.8.0'
 gem 'fog', '1.36.0'
-#　ページネーションをつける。
-gem 'will_paginate',           '3.0.7'
-gem 'bootstrap-will_paginate', '0.0.10'
-# 追加
-gem 'bootstrap-sass', '3.2.0.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '2.5.3'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '4.1.0'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.0.3'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
