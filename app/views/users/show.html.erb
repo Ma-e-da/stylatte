@@ -1,31 +1,22 @@
-<div class="container-fluid">
-  <% provide(:title, @user.name) %>
-  <div class="row">
-    <aside class="col-md-4">
-      <section class="user_info">
-        <h1>
-          <%= gravatar_for @user %>
-          <%= @user.name %>
-        </h1>
-      </section>
-      <section class="stats">
-        <%= render 'shared/stats' %>
-      </section>
-    </aside>
-    <div class="col-md-8">
-      <%= render 'follow_form' if logged_in? %>
+＞＞users/showページはじまり。
+<% provide(:title, @user.name) %>
 
-      <% if @user.posts.any? %>
-      <h3>Posts (<%= @user.posts.count %>)</h3>
-      <ol class="posts">
-        <%= render @posts %>
-      </ol>
-      
-      <% end %>
+<%= gravatar_for @user %>
+<%= @user.name %>
 
-      <% if @user.stylist? %>
-        <h2>This is My StylingBook!</h2>
-      <% end %>
-    </div>
-  </div>
-</div>
+<%= render 'shared/stats' %>
+
+<%= render 'follow_form' if logged_in? %>
+
+<% if @user.posts.any? %>
+<h3>Posts (<%= @user.posts.count %>)</h3>
+<ol class="posts">
+  <%= render @posts %>
+</ol>
+
+<% end %>
+
+<% if @user.stylist? %>
+<h2>This is My StylingBook!</h2>
+<% end %>
+＜＜user/showページおわり。

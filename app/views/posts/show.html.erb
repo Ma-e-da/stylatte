@@ -1,20 +1,14 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+＜＜posts/showページはじまり。
+<h1><%= t 'views.posts.show.My posts' %></h1>
+<%= @post.content %>
 
-      <h1><%= t 'views.posts.show.My posts' %></h1>
-      <%= @post.content %>
+<% if current_user?(@post.user) %>
+<h1><%= t 'views.posts.show.Comment below!' %></h1>
+<%= render @post.scomments %>
+<% end %>
 
-      <% if current_user?(@post.user) %>
-        <h1><%= t 'views.posts.show.Comment below!' %></h1>
-        <%= render @post.scomments %>
-      <% end %>
-
-      <% if logged_in? && current_user.stylist? %>
-        <h1>Send Styling from here!</h1>
-        <%= render 'shared/scomment_form' %>
-      <% end %>
-
-    </div>
-  </div>
-</div>
+<% if logged_in? && current_user.stylist? %>
+<h1>Send Styling from here!</h1>
+<%= render 'shared/scomment_form' %>
+<% end %>
+＞＞posts/showページおわり。
