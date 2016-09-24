@@ -12,18 +12,6 @@
 ＞＞homeページからshared/feedページへ。
 <%= render 'shared/feed' %>
 
-<h3>Sponsored</h3>
-
-
 <% else %>
-
-<%= t 'views.static_pages.home.Make your style new!' %>
-Free, you can get advices from cool friends all over world.
-
-<%= link_to "Sign Up for free", signup_path %>
-
-<p>Want to become a stylist? <a href="#">3 steps</a>
-<br> more info here<a href="#"> Docs</a></p>
-
-
+<%= render 'sessions/landing' %>
 <% end %>
