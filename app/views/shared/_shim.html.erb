@@ -1,3 +1,8 @@
+<!-- JavaScriptを、いろんなブラウザに対応させるため、対応できないブラウザの場合は、このCDNでAjaxを読み込むようにする。
+Microsoft Internet Explorer (IE) のバージョンが9より小さい場合 (if lt IE 9) にのみ、囲まれている行を実行します。
+この風変わりな文法 [if lt IE 9] は、Railsの一部ではありません。
+条件付きコメントと呼ばれるもので、Internet Explorerで特別にサポートされています。 -->
+
 <!--[if lt IE 9]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
   </script>
