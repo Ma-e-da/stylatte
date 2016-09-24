@@ -23,7 +23,7 @@ gem 'uglifier', '2.5.3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.0.3'
-# Turbolinks ページ遷移をAjaxに置き換え、JavaScriptやCSSのパースを省略することで高速化するgem。
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '2.3.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '2.2.3'

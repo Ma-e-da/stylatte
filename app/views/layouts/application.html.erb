@@ -1,19 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
     <title>Stylatte</title>
-
-<!-- semanticUI読み込み -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
-<!-- turbolinks読み込み -->
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all',
+                                           'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-<!-- ？ -->
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
-
   </head>
 
   <body>
