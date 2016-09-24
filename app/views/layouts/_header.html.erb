@@ -1,52 +1,22 @@
-<!-- Navigation -->
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
 
-  <div class="container">
+<%= link_to "Stylatte", root_path, id: "logo" %>
+  
+<%= link_to "Ask a new styling", new_post_path %>
+<% if logged_in? && current_user.stylist? %>
+<%= link_to "Post a Styling", new_post_path %>
+<% else %>
+<%= link_to "Become a Stylist", stylists_path %>
+<% end %>
 
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header page-scroll">
-      <%= link_to "Stylatte", root_path, id: "logo" %>
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-      </button>
-    </div>
+<%= link_to "Find Users", users_path %>
+<%= link_to "Home", root_path %>
+<%= link_to "Docs", help_path %>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <button type="button" class="btn btn-default"><%= link_to "Ask a new styling", new_post_path %></button>
-      <% if logged_in? && current_user.stylist? %>
-        <button type="button" class="btn btn-default"><%= link_to "Post a Styling", new_post_path %></button>
-      <% else %>
-        <button type="button" class="btn btn-default"><%= link_to "Become a Stylist", stylists_path %></button>
-      <% end %>
-
-        <button type="button" class="btn btn-default"><%= link_to "Find Users", users_path %></button>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li class="page-scroll">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Docs", help_path %></li>
-          <% if logged_in? %>
-          <div class="btn-group">
-            <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-              <%= link_to current_user.name, users_path %> <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><%= link_to "Edit profile", edit_user_path(current_user) %></li>
-              <li class="divider"></li>
-              <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-            </ul>
-            <%= link_to gravatar_for(current_user, size: 50), current_user %>
-          </div>
-          <% else %>
-          <%= link_to "Log in", login_path %>
-          <% end %>
-        </li>
-
-      </ul>
-
-    </div>
-    <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container-fluid -->
-</nav>
+<% if logged_in? %>
+<%= link_to current_user.name, users_path %>
+<%= link_to "Edit profile", edit_user_path(current_user) %>
+<%= link_to "Log out", logout_path, method: "delete" %>
+<%= link_to gravatar_for(current_user, size: 50), current_user %>
+<% else %>
+<%= link_to "Log in", login_path %>
+<% end %>
