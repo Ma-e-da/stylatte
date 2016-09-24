@@ -21,7 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* sessions/newの方がログインでusers/newの方がサインアップ用ページ。変だけどコントローラーとかあ* るのでそのままにしている。
 
 
 Please feel free to use a different markup language if you do not plan to run
