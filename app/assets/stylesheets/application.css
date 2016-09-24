@@ -1,14 +1,12 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
+ * 適切なファイルをインクルードするためにSprocketsによって使用されるアプリケーションスタイルシート用のマニフェストファイル
+
+ * アセットパイプラインとは、JavaScriptやCSSのアセットを最小化 (minify: スペースや改行を詰めるなど) または圧縮して連結するためのフレームワークです。
+ * これにより、ブラウザがWebページをレンダリングするためのリクエスト数を減らすことができます。Webブラウザが同時に処理できるリクエスト数には限りがあるため、同時リクエスト数を減らすことができればその分読み込みが高速になります。
+ * SprocketsはすべてのJavaScriptファイルを1つのマスター.jsファイルに連結し、すべてのCSSファイルを1つのマスター.cssファイルに連結します。
+
+ * 上のコードで、app/assets/stylesheetsディレクトリ (サブディレクトリを含む) 中のすべてのCSSファイルが、アプリケーションCSSに含まれるようにします。
+ * 下の方は、CSSの読み込みシーケンスの中で、application.css自身もインクルードすることを指定しています。
  *
  *= require_tree .
  *= require_self
