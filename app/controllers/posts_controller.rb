@@ -7,7 +7,7 @@ def new
 end
 
 def index
-  @posts = current_user.posts.paginate(:page => params[:page], :per_page => 12)
+  @posts = current_user.posts
 end
 
 def show
