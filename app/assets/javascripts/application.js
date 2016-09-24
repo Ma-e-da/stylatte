@@ -9,7 +9,7 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+// turbolinksも読み込んでいる。ページ遷移をAjaxに置き換え、JavaScriptやCSSのパースを省略することで高速化するgem
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
