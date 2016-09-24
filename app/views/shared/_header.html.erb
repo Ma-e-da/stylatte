@@ -1,6 +1,6 @@
-
+<div class="ui segment">
 <%= link_to "Stylatte", root_path, id: "logo" %>
-  
+
 <%= link_to "Ask a new styling", new_post_path %>
 <% if logged_in? && current_user.stylist? %>
 <%= link_to "Post a Styling", new_post_path %>
@@ -20,3 +20,4 @@
 <% else %>
 <%= link_to "Log in", login_path %>
 <% end %>
+</div>
