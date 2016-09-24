@@ -7,14 +7,13 @@
     <title>Stylatte</title>
 
 <!-- turbolinks読み込み -->
+<!-- CSSの読み込み -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+<!-- jQueryの読み込み -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <!-- IE 9のときのためのもの-->
     <%= csrf_meta_tags %>
     <%= render 'shared/shim' %>
-<!-- jQueryの読み込み -->
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <!-- semanticUI読み込み -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
