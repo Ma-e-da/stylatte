@@ -19,11 +19,17 @@ Rails.application.routes.draw do
     resources :posts do
       resources :scomments
     end
-
+    
+    resources :scomments  do
+      member do
+        post "add", to: "favorites#create"
+      end
+    end
     resources :account_activations, only: [:edit]
     resources :password_resets,     only: [:new, :create, :edit, :update]
 # リレーションシップのテーブルを作る。
     resources :relationships,      only: [:create, :destroy]
+    resources :favorites,      only: [:destroy]
 
 
   # Example of regular route:

@@ -6,6 +6,7 @@
   　<%= scomment.content %>
     <%= image_tag scomment.picture.url if scomment.picture? %>
   </span>
+
   <span class="timestamp">
     <%= time_ago_in_words(scomment.created_at) %> ago.
   </span>
@@ -13,7 +14,17 @@
   <p>From.
     <span class="user"><%= link_to scomment.user.name, scomment.user %></span>
   </p>
+
 </div>
     <%= link_to 'Delete', [scomment.post, scomment], method: :delete, data: { confirm: 'Really delete?' } %>
+
+<!-- お気に入り -->
+  <button type="button" class="btn btn-default">
+      <%= link_to "Favorites", add_scomment_path(scomment), method: :post, data: { confirm: 'Added to favorites!' } %>
+  </button>
+
+  <button type="button" class="btn btn-default">
+      <%= link_to "UnFavorite",favorite_path, method: :delete, data: { confirm: 'Really delete?' } %>
+  </button>
 
 ＜＜scomments/_scommentページおわり。

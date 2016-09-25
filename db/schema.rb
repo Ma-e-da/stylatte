@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912110954) do
+ActiveRecord::Schema.define(version: 20160914220350) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "scomment_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "favorites", ["scomment_id"], name: "index_favorites_on_scomment_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
   create_table "posts", force: :cascade do |t|
     t.text     "content"

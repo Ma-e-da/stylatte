@@ -1,6 +1,8 @@
 class Scomment < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
+  has_many :favorites
+  has_many :users, through: :favorites
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true

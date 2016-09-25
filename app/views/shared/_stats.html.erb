@@ -15,15 +15,15 @@ Statページスタート＞＞
   </a>
   <a href="<%= posts_path(@user) %>">
     <strong class="stat">
-      <%= @user.followers.count %>
+      <%= @user.posts.count %>
     </strong>
     posts
   </a>
   <a href="<%= followers_user_path(@user) %>">
     <strong class="stat">
-      <%= @user.followers.count %>
+      <%= @user.favorites.count %>
     </strong>
-    keeps
+    favorites
   </a>
 </div>
 ＜＜Statページおわり

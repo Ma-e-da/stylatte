@@ -6,6 +6,7 @@
 
 <%= render 'shared/stats' %>
 
+<%= render 'shared/favorites' %>
 <%= render 'follow_form' if logged_in? %>
 
 <% if @user.posts.any? %>
