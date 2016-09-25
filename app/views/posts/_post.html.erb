@@ -1,36 +1,24 @@
 ＞＞posts/_postページはじまり。
+
 <li id="post-<%= post.id %>">
   <%= link_to gravatar_for(post.user, size: 50), post.user %>
+  <%= link_to post.user.name, post.user %>
+  <%= post.content %>
+  <%= image_tag post.picture.url if post.picture? %>
+  <%= time_ago_in_words(post.created_at) %> ago.
 
-  <span class="user"><%= link_to post.user.name, post.user %></span>
-
-  <span class="content">
-  　<%= post.content %>
-    <%= image_tag post.picture.url if post.picture? %>
-  </span>
-
-  <span class="timestamp">
-    <%= time_ago_in_words(post.created_at) %> ago.
-  </span>
-
-  <button type="button" class="btn btn-default">
-    <% if current_user?(post.user) %>
-      <%= link_to "Delete this post", post, method: :delete,
-                                      data: { confirm: "You sure?" } %>
-    <% end %>
-  </button>
-
+  <% if current_user?(post.user) %>
+  <%= link_to "Delete this post", post, method: :delete,
+  data: { confirm: "You sure?" } %>
+  <% end %>
 </li>
 
 
 <% if logged_in? && current_user.stylist? %>
-  <button type="button" class="btn btn-default">
-    <%= link_to 'Send Styling!', post %>
-  </button>
+<%= link_to 'Send Styling!', post %>
 <% else %>
-  <p>You have <%= post.scomments.count %> stylings!</p>
-  <button type="button" class="btn btn-default">
-    <%= link_to 'See Details', post %>
-  </button>
+<p>You have <%= post.scomments.count %> stylings!</p>
+<%= link_to 'See Details', post %>
 <% end %>
+
 ＜＜posts/_postページおわり。
