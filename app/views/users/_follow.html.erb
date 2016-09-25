@@ -1,8 +1,11 @@
 ＞＞ここから、フォローするボタン。views/users/_follow.html.erbページはじまり
 
 <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
-  <div><%= hidden_field_tag :followed_id, @user.id %></div>
-  <%= f.submit "Follow", class: "btn btn-primary" %>
+
+<%= hidden_field_tag :followed_id, @user.id %>
+
+<%= button_tag '<i class="add user icon"></i>'.html_safe, :type => "submit", :class =>"ui icon button" %>
+
 <% end %>
 
 <!-- 上記のボタンを押したら、relationships_controllerのcreateアクションへ。 -->
