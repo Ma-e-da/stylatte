@@ -15,9 +15,25 @@ User.create!(name:  "Example User",
              admin: true,
              activated:    true,
              activated_at: Time.zone.now,
+             stylist: false)
+User.create!(name:  "Lee",
+             email: "lee@example.com",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             admin: false,
+             activated:    true,
+             activated_at: Time.zone.now,
+             stylist: true)
+User.create!(name:  "Hanako Yamada",
+             email: "hyamada@example.com",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             admin: false,
+             activated:    true,
+             activated_at: Time.zone.now,
              stylist: true)
 
-99.times do |n|
+30.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
@@ -32,7 +48,7 @@ User.create!(name:  "Example User",
 #ポスト
 
  users = User.order(:created_at).take(6)
-   50.times do
+   10.times do
      content = Faker::Lorem.sentence(5)
      users.each { |user| user.posts.create!(content: content) }
            end
@@ -42,7 +58,7 @@ User.create!(name:  "Example User",
 
   users = User.all
   user  = users.first
-  following = users[2..50]
-  followers = users[3..40]
+  following = users[2..30]
+  followers = users[3..20]
   following.each { |followed| user.follow(followed) }
   followers.each { |follower| follower.follow(user) }

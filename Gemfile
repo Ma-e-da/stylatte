@@ -19,9 +19,10 @@ gem 'carrierwave', '0.10.0'
 gem 'mini_magick',  '3.8.0'
 gem 'fog', '1.36.0'
 
+# 実際にありそうなユーザー名とメールアドレスを持つサンプルユーザーを自動的に作成する
+gem 'faker', '1.4.2'
 
-
-# See https://github.com/rails/execjs#readme for more supported runtimes
+# runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
@@ -33,14 +34,7 @@ gem 'jbuilder', '2.2.3'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '0.4.0', group: :doc
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
@@ -51,6 +45,9 @@ group :development, :test do
   gem 'web-console', '2.0.0.beta3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '1.1.3'
+  # Use Capistrano for deployment
+  # gem 'capistrano-rails', group: :development
+
 end
 
 
@@ -59,4 +56,6 @@ group :production do
   gem "mysql2", "0.4.4"
   # This gem enables serving assets in production and setting your logger to standard out,
   gem 'rails_12factor', '0.0.2'
+  # Use Unicorn as the app server
+  # gem 'unicorn'
 end
