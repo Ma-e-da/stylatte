@@ -1,2 +1,15 @@
 $("#follow_form").html("<%= escape_javascript(render('users/unfollow')) %>");
 $("#followers").html('<%= @user.followers.count %>');
+
+// ここJS-ERbファイルの内部では、Railsが自動的にjQuery JavaScriptヘルパーを提供します。
+// 純粋なJavaScriptと異なり、JS-ERbファイルでは組み込みRuby (ERb) を使用できます。
+// これにより、DOM (Document Object Model) を使用してページを操作できます。
+// jQueryライブラリにはDOM操作用の膨大なメソッドが提供されていますが、ここで使用するのはわずか2つ
+
+// 一番上のコードは、follow_form要素を操作。ダラーマークと()はdivタグと同じで、
+// シャープシンボルを使用してCSSのidを指定し、jQueryはCSSと同様、ドット.を使用してCSSクラスを操作できます。
+// 次に、htmlメソッドを使い、引数の中で指定された要素の内側にあるHTMLを更新します。
+// つまり、ここでは、followフォームをアンフォローに置き換えています。
+// フォロー用のフォームをunfollowパーシャルで更新し、フォロワーのカウントを更新するのにERbを使用しています
+
+// escape_javascriptメソッドは、JSファイル内にHTMLを挿入するときに実行結果をエスケープ(画面に表示しない) ため。

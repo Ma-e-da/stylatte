@@ -90,17 +90,19 @@ class User < ActiveRecord::Base
     Post.where("user_id = ?",id)
   end
 
-  # ユーザーをフォローする
+# フォロー、アンフォローのメソッド３つ。
+
+  # ユーザーをフォローするメソッド。
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
   end
 
-  # ユーザーをアンフォローする
+  # ユーザーをアンフォローするメソッド。
   def unfollow(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
 
-  # 現在のユーザーがフォローしてたらtrueを返す
+  # 現在のユーザーがフォローしてたらtrueを返すメソッド。
   def following?(other_user)
     following.include?(other_user)
   end
