@@ -26,6 +26,12 @@ Statページスタート＞＞
     </strong>
     favorites
   </a>
+  <a href="<%= followers_user_path(@user) %>">
+    <strong class="stat">
+      <%= @user.ratings.count %>
+    </strong>
+    stars
+  </a>
 </div>
 ＜＜Statページおわり
 </div>
