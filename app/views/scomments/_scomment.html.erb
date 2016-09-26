@@ -16,4 +16,12 @@
 
 <%= link_to "UnFavorite",favorite_path, method: :delete, data: { confirm: 'Really delete?' } %>
 
+<!-- 星 -->
+<div class="ui red button">
+  <i class="heart icon"></i><%= link_to "Star", star_scomment_path(scomment), method: :post, data: { confirm: 'Added to stars!' } %>
+</div>
+
+<%= link_to "Unstar",rating_path, method: :delete, data: { confirm: 'Really delete?' } %>
+
+
 ＜＜scomments/_scommentフィードページおわり。
