@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160914220350) do
+ActiveRecord::Schema.define(version: 20160926131615) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id",     null: false
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20160914220350) do
 
   add_index "posts", ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "scomment_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "ratings", ["scomment_id"], name: "index_ratings_on_scomment_id"
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
