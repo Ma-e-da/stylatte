@@ -20,18 +20,25 @@ Statページスタート＞＞
     </strong>
     posts
   </a>
-  <a href="<%= followers_user_path(@user) %>">
-    <strong class="stat">
+  <div class="ui labeled button" tabindex="0">
+    <div class="ui button">
+      <i class="heart icon"></i> Like
+    </div>
+    <a class="ui basic label">
       <%= @user.favorites.count %>
-    </strong>
-    favorites
-  </a>
-  <a href="<%= followers_user_path(@user) %>">
-    <strong class="stat">
+    </a>
+  </div>
+
+  <div class="ui labeled button" tabindex="0">
+    <div class="ui button">
+      <i class="star icon"></i> Star
+    </div>
+    <a class="ui basic label">
       <%= @user.ratings.count %>
-    </strong>
-    stars
-  </a>
+    </a>
+  </div>
+
+
 </div>
 ＜＜Statページおわり
 </div>
