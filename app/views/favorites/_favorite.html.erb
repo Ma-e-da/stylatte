@@ -1,0 +1,7 @@
+<button class="ui red basic button">
+<%= link_to "Add Favorites", add_scomment_path(scomment), method: :post, data: { confirm: 'Added to favorites!' } %>
+</button>
+
+<button class="ui brown basic button">
+<%= link_to "UnFavorite",favorite_path, method: :delete, data: { confirm: 'Really delete?' } %>
+</button>
