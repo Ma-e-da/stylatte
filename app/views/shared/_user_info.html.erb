@@ -1,12 +1,42 @@
-<div class="ui segment">
-User_infoページスタート＞＞
-<%= current_user.name %>
-<%= link_to gravatar_for(current_user, size: 100), current_user %>
-<%= link_to "Edit profile", edit_user_path(current_user) %>
-<% if logged_in? && current_user.stylist? %>
-<%= link_to "See My StylingBook", current_user %>
-<p>Sent<%= @current_user.scomments.count %> styling comments!</p>
-<p>Now <%= @current_user.scomments.count %> stars got!</p>
-<% end %>
-＜＜User_infoページおわり
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="ui card">
+  <div class="content">
+    <div class="right floated meta">
+
+    <%= link_to "Edit profile", edit_user_path(current_user) %>
+    </div>
+    <%= link_to gravatar_for(current_user, size: 100), current_user %>
+    <%= current_user.name %>
+  </div>
+  <div class="image">
+    <img>
+  </div>
+  <div class="content">
+    <span class="right floated">
+      <i class="heart outline like icon"></i>
+      17 likes
+    </span>
+  </div>
+  <div class="extra content">
+    <% if logged_in? && current_user.stylist? %>
+    <%= link_to "See My StylingBook", current_user %>
+    <% end %>
+  </div>
+  <div class="extra content">
+    <% if logged_in? && current_user.stylist? %>
+    <p>You Have Sent<%= @current_user.scomments.count %> styling comments!</p>
+    <i class="comment icon"></i>
+    <% end %>
+  </div>
 </div>
