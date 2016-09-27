@@ -22,7 +22,7 @@ Statページスタート＞＞
   </a>
   <div class="ui labeled button" tabindex="0">
     <div class="ui button">
-      <i class="heart icon"></i> Like
+      <i class="heart icon"></i><%= link_to "My favorites", favorites_path(current_user) %>
     </div>
     <a class="ui basic label">
       <%= @user.favorites.count %>

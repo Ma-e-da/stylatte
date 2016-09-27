@@ -8,6 +8,13 @@ class FavoritesController < ApplicationController
     end
   end
 
+  def index
+    @user = current_user
+    @posts = @user.posts.all
+    @favorites = Favorite.where("user_id = ?", @user)
+
+  end
+
   def destroy
     @favorite = current_user.favorites.find_by!(params[:favorite_id])
     if @favorite.destroy

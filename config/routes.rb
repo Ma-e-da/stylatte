@@ -30,8 +30,8 @@ Rails.application.routes.draw do
     resources :password_resets,     only: [:new, :create, :edit, :update]
 # リレーションシップのテーブルを作る。
     resources :relationships,      only: [:create, :destroy]
-    resources :favorites,      only: [:destroy]
-    resources :ratings,      only: [:destroy]
+    resources :favorites,      only: [:index, :destroy]
+    resources :ratings,      only: [:index, :destroy]
 
 
 
