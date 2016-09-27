@@ -19,7 +19,6 @@ class ScommentsController < ApplicationController
     @post= Post.find(params[:post_id])
     @scomment = @post.scomments.find(params[:id])
     @scomment.destroy
-    redirect_to (:back)
   end
 
   private

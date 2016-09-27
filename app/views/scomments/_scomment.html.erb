@@ -6,15 +6,15 @@
     <div class="content">
       <i class="right floated like icon"></i>
       <a class="avatar">
-      <%= gravatar_for scomment.user, size: 50 %>
+        <%= gravatar_for scomment.user, size: 50 %>
       </a>
       <div class="header"><%= link_to scomment.user.name, scomment.user %></div>
       <div class="description">
         <p><%= scomment.content %></p>
       </div>
-
-      <%= image_tag scomment.picture.url if scomment.picture? %>
-
+      <div class="extra images">
+        <a><%= image_tag scomment.picture.url if scomment.picture? %></a>
+      </div>
       <div class="metadata">
         <span class="date"><%= time_ago_in_words(scomment.created_at) %> ago.</span>
       </div>

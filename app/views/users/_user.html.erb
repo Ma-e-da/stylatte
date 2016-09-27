@@ -4,8 +4,12 @@
   <%= gravatar_for user, size: 50 %>
   <%= link_to user.name, user %>
 
+  <button class="ui yellow basic button">
+    <%= link_to "See My Posts", user %>
+  </button>
+
   <% if user.stylist? %>
-    <button type="button" class="btn btn-default">
+    <button class="ui blue basic button">
       <%= link_to "See My StylingBook", user %>
     </button>
   <% end %>
