@@ -1,27 +1,48 @@
-＞＞scomments/_scommentフィードページはじまり。
+＞＞scomments/_scommentページはじまり。
 
 <div id="scomment-<%= scomment.id %>">
-  <%= scomment.content %>
-  <%= image_tag scomment.picture.url if scomment.picture? %>
-  <%= time_ago_in_words(scomment.created_at) %> ago.
-  <p>From.<%= link_to scomment.user.name, scomment.user %></p>
-</div>
 
-<%= link_to 'Delete', [scomment.post, scomment], method: :delete, data: { confirm: 'Really delete?' } %>
+  <div class="ui card">
+    <div class="content">
+      <i class="right floated like icon"></i>
+      <a class="avatar">
+      <%= gravatar_for scomment.user, size: 50 %>
+      </a>
+      <div class="header"><%= link_to scomment.user.name, scomment.user %></div>
+      <div class="description">
+        <p><%= scomment.content %></p>
+      </div>
+
+      <%= image_tag scomment.picture.url if scomment.picture? %>
+
+      <div class="metadata">
+        <span class="date"><%= time_ago_in_words(scomment.created_at) %> ago.</span>
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="ui star rating" data-rating="3"></div>
+    </div>
+  </div>
+
+<button class="ui inverted red button">
+<%= link_to 'Delete Comment', [scomment.post, scomment], method: :delete, data: { confirm: 'Really delete?' } %>
+</button>
 
 <!-- お気に入り -->
-<div class="ui red button">
-  <i class="heart icon"></i><%= link_to "Add Favorites", add_scomment_path(scomment), method: :post, data: { confirm: 'Added to favorites!' } %>
-</div>
 
+<button class="ui red basic button">
+<%= link_to "Add Favorites", add_scomment_path(scomment), method: :post, data: { confirm: 'Added to favorites!' } %>
+</button>
+
+<button class="ui brown basic button">
 <%= link_to "UnFavorite",favorite_path, method: :delete, data: { confirm: 'Really delete?' } %>
+</button>
 
 <!-- 星 -->
-<div class="ui red button">
-  <i class="heart icon"></i><%= link_to "Star", star_scomment_path(scomment), method: :post, data: { confirm: 'Added to stars!' } %>
-</div>
+<button class="ui yellow basic button">
+  <%= link_to "Star", star_scomment_path(scomment), method: :post, data: { confirm: 'Added to stars!' } %>
+</button>
 
+<button class="ui brown basic button">
 <%= link_to "Unstar",rating_path, method: :delete, data: { confirm: 'Really delete?' } %>
-
-
-＜＜scomments/_scommentフィードページおわり。
+</button>
