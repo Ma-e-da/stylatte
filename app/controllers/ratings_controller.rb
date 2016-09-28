@@ -1,8 +1,6 @@
 class RatingsController < ApplicationController
   def create
-    @user_id = current_user.id
-    @scomments_id = Scomment.find(params[:id]).id
-    @rating = Rating.new(scomment_id: @scomments_id, user_id: @user_id)
+    @rating = current_user.ratings.build(rating_params)
     if @rating.save
       redirect_to root_url
     end
@@ -13,5 +11,11 @@ class RatingsController < ApplicationController
     if @rating.destroy
       redirect_to root_url
     end
+  end
+
+  private
+
+  def rating_params
+    params.require(:rating).permit(:star, :scomment_user, :user_id, :scomment_id)
   end
 end
