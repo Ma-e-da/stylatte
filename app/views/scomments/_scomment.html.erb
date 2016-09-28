@@ -40,6 +40,18 @@
 
 <!-- 星 -->
 <button class="ui yellow basic button">
+  <%= link_to "Star", star_scomment_path(rating: {scomment_user: scomment.user.id, star: '1', scomment_id: scomment.id }), method: :post, data: { confirm: 'Added to stars!' } %>
+</button>
+<button class="ui yellow basic button">
+  <%= link_to "Star", star_scomment_path(rating: {scomment_user: scomment.user.id, star: '2', scomment_id: scomment.id }), method: :post, data: { confirm: 'Added to stars!' } %>
+</button>
+<button class="ui yellow basic button">
+  <%= link_to "Star", star_scomment_path(rating: {scomment_user: scomment.user.id, star: '3', scomment_id: scomment.id }), method: :post, data: { confirm: 'Added to stars!' } %>
+</button>
+<button class="ui yellow basic button">
+  <%= link_to "Star", star_scomment_path(rating: {scomment_user: scomment.user.id, star: '4', scomment_id: scomment.id }), method: :post, data: { confirm: 'Added to stars!' } %>
+</button>
+<button class="ui yellow basic button">
   <%= link_to "Star", star_scomment_path(rating: {scomment_user: scomment.user.id, star: '5', scomment_id: scomment.id }), method: :post, data: { confirm: 'Added to stars!' } %>
 </button>
 
