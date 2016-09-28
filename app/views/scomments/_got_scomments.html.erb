@@ -1,13 +1,12 @@
 <div class="ui segment">
-＞＞shared/_favoriteページスタート
-<p>My Favorite Comments</p>
+＞＞scomments/_got_scommentsページスタート
+<p>もらったコメント一覧</p>
 <table>
   <tbody>
     <% @user.scomments.each do |scomment| %>
     <tr>
       <td><%= scomment.content %></td>
       <td><%= link_to scomment.user.name, scomment.user %></td>
-      <td><button type="button" class="btn btn-default"><%= link_to "UnFavorite",favorite_path, method: :delete, data: { confirm: 'Really delete?' } %></button></td>
     </tr>
     <% end %>
   </tbody>
