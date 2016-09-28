@@ -40,7 +40,7 @@
 
 <!-- 星 -->
 <button class="ui yellow basic button">
-  <%= link_to "Star", star_scomment_path(scomment), method: :post, data: { confirm: 'Added to stars!' } %>
+  <%= link_to "Star", star_scomment_path(rating: {scomment_user: scomment.user.id, star: '5', scomment_id: scomment.id , user_id: '5'}), method: :post, data: { confirm: 'Added to stars!' } %>
 </button>
 
 <button class="ui brown basic button">
