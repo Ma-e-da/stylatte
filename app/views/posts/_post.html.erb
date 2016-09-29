@@ -1,5 +1,5 @@
 ＞＞posts/_postページはじまり。
-
+<div class="ui card">
 <li id="post-<%= post.id %>">
   <%= link_to gravatar_for(post.user, size: 50), post.user %>
   <%= link_to post.user.name, post.user %>
@@ -12,7 +12,7 @@
   data: { confirm: "You sure?" } %>
   <% end %>
 </li>
-
+</div>
 ここに、このPostに対するコメントを入れる。
 <%= link_to 'このPostの詳細', post %>
 <% if logged_in? && current_user.stylist? %>
