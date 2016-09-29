@@ -32,7 +32,7 @@
 <button class="ui green basic button"><%= link_to "Followers", followers_user_path(current_user) %></button>
 <button class="ui green basic button"><%= link_to "My favorites", favorites_path(current_user) %></button>
 
-<button class="ui red basic button"><%= link_to current_user.name, users_path %></button>
+<button class="ui green basic button"><%= link_to current_user.name, edit_user_path(current_user) %></button>
 <button class="ui green basic button"><%= link_to "Edit profile", edit_user_path(current_user) %></button>
 <button class="ui green basic button"><%= link_to "Log out", logout_path, method: "delete" %></button>
 <%= link_to gravatar_for(current_user, size: 50), current_user %>
