@@ -1,8 +1,10 @@
 class FavoritesController < ApplicationController
+
+  def new
+  end
+
   def create
-    @user_id = current_user.id
-    @scomments_id = Scomment.find(params[:id]).id
-    @favorite = Favorite.new(scomment_id: @scomments_id, user_id: @user_id)
+    @favorite = current_user.favorites.build(favorite_params)
     if @favorite.save
       redirect_to root_url
     end
@@ -20,5 +22,10 @@ class FavoritesController < ApplicationController
     if @favorite.destroy
       redirect_to root_url
     end
+  end
+
+private
+  def favorite_params
+    params.require(:favorite).permit(:user_id, :scomment_id)
   end
 end

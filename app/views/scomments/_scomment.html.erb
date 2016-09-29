@@ -1,7 +1,6 @@
 ＞＞scomments/_scommentページはじまり。
-
+<% @user ||= current_user %>
 <div id="scomment-<%= scomment.id %>">
-
   <div class="ui card">
     <div class="content">
       <i class="right floated like icon"></i>
@@ -18,43 +17,38 @@
       <div class="metadata">
         <span class="date"><%= time_ago_in_words(scomment.created_at) %> ago.</span>
       </div>
-    </div>
-    <div class="extra content">
-      <div class="ui star rating" data-rating="3"></div>
+      <button class="ui inverted red button">
+        <%= link_to 'このコメントを消す', scomment_path(scomment), method: :delete, data: { confirm: 'Really delete?' } %>
+      </button>
     </div>
   </div>
 
-<button class="ui inverted red button">
-<%= link_to 'Delete Comment', [scomment.post, scomment], method: :delete, data: { confirm: 'Really delete?' } %>
-</button>
-
 <!-- お気に入り -->
-
-<button class="ui red basic button">
-<%= link_to "Add Favorites", add_scomment_path(scomment), method: :post, data: { confirm: 'Added to favorites!' } %>
+<button class="ui black basic button">
+<%= link_to "Add Favorites", favorites_path(favorite: {user_id: current_user.id, scomment_id: scomment.id }), method: :post %>
 </button>
 
-<button class="ui brown basic button">
-<%= link_to "UnFavorite",favorite_path, method: :delete, data: { confirm: 'Really delete?' } %>
+<button class="ui black basic button">
+<%= link_to "UnFavorite", favorite_path, method: :delete %>
 </button>
 
 <!-- 星 -->
-<button class="ui yellow basic button">
-  <%= link_to "Star", star_scomment_path(rating: {scomment_user: scomment.user.id, star: '1', scomment_id: scomment.id }), method: :post, data: { confirm: 'Added to stars!' } %>
+<button class="ui black basic button">
+<%= link_to "Star.1", ratings_path(rating: {scomment_user: scomment.user.id, star: '1', scomment_id: scomment.id }), method: :post %>
 </button>
-<button class="ui yellow basic button">
-  <%= link_to "Star", star_scomment_path(rating: {scomment_user: scomment.user.id, star: '2', scomment_id: scomment.id }), method: :post, data: { confirm: 'Added to stars!' } %>
+<button class="ui black basic button">
+<%= link_to "Star.2", ratings_path(rating: {scomment_user: scomment.user.id, star: '2', scomment_id: scomment.id }), method: :post %>
 </button>
-<button class="ui yellow basic button">
-  <%= link_to "Star", star_scomment_path(rating: {scomment_user: scomment.user.id, star: '3', scomment_id: scomment.id }), method: :post, data: { confirm: 'Added to stars!' } %>
+<button class="ui black basic button">
+<%= link_to "Star.3", ratings_path(rating: {scomment_user: scomment.user.id, star: '3', scomment_id: scomment.id }), method: :post %>
 </button>
-<button class="ui yellow basic button">
-  <%= link_to "Star", star_scomment_path(rating: {scomment_user: scomment.user.id, star: '4', scomment_id: scomment.id }), method: :post, data: { confirm: 'Added to stars!' } %>
+<button class="ui black basic button">
+<%= link_to "Star.4", ratings_path(rating: {scomment_user: scomment.user.id, star: '4', scomment_id: scomment.id }), method: :post %>
 </button>
-<button class="ui yellow basic button">
-  <%= link_to "Star", star_scomment_path(rating: {scomment_user: scomment.user.id, star: '5', scomment_id: scomment.id }), method: :post, data: { confirm: 'Added to stars!' } %>
+<button class="ui black basic button">
+<%= link_to "Star.5", ratings_path(rating: {scomment_user: scomment.user.id, star: '5', scomment_id: scomment.id }), method: :post %>
 </button>
 
-<button class="ui brown basic button">
+<button class="ui black basic button">
 <%= link_to "Unstar",rating_path, method: :delete, data: { confirm: 'Really delete?' } %>
 </button>
