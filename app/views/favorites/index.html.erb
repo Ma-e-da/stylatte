@@ -1,6 +1,3 @@
 favorite一覧
 
-<% @user.scomments.each do |scomment| %>
-<%= scomment.content %>
-<%= link_to scomment.user.name, scomment.user %>
-<% end %>
+<%= render 'favorites/favorite' %>
