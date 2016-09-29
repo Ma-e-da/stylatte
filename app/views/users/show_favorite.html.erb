@@ -1,0 +1,15 @@
+＞＞users/show_favoriteページはじまり（usersコントローラーのfavoriteより）
+
+<!-- usersコントローラーのfavoriteより -->
+
+<% provide(:title, @title) %>
+
+  <%= @scomment.content %>
+
+
+
+<%= @title %>
+
+  <% if @feed_scomments.any? %>
+    <%= render @feed_scomments %>
+  <% end %>
