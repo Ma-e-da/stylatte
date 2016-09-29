@@ -1,7 +1,11 @@
 ＜＜posts/showページはじまり。
 
 <h1><%= t 'views.posts.show.My posts' %></h1>
+
+<div class="ui card">
+  <h4>~ 私の投稿内容 ~</h4>
 <%= @post.content %>
+</div>
 
 <% if current_user?(@post.user) %>
 <%= render @post.scomments %>
