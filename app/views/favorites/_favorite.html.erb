@@ -1,0 +1,13 @@
+<div class="ui card">
+  <h1>favorite一覧!</h1>
+
+
+    <h1>わたしが送ったコメントの一覧</h1>
+    <% @scomments.each do |scomment| %>
+
+        <%= scomment.user_id %></td>
+        <%= scomment.content %></td>
+
+    <% end %>
+
+</div>

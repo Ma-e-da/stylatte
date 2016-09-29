@@ -11,10 +11,8 @@ class FavoritesController < ApplicationController
   end
 
   def index
-    @user = current_user
-    @posts = @user.posts.all
-    @favorites = Favorite.where("user_id = ?", @user)
-
+    @scomments = current_user.scomments
+    # current_userがお気に入りテーブルに登録したコメント
   end
 
   def destroy
