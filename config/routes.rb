@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+# 最もベーシックな書き方。get 'products/:id' => 'catalog#view'
   root             'static_pages#home'
     get 'help'    => 'static_pages#help'
     get 'about'   => 'static_pages#about'
@@ -9,78 +11,50 @@ Rails.application.routes.draw do
     post   'login'   => 'sessions#create'
     delete 'logout'  => 'sessions#destroy'
 
-# あるユーザーのフォロワー、フォロイングしている人一覧をつくる（GET）ため。（/users/:id/following）
+# ユーザーとフォロワー、フォロイング
+# following/followersのIDがいるので、memberにする。（/users/:id/following/:id）
+# 逆に、IDがいらないときは、collectionにする。collection do...end
+# あるユーザーのフォロワー、フォロイングしている人一覧ためget。
     resources :users do
       member do
         get :following, :followers
       end
     end
 
+# ポストとスタイリストコメント（浅いルートですっきりさせるために、IDのいらない３つのみ、shallowで指定しても同じ。）
     resources :posts do
-      resources :scomments
+      resources :scomments, only: [:index, :new, :create]
     end
 
-    resources :scomments  do
-      member do
-        post "add", to: "favorites#create"
-        post "star", to: "ratings#create"
-      end
+# お気に入り定義(concern)
+    concern :favoritable do
+      resources :favorites, only: [:new, :create, :index, :destroy]
     end
+# 星のレーティング定義(concern)
+    concern :ratable do
+      resources :ratings, only: [:create, :update, :index, :destroy]
+    end
+
+# アカウントアクティベーションとパスワードリセット
     resources :account_activations, only: [:edit]
     resources :password_resets,     only: [:new, :create, :edit, :update]
+
 # リレーションシップのテーブルを作る。
     resources :relationships,      only: [:create, :destroy]
-    resources :favorites,      only: [:index, :destroy]
-    resources :ratings,      only: [:index, :destroy]
+
+# IDがいる４つ分。
+    resources :scomments, concerns: [:favoritable, :ratable], only: [:show, :edit, :update, :destroy]
 
 
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
+  # 何も、７つのアクションだけでなくても、自分でアクション名をカスタムできる。
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
+  # コントローラを名前空間によってグループ化、ここではAdmin::名前空間で多数の管理用コントローラ群をまとめている。
   #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  #     # こう書くことで、Directs /admin/products/* to Admin::ProductsController
+  #     # (app/controllers/admin/products_controller.rb)とできる。
+
 end
