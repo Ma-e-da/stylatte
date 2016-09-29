@@ -1,1 +1,2 @@
-$("#favorite-buttons").html("<%= j(render partial: 'favorite', locals: { scomments: @scomments, favorites: @favorites, favorite: @favorite}) %>")
+$('#scomment_<%= @scomment.id %>').html('<%= escape_javascript(render("favorites/favorite_btn", scomment: @scomment)) %>')
+$('#favorites').text('<%= current_user.favorites.count %>')

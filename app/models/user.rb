@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
 # favorites
   has_many :favorites
-  has_many :scomments, through: :favorites
+  has_many :favorite_scomments, through: :favorites, source: :scomment
 # ratings
   has_many :ratings
   has_many :scomments, through: :ratings
@@ -113,7 +113,18 @@ class User < ActiveRecord::Base
     following.include?(other_user)
   end
 
+# Favorite関連
+  def favorite?(scomment)
+      favorites.find_by(scomment_id: scomment.id)
+  end
 
+    def favorite!(scomment)
+      favorites.create!(scomment_id: scomment.id)
+    end
+
+    def unfavorite!(scomment)
+      favorites.find_by(scomment_id: scomment.id).destroy
+    end
 
   private
 

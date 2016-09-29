@@ -63,6 +63,13 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def favorite
+    @title = 'Favoriteをつけたコメント'
+    @scomment = current_user.scomments.build
+    @feed_scomments = current_user.favorite_scomments.all
+    render 'show_favorite'
+  end
+
   private
 
    def user_params

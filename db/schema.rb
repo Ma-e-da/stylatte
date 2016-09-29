@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927141109) do
+ActiveRecord::Schema.define(version: 20160929115933) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id",     null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160927141109) do
   end
 
   add_index "favorites", ["scomment_id"], name: "index_favorites_on_scomment_id"
+  add_index "favorites", ["user_id", "scomment_id"], name: "index_favorites_on_user_id_and_scomment_id", unique: true
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
   create_table "posts", force: :cascade do |t|

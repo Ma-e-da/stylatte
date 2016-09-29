@@ -29,7 +29,7 @@
 <% if logged_in? %>
 <button class="ui green basic button"><%= link_to "Following", following_user_path(current_user) %></button>
 <button class="ui green basic button"><%= link_to "Followers", followers_user_path(current_user) %></button>
-<button class="ui green basic button"><%= link_to "My favorites", favorites_path(current_user) %></button>
+<button class="ui green basic button"><%= link_to "My favorites", favorite_user_path(current_user) %></button>
 
 <button class="ui green basic button"><%= link_to current_user.name, edit_user_path(current_user) %></button>
 <button class="ui green basic button"><%= link_to "Edit profile", edit_user_path(current_user) %></button>
