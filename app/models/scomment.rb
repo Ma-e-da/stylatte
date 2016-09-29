@@ -3,14 +3,14 @@ class Scomment < ActiveRecord::Base
   belongs_to :post
 # favorites
   has_many :favorites
-  has_many :users, through: :favorites
+  has_many :favoriting_users, through: :favorites, source: :user
 # ratings
   has_many :ratings
   has_many :users, through: :ratings
 
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
-  
+
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
   validate :picture_size
