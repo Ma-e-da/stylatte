@@ -3,7 +3,9 @@
 <div id="scomment-<%= scomment.id %>">
   <div class="ui card">
     <div class="content">
-      <i class="right floated like icon"></i>
+      <span id="scomment_<%= scomment.id %>">
+        <%= render 'favorites/favorite_btn', scomment: scomment %>
+      </span>
       <a class="avatar">
         <%= gravatar_for scomment.user, size: 50 %>
       </a>
@@ -17,20 +19,15 @@
       <div class="metadata">
         <span class="date"><%= time_ago_in_words(scomment.created_at) %> ago.</span>
       </div>
+      <% if current_user?(scomment.user) %>
       <button class="ui inverted red button">
-        <%= link_to 'このコメントを消す', scomment_path(scomment), method: :delete, data: { confirm: 'Really delete?' } %>
+        <%= link_to "delete", scomment, method: :delete,
+                                         data: { confirm: "You sure?" },
+                                         title: scomment.content %>
       </button>
+      <% end %>
     </div>
   </div>
-
-<!-- お気に入り -->
-<button class="ui black basic button">
-<%= link_to "Add Favorites", favorites_path(favorite: {user_id: current_user.id, scomment_id: scomment.id }), method: :post %>
-</button>
-
-<button class="ui black basic button">
-<%= link_to "UnFavorite", favorite_path, method: :delete %>
-</button>
 
 <!-- 星 -->
 <button class="ui black basic button">
