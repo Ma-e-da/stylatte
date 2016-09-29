@@ -1,0 +1,3 @@
+<%= link_to favorite_path(current_user.favorites.find_by(scomment_id: scomment.id)), remote: true, method: :delete, class: 'favorite-link' do %>
+  <i class="heart icon"></i>
+<% end %>
