@@ -1,0 +1,7 @@
+<% if current_user.rating?(scomment) %>
+    <%= render 'ratings/show', scomment: scomment %>
+<% else %>
+    <%= render 'ratings/create', scomment: scomment %>
+<% end %>
+
+<!-- かつもし、current_userがscomment_userならという条件を一行目に付け足す。 -->
