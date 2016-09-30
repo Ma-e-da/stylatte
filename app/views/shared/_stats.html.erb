@@ -1,38 +1,31 @@
 <div class="ui segment">
 Statページスタート＞＞
-<% @user ||= current_user %>
-<div class="stats">
-  <a href="<%= following_user_path(@user) %>">
-    <strong class="stat">
-      <%= @user.following.count %>
-    </strong>
-    following
-  </a>
-  <a href="<%= followers_user_path(@user) %>">
-    <strong class="stat">
-      <%= @user.followers.count %>
-    </strong>
-    followers
-  </a>
-  <a href="<%= posts_path(@user) %>">
-    <strong class="stat">
-      <%= @user.posts.count %>
-    </strong>
-    posts
-  </a>
-  <a href="<%= favorite_user_path(@user) %>">
-    <strong id="favorites" class="stat">
-      <%= @user.favorite_scomments.count %>
-    </strong>
-    favorites
-  </a>
+  <% @user ||= current_user %>
+  <div class="stats">
+    <a href="<%= following_user_path(@user) %>">
+      <strong class="stat">
+        <%= @user.following.count %>
+      </strong>
+      following
+    </a>
+    <a href="<%= followers_user_path(@user) %>">
+      <strong class="stat">
+        <%= @user.followers.count %>
+      </strong>
+      followers
+    </a>
+    <a href="<%= posts_path(@user) %>">
+      <strong class="stat">
+        <%= @user.posts.count %>
+      </strong>
+      posts
+    </a>
+    <a href="<%= favorites_path(@user) %>">
+      <strong class="stat">
+        <%= @user.favorite_scomments.count %>
+      </strong>
+      favorites
+    </a>
+  </div>
 
-ここは、このままでは、starをつけた人のレコードを数えている。(starをもらった人のレコード数にする。)
-      <i class="star icon"></i> Star
-      <%= @user.ratings.count %>
-
-
-
-</div>
-＜＜Statページおわり
 </div>
