@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     # あるユーザーのフォロワー、フォロイングしている人一覧のためgetのみ。
     resources :users do
       member do
-        get :following, :followers, :favorite
+        get :following, :followers, :favorite, :rating
       end
     end
 
@@ -38,9 +38,9 @@ Rails.application.routes.draw do
     resources :scomments, only: [:show, :edit, :update, :destroy]
 
 # お気に入り
-  resources :favorites, only: [:create, :destroy]
+    resources :favorites
 # 星
-  resources :ratings
+    resources :ratings, only: [:create, :show]
 
 
 
