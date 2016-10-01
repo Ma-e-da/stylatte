@@ -22,6 +22,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.all
+    @ratings = Rating.all
+    @total_rating = @user.ratings.sum(:star)
   end
 
   def new

@@ -7,6 +7,11 @@
 <!-- フォロー、アンフォローボタン -->
   <%= render 'follow_form' if logged_in? %>
 
+<!-- 星の合計 -->
+  <h2>今までもらった星の数!</h2>
+  <i class="star icon"><%= @total_rating %></i>
+
+
 <!-- ユーザーがスタイリストの場合、スタイリングブックをみせる。 -->
   <% if @user.stylist? %>
   <h2>This is My StylingBook!</h2>
