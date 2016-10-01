@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     end
 
 # ポストとスタイリストコメント（浅いルートですっきりさせるために、IDのいらない３つのみ、shallowで指定しても同じ。）
-    resources :posts do
+    resources :posts, only: [:index, :new, :create]do
       resources :scomments, only: [:index, :new, :create]
     end
 
@@ -34,7 +34,8 @@ Rails.application.routes.draw do
 # リレーションシップのテーブルを作る。
     resources :relationships,      only: [:create, :destroy]
 
-# IDがいる４つ分。
+# IDがいる分。
+    resources :posts, only: [:show, :destroy]
     resources :scomments, only: [:show, :edit, :update, :destroy]
 
 # お気に入り

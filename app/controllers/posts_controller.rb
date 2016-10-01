@@ -6,15 +6,16 @@ def new
   @post = Post.new
 end
 
+def update
+end
+
 def index
-  @posts = current_user.posts
+  @user = current_user
+  @posts = @user.posts.all
 end
 
 def show
   @post = Post.find(params[:id])
-end
-
-def update
 end
 
 def create
