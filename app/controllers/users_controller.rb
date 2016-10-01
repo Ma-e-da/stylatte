@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = current_user.posts
+    @posts = Post.find(params[:id])
   end
 
   def new
