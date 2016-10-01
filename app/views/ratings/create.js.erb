@@ -1,0 +1,19 @@
+$('#scomment_<%= @scomment.id %>').html('<%= escape_javascript(render("ratings/rating_btn", scomment: @scomment)) %>')
+$('#ratings').text('<%= scomment_user.ratings.count %>')
+
+
+
+// ここJS-ERbファイルの内部では、Railsが自動的にjQuery JavaScriptヘルパーを提供します。
+// 純粋なJavaScriptと異なり、JS-ERbファイルでは組み込みRuby (ERb) を使用できます。
+// これにより、DOM (Document Object Model) を使用してページを操作できます。
+// jQueryライブラリにはDOM操作用の膨大なメソッドが提供されていますが、ここで使用するのはわずか2つ
+
+// ダラーマークはdivタグと同じで、(要素)として要素を操作。
+
+// シャープシンボルを使用してCSSのidを指定。
+// jQueryはCSSと同様、ドット.を使用してCSSのクラスを操作。
+
+// htmlメソッドを使い、引数の中で指定された要素の内側にあるHTMLを実行。
+
+
+// escape_javascriptメソッドは、JSファイル内にHTMLを挿入するときに実行結果をエスケープ(画面に表示しない) ため。

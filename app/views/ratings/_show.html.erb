@@ -1,0 +1,7 @@
+<%= link_to rating_path(current_user.ratings.find_by(scomment_id: scomment.id)), remote: true, method: :get, class: 'rating-link' do %>
+  <i class="star icon"></i>
+<% end %>
+
+
+
+<!-- 本当は、<div class="ui rating" data-max-rating="1"></div>の、そして、、read-onlyの星に変える。 -->

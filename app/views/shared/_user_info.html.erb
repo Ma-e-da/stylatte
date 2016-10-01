@@ -1,4 +1,4 @@
-
+<% @user ||= current_user %>
 <div class="ui card">
   <div class="content">
     <div class="right floated meta">
@@ -13,8 +13,8 @@
   </div>
   <div class="content">
     <span class="right floated">
-      <!-- <i class="heart outline like icon"></i>
-      17 likes -->
+      <p>Now you have stars!</p>
+      <i class="star icon"><%= @user.rating_scomments.count %></i>
     </span>
   </div>
   <div class="extra content">
@@ -24,7 +24,7 @@
   </div>
   <div class="extra content">
     <% if logged_in? && current_user.stylist? %>
-    <p>You Have Sent<%= @current_user.scomments.count %> styling comments!</p>
+    #styling comment you sent!
     <i class="comment icon"></i>
     <% end %>
   </div>

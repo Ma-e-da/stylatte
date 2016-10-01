@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160929115933) do
+ActiveRecord::Schema.define(version: 20160930083906) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id",     null: false
@@ -45,6 +45,10 @@ ActiveRecord::Schema.define(version: 20160929115933) do
   end
 
   add_index "ratings", ["scomment_id"], name: "index_ratings_on_scomment_id"
+  add_index "ratings", ["scomment_user", "star"], name: "index_ratings_on_scomment_user_and_star"
+  add_index "ratings", ["scomment_user"], name: "index_ratings_on_scomment_user"
+  add_index "ratings", ["user_id", "scomment_id"], name: "index_ratings_on_user_id_and_scomment_id"
+  add_index "ratings", ["user_id", "scomment_user"], name: "index_ratings_on_user_id_and_scomment_user"
   add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
 
   create_table "relationships", force: :cascade do |t|

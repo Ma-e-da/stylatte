@@ -6,6 +6,9 @@
       <span id="scomment_<%= scomment.id %>">
         <%= render 'favorites/favorite_btn', scomment: scomment %>
       </span>
+      <span id="scomment_<%= scomment.id %>">
+      <%= render 'ratings/rating_btn', scomment: scomment %>
+      </span>
       <a class="avatar">
         <%= gravatar_for scomment.user, size: 50 %>
       </a>
@@ -28,24 +31,3 @@
       <% end %>
     </div>
   </div>
-
-<!-- 星 -->
-<button class="ui black basic button">
-<%= link_to "Star.1", ratings_path(rating: {scomment_user: scomment.user.id, star: '1', scomment_id: scomment.id }), method: :post %>
-</button>
-<button class="ui black basic button">
-<%= link_to "Star.2", ratings_path(rating: {scomment_user: scomment.user.id, star: '2', scomment_id: scomment.id }), method: :post %>
-</button>
-<button class="ui black basic button">
-<%= link_to "Star.3", ratings_path(rating: {scomment_user: scomment.user.id, star: '3', scomment_id: scomment.id }), method: :post %>
-</button>
-<button class="ui black basic button">
-<%= link_to "Star.4", ratings_path(rating: {scomment_user: scomment.user.id, star: '4', scomment_id: scomment.id }), method: :post %>
-</button>
-<button class="ui black basic button">
-<%= link_to "Star.5", ratings_path(rating: {scomment_user: scomment.user.id, star: '5', scomment_id: scomment.id }), method: :post %>
-</button>
-
-<button class="ui black basic button">
-<%= link_to "Unstar",rating_path, method: :delete, data: { confirm: 'Really delete?' } %>
-</button>

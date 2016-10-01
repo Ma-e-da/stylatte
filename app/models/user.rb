@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :favorite_scomments, through: :favorites, source: :scomment
 # ratings
   has_many :ratings
-  has_many :scomments, through: :ratings
+  has_many :rating_scomments, through: :ratings, source: :scomment
 # relationship
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
@@ -118,13 +118,20 @@ class User < ActiveRecord::Base
       favorites.find_by(scomment_id: scomment.id)
   end
 
-    def favorite!(scomment)
-      favorites.create!(scomment_id: scomment.id)
-    end
+  def favorite!(scomment)
+    favorites.create!(scomment_id: scomment.id)
+  end
 
-    def unfavorite!(scomment)
-      favorites.find_by(scomment_id: scomment.id).destroy
-    end
+  def unfavorite!(scomment)
+    favorites.find_by(scomment_id: scomment.id).destroy
+  end
+
+# rating関連
+  def rating?(scomment)
+      ratings.find_by(scomment_id: scomment.id)
+  end
+
+
 
   private
 

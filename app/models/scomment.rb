@@ -6,7 +6,7 @@ class Scomment < ActiveRecord::Base
   has_many :favoriting_users, through: :favorites, source: :user
 # ratings
   has_many :ratings
-  has_many :users, through: :ratings
+  has_many :rating_users, through: :ratings, source: :user
 
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
