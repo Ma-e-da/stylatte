@@ -6,6 +6,17 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    # 検索
+    if params[:name].present?
+      @users = @users.get_by_name params[:name]
+    end
+    if params[:gender].present?
+      @users = @users.get_by_gender params[:gender]
+    end
+    if params[:country].present?
+      @users = @users.get_by_country params[:country]
+    end
+
   end
 
   def show
