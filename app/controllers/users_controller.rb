@@ -11,7 +11,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.all
+    @scomments = @user.scomments.all
     @favorites = Favorite.where("user_id = ?", @user)
+    @ratings = Rating.where("user_id = ?", @user)
+
   end
 
   def new
@@ -49,6 +52,8 @@ class UsersController < ApplicationController
     end
   end
 
+# usersのstatsのためのメソッド
+
   def following
     @title = "Following"
     @user  = User.find(params[:id])
@@ -65,10 +70,13 @@ class UsersController < ApplicationController
 
   def favorite
     @title = 'Favoriteをつけたコメント'
+    @user  = User.find(params[:id])
     @scomment = current_user.scomments.build
     @feed_scomments = current_user.favorite_scomments.all
     render 'show_favorite'
   end
+  # views/users/show_favorite.html.erbへレンダーしている。
+
 
   private
 
