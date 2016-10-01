@@ -1,23 +1,20 @@
 ＞＞users/showページはじまり。
-<% provide(:title, @user.name) %>
+だれからもユーザーを探すをしたら見れるページ。
 
-<%= gravatar_for @user %>
-<%= @user.name %>
+<!-- ユーザーの自己紹介 -->
+  <%= gravatar_for @user %>
+  <%= @user.name %>
+  <%= render 'shared/stats' %>
+<!-- フォロー、アンフォローボタン -->
+  <%= render 'follow_form' if logged_in? %>
 
-<%= render 'shared/stats' %>
+<!-- ユーザーがスタイリストの場合、スタイリングブックをみせる。 -->
+  <% if @user.stylist? %>
+  <h2>This is My StylingBook!</h2>
+  #
+  <% end %>
 
-<%= render 'scomments/got_scomments' %>
-<%= render 'follow_form' if logged_in? %>
-
-<% if @user.posts.any? %>
-<h3>Posts (<%= @user.posts.count %>)</h3>
-<ol class="posts">
-  <%= render @posts %>
-</ol>
-
-<% end %>
-
-<% if @user.stylist? %>
-<h2>This is My StylingBook!</h2>
-<% end %>
-＜＜user/showページおわり。
+<!-- ポストを公開している場合、一覧を見せる。 -->
+  <a href="<%= posts_path(@user) %>">
+    <h2>See My Posts!</h2>
+  </a>
