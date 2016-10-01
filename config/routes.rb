@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get    'login'   => 'sessions#new'
     post   'login'   => 'sessions#create'
     delete 'logout'  => 'sessions#destroy'
+    get 'start'   => 'scomments#start'
 
 # ユーザーとフォロワー、フォロイング
     # following/followersのIDがいる。member（逆は、collection)。(/users/:id/following/:id）

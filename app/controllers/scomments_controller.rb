@@ -21,6 +21,9 @@ class ScommentsController < ApplicationController
     @scomment.destroy
   end
 
+  def start
+  end
+
   private
 
    def scomment_params

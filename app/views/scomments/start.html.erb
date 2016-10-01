@@ -1,0 +1,11 @@
+<h1>1.Usersから探して、コメントする。(ヘッダーと同じFind Usersへ。)</h1>
+<%= link_to "Find Users", users_path %>
+
+<h1>2. Followerから探して、コメントする。(Followerのページへ)</h1>
+<%= link_to "Followers", followers_user_path(current_user) %>
+
+<h1>3./Following(Followingのページへ。)</h1>
+<%= link_to "Following", following_user_path(current_user) %>
+
+<h1>新　4.ブックマーク（Keep?）していたあるUserのPostからコメントを送る。</h1>
+#
