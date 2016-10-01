@@ -1,6 +1,8 @@
+<h1>わたしがfavoriteしたコメントの一覧</h1>
+
+  <% @user.favorite_scomments.each do |scomment| %>
 <div class="ui card">
-
-  <h1>わたしがfavoriteしたコメントの一覧(未完成）)</h1>
-
-
+    <%= scomment.content %>
+    <%= link_to scomment.user.name, scomment.user %>
 </div>
+  <% end %>
