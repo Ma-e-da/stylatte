@@ -1,7 +1,32 @@
 ＞＞users/indexページはじまり。
-<% provide(:title, 'All users') %>
+
+<!-- 検索 -->
+  <!-- 性別は、select_tagメソッドを使用してセレクトボックス作成。
+  User.gendersと記述することで、unknown, male, female, otherとそれぞれの値が取得できる。
+  User.genders というのはUserというModelに定義されたgenderというenum( 列挙型 )のキーと値を全て配列で取得する。
+  include_blankをtrueと指定することで初期値がブランクに。 -->
+<h1>Find Users by Name, Gender and Country!</h1>
+<div>
+  <%= form_tag(users_path, method: "get") do %>
+
+    <%= label_tag :name, "NAME" %>
+    <%= text_field_tag :name, params[:name] %>
+
+    <%= label_tag :name, "GENDER" %>
+    <%= select_tag :gender, options_for_select(User.genders), include_blank: true %>
+
+    <%= label_tag :name, "COUNTRY" %>
+    <%= select_tag :country, options_for_select(User.countries), include_blank: true %>
+
+
+    <%= submit_tag "Search!" %>
+    ここにクリアボタンもつくる。
+  <% end %>
+</div>
+
+<!-- 全ユーザー表示 -->
+<% provide(:title, 'Users') %>
 <h1>All users</h1>
 <ul class="users">
   <%= render @users %>
 </ul>
-＜＜users/indexページおわり。

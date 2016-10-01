@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
 # posts
   has_many :posts, dependent: :destroy
 # favorites
@@ -131,7 +132,22 @@ class User < ActiveRecord::Base
       ratings.find_by(scomment_id: scomment.id)
   end
 
+# Modelの機能である、scopeでユーザーを絞り込む（検索）。
+enum gender: { unknown: 0, male: 1, female: 2, other: 9 }
+enum country: { other_country: 0, japan: 1, usa: 2, china: 9 }
 
+  # ユーザー名による絞り込み
+  scope :get_by_name, ->(name) {
+    where("name like ?", "%#{name}%")
+  }
+  # 性別による絞り込み
+  scope :get_by_gender, ->(gender) {
+    where(gender: gender)
+  }
+  # 国による絞り込み
+  scope :get_by_country, ->(country) {
+    where(country: country)
+  }
 
   private
 
