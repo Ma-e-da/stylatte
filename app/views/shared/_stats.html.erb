@@ -20,12 +20,17 @@ Statページスタート＞＞
       </strong>
       posts
     </a>
-    <a href="<%= favorites_path(@user) %>">
-      <strong class="stat">
-        <%= @user.favorite_scomments.count %>
-      </strong>
-      favorites
-    </a>
+    
+    <strong class="stat">
+      <%= @user.favorite_scomments.count %>
+      <%= link_to "favorites", favorites_path(current_user) %>
+      <i class="heart icon"></i>
+    </strong>
+
+
+
+
+
   </div>
 
 </div>

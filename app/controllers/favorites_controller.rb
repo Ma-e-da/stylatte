@@ -11,5 +11,11 @@ class FavoritesController < ApplicationController
     current_user.unfavorite!(@scomment)
   end
 
+  def index
+    @user = current_user
+    @posts = @user.posts.all
+    @favorites = Favorite.where("user_id = ?", @user)
+    
+  end
 
 end
