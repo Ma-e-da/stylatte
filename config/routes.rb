@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
 # ポストとスタイリストコメント（浅いルートですっきりさせるために、IDのいらない３つのみ、shallowで指定しても同じ。）
     resources :posts, only: [:index, :new, :create]do
-      resources :scomments, only: [:index, :new, :create]
+      resources :scomments, only: [:new, :create]
     end
 
 
