@@ -4,6 +4,5 @@
   <% @scomments.each do |scomment| %>
   <div class="ui card">
     <%= scomment.content %>
-    <%= time_ago_in_words(scomment.created_at) %> ago.
   </div>
   <% end %>
