@@ -6,6 +6,10 @@
   <%= post.content %>
   <%= image_tag post.picture.url if post.picture? %>
   <%= time_ago_in_words(post.created_at) %> ago.
+<!-- コメント数表示 -->
+  <%= post.scomments.count %>
+  <%= link_to 'コメント', post %>
+  届いています。
 
   <% if current_user?(post.user) %>
   <%= link_to "Delete this post", post, method: :delete,
@@ -14,7 +18,7 @@
 </li>
 </div>
 ここに、このPostに対するコメントを入れる。
-<%= link_to 'このPostの詳細', post %>
+
 <% if logged_in? && current_user.stylist? %>
 <%= link_to 'Send Styling!', post %>
 <% else %>

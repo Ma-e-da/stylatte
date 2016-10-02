@@ -4,7 +4,10 @@
 
 <div class="ui card">
   <h4>~ 私の投稿内容 ~</h4>
-<%= @post.content %>
+  <%= @post.content %>
+
+  <h4>~ このPostに対するコメント数 ~</h4>
+  <%= @post.scomments.count %>
 </div>
 
 <% if current_user?(@post.user) %>
