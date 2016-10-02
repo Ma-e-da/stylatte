@@ -7,7 +7,7 @@
 
 <% if logged_in? && current_user.stylist? %>
 <button class="ui green basic button"><%= link_to "Sent Scomments", sent_path %></button>
-<button class="ui red basic button"><%= link_to "Given Scomments", new_post_path %></button>
+<button class="ui green basic button"><%= link_to "Got Scomments", got_path %></button>
 <button class="ui green basic button"><%= link_to "Scomment New", start_path %></button>
 
 <% else %>

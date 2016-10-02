@@ -30,6 +30,13 @@ class ScommentsController < ApplicationController
     @scomments = Scomment.where(user_id: @user_id)
   end
 
+  def got
+    @user_id = current_user.id
+    @post = Post.where(user_id: @user_id)
+    @post_id = @post
+    @scomments = Scomment.where(post_id: @post_id)
+  end
+
   private
 
    def scomment_params

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     delete 'logout'  => 'sessions#destroy'
     get 'start'   => 'scomments#start'
     get 'sent' => 'scomments#sent'
+    get 'got' => 'scomments#got'
+
 
 
 # ユーザーとフォロワー、フォロイング
