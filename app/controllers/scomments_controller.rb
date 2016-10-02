@@ -24,6 +24,12 @@ class ScommentsController < ApplicationController
   def start
   end
 
+  def sent
+    @user_id = current_user.id
+    @user_name = current_user.name
+    @scomments = Scomment.where(user_id: @user_id)
+  end
+
   private
 
    def scomment_params
