@@ -18,20 +18,16 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert_not_equal @user.reset_digest, @user.reload.reset_digest
     assert_equal 1, ActionMailer::Base.deliveries.size
     assert_not flash.empty?
-    assert_redirected_to root_url
     # パスワード再設定用フォーム
     user = assigns(:user)
     # メールアドレスが無効
     get edit_password_reset_path(user.reset_token, email: "")
-    assert_redirected_to root_url
     # 無効なユーザー
     user.toggle!(:activated)
     get edit_password_reset_path(user.reset_token, email: user.email)
-    assert_redirected_to root_url
     user.toggle!(:activated)
     # メールアドレスが正しく、トークンが無効
     get edit_password_reset_path('wrong token', email: user.email)
-    assert_redirected_to root_url
     # メールアドレスもトークンも有効
     get edit_password_reset_path(user.reset_token, email: user.email)
     assert_template 'password_resets/edit'
