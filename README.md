@@ -60,3 +60,8 @@ sessions/newの方がログインでusers/newの方がサインアップ用ペ�
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+*コピーライトはフッターにつける。
+
+
+*各ファイル末尾にライセンスをつける。

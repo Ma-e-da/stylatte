@@ -22,5 +22,9 @@
 # Ignore uploaded test images.
 /public/uploads
 
-# Ignore ToDo　Lists.
-/todo
+# Ignore
+
+/README.md
+/Styleguide.md
+/TODO.md
+/TOMEMO.md
