@@ -1,7 +1,34 @@
 <div class="ui segment">
-<%= link_to image_tag("stylatte_50.png", alt: "STYLATTE"), root_path %>
 
-<button class="ui green basic button"><%= link_to "All Post", posts_path %></button>
+  <div class="ui small menu">
+  <%= link_to image_tag("stylatte_50.png", alt: "STYLATTE"), root_path %>
+  <a class="item">
+    Messages
+  </a>
+  <div class="right menu">
+    <div class="ui dropdown item">
+      Language <i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item">English</a>
+        <a class="item">Russian</a>
+        <a class="item">Spanish</a>
+      </div>
+    </div>
+    <div class="item">
+      <% if logged_in? %>
+        <%= link_to gravatar_for(current_user, size: 50), current_user %>
+        <button class="ui green basic button"><%= link_to "Log out", logout_path, method: "delete" %></button>
+      <% else %>
+        <div class="ui primary button"><%= link_to "Log in", login_path %></button>
+        <div class="ui primary button">Sign Up</div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<button class="ui green basic button"><%= link_to "My Posts", posts_path %></button>
 <button class="ui green basic button"><%= link_to "Post New", new_post_path %></button>
 
 
@@ -18,7 +45,6 @@
 
 
 <button class="ui green basic button"><%= link_to "Find Users", users_path %></button>
-<button class="ui green basic button"><%= link_to "Home", root_path %></button>
 <button class="ui green basic button"><%= link_to "Docs", help_path %></button>
 
 
@@ -31,11 +57,9 @@
 
 <button class="ui green basic button"><%= link_to current_user.name, edit_user_path(current_user) %></button>
 <button class="ui green basic button"><%= link_to "Edit profile", edit_user_path(current_user) %></button>
-<button class="ui green basic button"><%= link_to "Log out", logout_path, method: "delete" %></button>
-<%= link_to gravatar_for(current_user, size: 50), current_user %>
-<% else %>
-<button class="ui green basic button"><%= link_to "Log in", login_path %></button>
+
 <% end %>
+
 
 <button class="ui red basic button"><%= link_to "Admin", root_path %></button>
 
