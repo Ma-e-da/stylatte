@@ -1,66 +1,85 @@
-<div class="ui segment">
+<div class="ui stackable container menu">
 
-  <div class="ui small menu">
-  <%= link_to image_tag("stylatte_50.png", alt: "STYLATTE"), root_path %>
-  <a class="item">
-    Messages
-  </a>
-  <div class="right menu">
-    <div class="ui dropdown item">
-      Language <i class="dropdown icon"></i>
-      <div class="menu">
-        <a class="item">English</a>
-        <a class="item">Russian</a>
-        <a class="item">Spanish</a>
-      </div>
-    </div>
-    <div class="item">
-      <% if logged_in? %>
-        <%= link_to gravatar_for(current_user, size: 50), current_user %>
-        <button class="ui green basic button"><%= link_to "Log out", logout_path, method: "delete" %></button>
-      <% else %>
-        <div class="ui primary button"><%= link_to "Log in", login_path %></button>
-        <div class="ui primary button">Sign Up</div>
-      <% end %>
-    </div>
+<!-- Home -->
+  <div class="item">
+    <%= link_to "STYLATTE", root_path %>
   </div>
+
+<!-- ログイン前 -->
+
+    <% if logged_in? %>
+    <a class="item">Welcome! <%= current_user.name %>
+    </a>
+    <% else %>
+    <div class="item">
+      <button class="ui green basic button"><%= link_to "Log in", login_path %></button>
+      <button class="ui blue basic button"><%= link_to "Sign up", signup_path %></button>
+    </div>
+    <% end %>
+
+
+<!-- スタイリストでない場合、スタイリストになることを誘うボタン -->
+  <div class="item">
+  <% if logged_in? && current_user.stylist? %>
+  <% else %>
+    <% if logged_in? %>
+    <%= link_to "Become a Stylist ?", edit_user_path(current_user) %>
+    <% else %>
+    <%= link_to "Become a Stylist ?", stylists_path %>
+    <% end %>
+  <% end %>
 </div>
 
+<!-- ログイン中 -->
+  <div class="right menu">
+
+  <% @user ||= current_user %>
+  <% if logged_in? %>
+  <%= link_to gravatar_for(current_user, size: 50), current_user %>
+    <div class="ui simple dropdown item">
+      <div class="text">Menu</div>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <div class="item"><%= link_to "Post New", new_post_path %></div>
+        <div class="item"><%= link_to "My Posts Index", posts_path %></div>
+        <div class="item"><%= link_to "Got Stylings", got_path %></div>
+        <div class="item"><i class="heart icon"></i><%= link_to "My favorites", favorites_path(current_user) %></div>
+        <div class="item">
+          <i class="dropdown icon"></i>
+          <i class="user icon"></i>Users
+          <div class="menu">
+            <div class="item"><%= @user.following.count %><%= link_to "Following", following_user_path(current_user) %></div>
+            <div class="item"><%= @user.followers.count %><%= link_to "Followers", followers_user_path(current_user) %></div>
+            <div class="item"><%= link_to "Find Users", users_path %></div>
+          </div>
+        </div>
+  <% end %>
+
+<!-- スタイリストなら -->
+  <% if logged_in? && current_user.stylist? %>
+    <div class="divider"></div>
+    <div class="item"><%= link_to "Sent Stylings", sent_path %></div>
+    <div class="item"><%= link_to "Send Styling", start_path %></div>
+  <% end %>
+
+<!-- ログイン中 -->
+        <div class="divider"></div>
+        <% if logged_in? %>
+        <div class="item"><%= link_to "Edit profile", edit_user_path(current_user) %></div>
+        <div class="item"><%= link_to "Log out", logout_path, method: "delete" %></div>
+        <% end %>
+
+        <div class="divider"></div>
+
+        <div class="item">
+          <i class="help icon"></i>
+          <%= link_to "Help", help_path %>
+        </div>
+
+      </div>
+    </div>
 
 
-<button class="ui green basic button"><%= link_to "My Posts", posts_path %></button>
-<button class="ui green basic button"><%= link_to "Post New", new_post_path %></button>
 
-
-<% if logged_in? && current_user.stylist? %>
-<button class="ui green basic button"><%= link_to "Sent Scomments", sent_path %></button>
-<button class="ui green basic button"><%= link_to "Got Scomments", got_path %></button>
-<button class="ui green basic button"><%= link_to "Scomment New", start_path %></button>
-
-<% else %>
-<button class="ui green basic button"><%= link_to "Become a Stylist", stylists_path %></button>
-
-<% end %>
-
-
-
-<button class="ui green basic button"><%= link_to "Find Users", users_path %></button>
-<button class="ui green basic button"><%= link_to "Docs", help_path %></button>
-
-
-
-
-<% if logged_in? %>
-<button class="ui green basic button"><%= link_to "Following", following_user_path(current_user) %></button>
-<button class="ui green basic button"><%= link_to "Followers", followers_user_path(current_user) %></button>
-<button class="ui green basic button"><%= link_to "My favorites", favorites_path(current_user) %></button>
-
-<button class="ui green basic button"><%= link_to current_user.name, edit_user_path(current_user) %></button>
-<button class="ui green basic button"><%= link_to "Edit profile", edit_user_path(current_user) %></button>
-
-<% end %>
-
-
-<button class="ui red basic button"><%= link_to "Admin", root_path %></button>
-
+  </div>
 </div>
