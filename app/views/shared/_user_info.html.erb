@@ -1,31 +1,41 @@
 <% @user ||= current_user %>
-<div class="ui card">
-  <div class="content">
-    <div class="right floated meta">
 
-    <%= link_to "Edit profile", edit_user_path(current_user) %>
+  <div class="ui card">
+    <div class="image">
+      <%= link_to image_tag("stylatte_50.png", alt: "STYLATTE"), root_path %>
     </div>
-    <%= link_to gravatar_for(current_user, size: 100), current_user %>
-    <%= current_user.name %>
+    <div class="content">
+      <div class="header">
+        <%= current_user.name %>
+        <%= link_to gravatar_for(current_user, size: 70), current_user %>
+      </div>
+      <% if logged_in? && current_user.stylist? %>
+      <div class="meta">
+        <a>(Stylist)</a>
+      </div>
+      <% end %>
+      <div class="description">
+        #Matthew is an interior designer living in New York.#
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        <%= current_user.created_at %>
+      </span>
+      <% if logged_in? %>
+      <span>
+        <%= link_to "Edit profile", edit_user_path(current_user) %>
+      </span>
+      <% end %>
+    </div>
+    <div class="content">
+      <span class="left floated">
+        <i class="comment outline icon">#</i>
+      </span>
+      <% if logged_in? && current_user.stylist? %>
+      <span class="right floated">
+        <i class="star icon"><%= @user.rating_scomments.count %></i>
+      </span>
+      <% end %>
+    </div>
   </div>
-  <div class="image">
-    <img>
-  </div>
-  <div class="content">
-    <span class="right floated">
-      <p>Now you have stars!</p>
-      <i class="star icon"><%= @user.rating_scomments.count %></i>
-    </span>
-  </div>
-  <div class="extra content">
-    <% if logged_in? && current_user.stylist? %>
-    <%= link_to "See My StylingBook", current_user %>
-    <% end %>
-  </div>
-  <div class="extra content">
-    <% if logged_in? && current_user.stylist? %>
-    #styling comment you sent!
-    <i class="comment icon"></i>
-    <% end %>
-  </div>
-</div>
