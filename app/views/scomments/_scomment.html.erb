@@ -1,33 +1,63 @@
 ＞＞scomments/_scommentページはじまり。
 <% @user ||= current_user %>
 <div id="scomment-<%= scomment.id %>">
-  <div class="ui card">
-    <div class="content">
+
+
+<div class="ui segments">
+
+  <div class="ui segment">
+
+<!-- スタイリングしたコメント者情報 -->
+      <%= gravatar_for scomment.user, size: 20 %>
+      <span><%= link_to scomment.user.name, scomment.user %></span>
+
+<!-- 報告など -->
+  <% if current_user?(scomment.user) %>
+    <div class="ui simple dropdown item">
+      <i class="configure icon"></i>
+      <div class="menu">
+        <div class="item">
+          #URLへジャンプする
+        </div>
+        <div class="item">
+          #シェアする
+        </div>
+        <div class="item">
+          #違反報告する
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="item">
+          <%= link_to "Delete this styling", scomment, method: :delete, data: { confirm: "You sure?" }, title: scomment.content %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  </div>
+
+<!-- スタイリングコメント内容 -->
+    <div class="ui segment">
+      <div class="description">
+        <p><%= scomment.content %></p>
+        <a><%= image_tag scomment.picture.url if scomment.picture? %></a>
+      </div>
+
+      <div class="metadata">
+        <span><%= time_ago_in_words(scomment.created_at) %> ago.</span>
+      </div>
+    </div>
+
+<!-- お気に入りと星をつける欄(Postユーザーのみ) -->
+<% if current_user?(@post.user) %>
       <span id="scomment_<%= scomment.id %>">
         <%= render 'favorites/favorite_btn', scomment: scomment %>
       </span>
       <span id="scomment_<%= scomment.id %>">
       <%= render 'ratings/rating_btn', scomment: scomment %>
       </span>
-      <a class="avatar">
-        <%= gravatar_for scomment.user, size: 50 %>
-      </a>
-      <div class="header"><%= link_to scomment.user.name, scomment.user %></div>
-      <div class="description">
-        <p><%= scomment.content %></p>
-      </div>
-      <div class="extra images">
-        <a><%= image_tag scomment.picture.url if scomment.picture? %></a>
-      </div>
-      <div class="metadata">
-        <span class="date"><%= time_ago_in_words(scomment.created_at) %> ago.</span>
-      </div>
-      <% if current_user?(scomment.user) %>
-      <button class="ui inverted red button">
-        <%= link_to "delete", scomment, method: :delete,
-                                         data: { confirm: "You sure?" },
-                                         title: scomment.content %>
-      </button>
-      <% end %>
-    </div>
-  </div>
+<% end %>
+
+
+</div>

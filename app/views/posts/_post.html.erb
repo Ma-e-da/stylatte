@@ -1,27 +1,36 @@
 ＞＞posts/_postページはじまり。
-<div class="ui card">
-<li id="post-<%= post.id %>">
+<div class="ui segment">
+
+<li id="post-<%= post.id %>"></li>
   <%= link_to gravatar_for(post.user, size: 50), post.user %>
-  <%= link_to post.user.name, post.user %>
-  <%= post.content %>
-  <%= image_tag post.picture.url if post.picture? %>
-  <%= time_ago_in_words(post.created_at) %> ago.
-<!-- コメント数表示 -->
-  <%= post.scomments.count %>
-  <%= link_to 'コメント', post %>
-  届いています。
-
-  <% if current_user?(post.user) %>
-  <%= link_to "Delete this post", post, method: :delete,
-  data: { confirm: "You sure?" } %>
+  <%= link_to post.user.name, post.user %><br>
+  <div class="ui segments">
+    <div class="ui segment">
+      <%= post.content %><br>
+    </div>
+  <%= image_tag post.picture.url if post.picture? %><br>
+  <span>Posted <%= time_ago_in_words(post.created_at) %> ago.</span>
+  <!-- このポストを削除する -->
+      <% if current_user?(post.user) %>
+          <i class="trash icon"></i>
+          <%= link_to "Delete Post", post, method: :delete, data: { confirm: "You sure?" } %>
+      <% end %>
+  </div>
+<!-- コメント数表示 & もらったスタイリングコメントへのリンク-->
+  <span>
+    <i class="idea icon"></i>
+    <%= post.scomments.count %>
+    <%= link_to 'Stylings', post %>
+  </span>
+<!-- スタイリングを送る -->
+  <% if logged_in? && current_user.stylist? %>
+    <span>
+      <i class="reply icon"></i>
+      <%= link_to 'Send Styling to this Post!', post %>
+    </span>
   <% end %>
-</li>
-</div>
-ここに、このPostに対するコメントを入れる。
 
-<% if logged_in? && current_user.stylist? %>
-<%= link_to 'Send Styling!', post %>
-<% else %>
-<p>You have <%= post.scomments.count %> stylings!</p>
-<%= link_to 'See Details', post %>
-<% end %>
+
+
+
+</div>
