@@ -1,0 +1,23 @@
+.userimg{
+    position:relative;
+    width:300px;
+}
+.userimg span{
+    position:absolute;
+    bottom:1px;
+    right:1px;
+    width:100px;
+}
+
+body {
+    margin: 50px;
+    padding: 50px;
+    overflow-x: hidden;
+    min-width: 320px;
+    background: #FFFFFF;
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.4285em;
+    color: rgba(0, 0, 0, 0.87);
+    font-smoothing: antialiased;
+}
