@@ -4,7 +4,8 @@
 
 <%= hidden_field_tag :followed_id, @user.id %>
 
-<%= button_tag '<i class="add user icon"></i>'.html_safe, :type => "submit", :class =>"ui icon button" %>
+<%= f.submit "Follow", class: "ui icon button" %>
+
 
 <% end %>
 
