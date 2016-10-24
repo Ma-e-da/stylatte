@@ -1,13 +1,17 @@
 <% @user ||= current_user %>
 
   <div class="ui card">
-    <div class="image">
-      <%= link_to image_tag("stylatte_50.png", alt: "STYLATTE"), root_path %>
+    <div class="userimg">
+      <div class="image">
+        <%= link_to image_tag("stylatte_50.png", alt: "STYLATTE"), root_path %>
+      </div>
+      <span>
+        <%= link_to gravatar_for(current_user, size: 70), current_user %>
+      </span>
     </div>
     <div class="content">
       <div class="header">
         <%= current_user.name %>
-        <%= link_to gravatar_for(current_user, size: 70), current_user %>
       </div>
       <% if logged_in? && current_user.stylist? %>
       <div class="meta">
