@@ -1,4 +1,5 @@
-<div class="ui stackable container menu">
+<div class="ui header">
+<div class="ui container menu">
 
 <!-- Home -->
   <div class="item">
@@ -6,29 +7,19 @@
   </div>
 
 <!-- ログイン前 -->
-
+  <div class="item">
     <% if logged_in? %>
-    <a class="item">Welcome! <%= current_user.name %>
-    </a>
+    Welcome! <%= current_user.name %>
     <% else %>
     <div class="item">
       <button class="ui green basic button"><%= link_to "Log in", login_path %></button>
       <button class="ui blue basic button"><%= link_to "Sign up", signup_path %></button>
     </div>
     <% end %>
+  </div>
 
 
-<!-- スタイリストでない場合、スタイリストになることを誘うボタン -->
-  <div class="item">
-  <% if logged_in? && current_user.stylist? %>
-  <% else %>
-    <% if logged_in? %>
-    <%= link_to "Become a Stylist ?", edit_user_path(current_user) %>
-    <% else %>
-    <%= link_to "Become a Stylist ?", stylists_path %>
-    <% end %>
-  <% end %>
-</div>
+
 
 <!-- ログイン中 -->
   <div class="right menu">
@@ -60,6 +51,18 @@
     <div class="divider"></div>
     <div class="item"><%= link_to "Sent Stylings", sent_path %></div>
     <div class="item"><%= link_to "Send Styling", start_path %></div>
+    <div class="divider"></div>
+    <div class="item"><%= link_to "Upgrade Stylist", stylists_path %></div>
+    <div class="item">
+      <!-- 星の合計と平均 -->
+      <i class="dropdown icon"></i>
+      <i class="star icon"></i>Status
+      <div class="menu">
+        <div class="item">Sum<i class="star icon"></i><%= @total_rating %></div>
+        <div class="item">Average<i class="star icon"></i><%= @average_rating %></div>
+        <div class="item"><i class="bar chart icon"></i><%= link_to "Analitics", edit_user_path(current_user) %></div>
+      </div>
+    </div>
   <% end %>
 
 <!-- ログイン中 -->
@@ -82,4 +85,6 @@
 
 
   </div>
+</div>
+
 </div>

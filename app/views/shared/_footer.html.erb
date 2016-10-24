@@ -1,17 +1,32 @@
-<div class="ui segment">
+<div class="ui inverted vertical footer segment">
+  <div class="ui container">
 
-<button class="ui orange basic button"><%= link_to "English", users_path %></button>
-<button class="ui orange basic button"><%= link_to "日本語", users_path %></button>
+    <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="eight wide column">
+          <h4 class="ui inverted header">About</h4>
+          <div class="ui inverted link list"><br>
+            <%= link_to "Stylist Plans", stylists_path %><br>
+            <%= link_to "Help", help_path %><i class="help icon"></i><br>
+            <%= link_to "Private Policy", users_path %><br>
+            <%= link_to "Stylatte SNS", about_path %><i class="facebook icon"></i><i class="twitter icon"></i>
+          </div>
+        </div>
+        <div class="eight wide column">
+          <h4 class="ui inverted header">Services</h4>
+          <div class="ui inverted link list">
+            <%= link_to "Company", about_path %>
+            <button class="ui red basic button"><%= link_to "Admin", root_path %></button>
+          </div>
+        </div>
+        <div class="sixteen wide column">
+          <p>Copyright © 2016 Stylatte. All rights reserved.</p>
+        </div>
+      </div>
 
-<button class="ui orange basic button"><%= link_to "About", about_path %></button>
-<button class="ui orange basic button"><%= link_to "Contact", contact_path %></button>
-<button class="ui orange basic button"><%= link_to "Private Policy", users_path %></button>
-<button class="ui green basic button"><%= link_to "About Stylist", stylists_path %></button>
-<button class="ui orange basic button"><%= link_to "Share on SNS", about_path %></button>
-<button class="ui orange basic button"><%= link_to "Activity Graph", users_path %></button>
-<!-- まだ作成前のページ -->
-<button class="ui red basic button"><%= link_to "Admin", root_path %></button>
+<!-- 言語選択 -->
 
-Copyright © 2016 Stylatte. All rights reserved.
 
+
+
+  </div>
 </div>
