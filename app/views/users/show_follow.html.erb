@@ -1,17 +1,14 @@
 ＞＞users/show_followページはじまり
-<% provide(:title, @title) %>
-
-<%= gravatar_for @user %>
-<h1><%= @user.name %></h1>
-
-<%= render 'shared/stats' %>
 
 <h3><%= @title %></h3>
 <% if @users.any? %>
-<ul class="users follow">
-  <%= render @users %>
-</ul>
+
+
+
+  <ul class="users follow">
+    <%= render @users %>
+  </ul>
+
+
 
 <% end %>
-
-＜＜users/show_followページおわり

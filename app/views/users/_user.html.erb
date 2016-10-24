@@ -1,20 +1,25 @@
 ＞＞users/_userページはじまり。
 
-<li>
-  <%= gravatar_for user, size: 50 %>
-  <%= link_to user.name, user %>
+<div class="ui card">
+  <div class="userimg">
+    <div class="image">
+      <%= gravatar_for user, size: 50 %>
+    </div>
+    <p><%= link_to user.name, user %></p>
+  </div>
 
   <% if user.stylist? %>
     <button class="ui red basic button">
-      <%= link_to "See My StylingBook", user %>
+      <i class="book icon"></i>
+      <%= link_to "StylingBook", user %>
     </button>
   <% end %>
 
   <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
+  <button class="ui basic button">
+  <i class="remove user icon"></i>
+     <%= link_to "UnFollow", user, method: :delete, data: { confirm: "Really unfollow this user?" } %>
   <% end %>
+</button>
 
-</li>
-
-＜＜users/_userページおわり。
+</div>
