@@ -1,51 +1,44 @@
+
 <% if logged_in? %>
-＞＞homeページからshared/user_infoページへ。
-<%= render 'shared/user_info' %>
 
-＞＞homeページからshared/statsページへ。
-<%= render 'shared/stats' %>
+<div class="ui two column stackable grid">
 
-＞＞homeページからposts/post_formページへ。
-<%= render 'posts/post_form' %>
+<!-- ユーザーinfoとstats -->
+  <div class="six wide column">
+  ＞＞homeページからshared/user_infoとstatsページへ。
+  <%= render 'shared/user_info' %>
+  <%= render 'shared/stats' %>
 
-<h3>My Feed</h3>
-＞＞homeページからshared/feedページへ。
-<%= render 'shared/feed' %>
+  <!-- ポストフォーム -->
+    ＞＞homeページからposts/post_formページへ。
+    <%= render 'posts/post_form' %>
+  </div>
 
-<!-- Ad  -->
-<!-- <div class="ui medium rectangle ad">
-  <ins class="adsbygoogle"
-       style="display:inline-block;width:300px;height:250px"
-       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-       data-ad-slot="XXXXXXXXXX">
-  </ins>
+<!-- フィード -->
+  <div class="ten wide column">
+    ＞＞homeページからshared/feedページへ。
+    <%= render 'shared/feed' %>
+  </div>
 
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div> -->
 
-<!-- Leaderboard -->
-<div class="ui leaderboard ad">
-  <ins class="adsbygoogle"
-       style="display:inline-block;width:728px;height:90px"
-       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-       data-ad-slot="XXXXXXXXXXXXXXXX"></ins>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+
 </div>
 
-<!-- Banner -->
-<div class="ui banner ad">
-  <ins class="adsbygoogle"
-       style="display:inline-block;width:468px;height:60px"
-       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-       data-ad-slot="XXXXXXXXXXXXXXXX"></ins>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
+
+
+
+
+<!-- 広告欄  -->
+  <!-- <div class="ui banner ad">
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:468px;height:60px"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXXXXXXXX"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div> -->
+
 
 <% else %>
 <%= render 'sessions/landing' %>
