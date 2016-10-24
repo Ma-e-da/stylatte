@@ -1,28 +1,43 @@
 ＞＞users/newページはじまり
 
-<% provide(:title, 'Sign up') %>
 <h1>Sign up</h1>
+
+
 Free, you can get advices from cool friends all over world.
 <p>Want to become a stylist? <a href="#">3 steps</a>
 <br> more info here<a href="#"> Docs</a></p>
 
-<%= form_for(@user) do |f| %>
-<%= render 'shared/error_messages', object: f.object %>
-<%= f.label :name %>
-<%= f.text_field :name, class: 'form-control' %>
 
-<%= f.label :email %>
-<%= f.email_field :email, class: 'form-control' %>
+<div class="ui form">
+  <%= form_for(@user) do |f| %>
 
-<%= f.label :password %>
-<%= f.password_field :password, class: 'form-control' %>
 
-<%= f.label :password_confirmation, "Confirmation" %>
-<%= f.password_field :password_confirmation, class: 'form-control' %>
 
-<%= f.submit "Create my account", class: "btn btn-primary" %>
-<% end %>
+    <div class="field">
+      <%= render 'shared/error_messages', object: f.object %>
+      <label>Name</label>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
 
+    <div class="field">
+      <label>E-mail</label>
+      <%= f.email_field :email, class: 'form-control', placeholder: "joe@schmoe.com"  %>
+    </div>
+
+    <div class="field">
+      <label>Password</label>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <label>Password Confirmation</label>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+
+    <%= f.submit "Submit", class: "ui button" %>
+
+
+
+  <% end %>
+</div>
 This site uses cookies to store your preferences for site-specific language and display options.
-
-＜＜users/newページおわり
