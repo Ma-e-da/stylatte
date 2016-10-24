@@ -1,15 +1,35 @@
+＞＞_scomment_formページスタート。
 <div class="ui segment">
 
+  <h1>Send Styling from here!</h1>
 
   <%= form_for( [@post, @post.scomments.create] ) do |f| %>
-      <%= f.text_area :content %>
-      <%= f.hidden_field :user_id %>
-      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+
+    <%= f.hidden_field :user_id %>
+
+      <div class="ui form">
+          <div class="field">
+            <label>Content</label>
+            <%= f.text_area :content, placeholder: "I suppose styling ..." %>
+          </div>
+      </div>
+
+      <span class="picture">
+        <i class="photo icon"></i>
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+      </span>
+
       <%= f.submit "SEND", class: "ui positive basic button" %>
+      
   <% end %>
 
 
 </div>
+
+
+
+
+
 
 <script type="text/javascript">
   $('#scomment_picture').bind('change', function() {

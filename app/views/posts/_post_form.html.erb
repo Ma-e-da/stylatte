@@ -1,18 +1,30 @@
-<div class="ui segment">
 Post_formページスタート＞＞
 
+<h1>Send New Post!</h1>
+
 <%= form_for(@post, html: { multipart: true }) do |f| %>
-<%= render 'shared/error_messages', object: f.object %>
-<%= f.text_area :content, placeholder: "I need a ..." %>
-<span class="picture">
-  <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-</span>
-<%= f.submit "Go", class: "button1" %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="ui form">
+      <div class="field">
+        <label>Post Content</label>
+        <%= f.text_area :content, placeholder: "I need a ..." %>
+      </div>
+  </div>
+
+  <span class="picture">
+    <i class="photo icon"></i>
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
+
+  <%= f.submit "SEND", class: "ui submit button" %>
 
 
 <% end %>
-＜＜Post_formページおわり。
-</div>
+
+
+
 
 <script type="text/javascript">
   $('#post_picture').bind('change', function() {
