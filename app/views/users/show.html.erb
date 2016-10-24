@@ -1,27 +1,49 @@
-＞＞users/showページはじまり。
-だれからもユーザーを探すをしたら見れるページ。
+＞＞users/showページはじまり。(だれからもユーザーを探すをしたら見れるページ。)
 
-<!-- ユーザーの自己紹介 -->
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-<!-- フォロー、アンフォローボタン -->
-  <%= render 'follow_form' if logged_in? %>
+<div class="ui two column stackable grid">
 
-<!-- 星の合計 -->
-  <h2>今までもらった星の数!</h2>
-  <i class="star icon"><%= @total_rating %></i>
-<!-- 星の平均 -->
-  <h2>今までもらった星の平均!</h2>
-  <i class="star icon"><%= @average_rating %></i>
+<!-- ユーザー情報 -->
+<div class="four wide column">
+  <!-- ユーザーの自己紹介 -->
+  <div class="ui card">
+    <div class="userimg">
+      <div class="image">
+        <%= link_to image_tag("stylatte_50.png", alt: "STYLATTE"), root_path %>
+      </div>
+      <span>
+        <%= gravatar_for @user %>
+      </span>
+    </div>
 
+    <div class="content">
+      <div class="header">
+        <%= @user.name %>
+      </div>
+      <div class="description">
+        #Matthew is an interior designer living in New York.#
+      </div>
+    </div>
+    <div class="extra content">
+    <!-- フォロー、アンフォローボタン -->
+    <%= render 'follow_form' if logged_in? %>
+    </div>
 
-<!-- ユーザーがスタイリストの場合、スタイリングブックをみせる。 -->
+  </div>
+
+  <!-- ユーザーがスタイリストの場合、スタイリングブックをみせる。 -->
   <% if @user.stylist? %>
   <h2>This is My StylingBook!</h2>
   #
   <% end %>
 
+
+</div>
+
 <!-- ポストを公開している場合、一覧を見せる。 -->
+  <div class="twelve wide column">
     <ol class="posts">
       <%= render @posts %>
     </ol>
+  </div>
+
+</div>
