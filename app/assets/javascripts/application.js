@@ -11,5 +11,6 @@
 // turbolinksも読み込んでいる。ページ遷移をAjaxに置き換え、JavaScriptやCSSのパースを省略することで高速化するgem
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
