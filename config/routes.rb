@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     get 'about'   => 'static_pages#about'
     get 'contact' => 'static_pages#contact'
     get 'stylists' => 'static_pages#styliststart'
+    get 'admin' => 'static_pages#admin'
+    get 'policy' => 'static_pages#policy'
     get 'signup'  => 'users#new'
     get    'login'   => 'sessions#new'
     post   'login'   => 'sessions#create'

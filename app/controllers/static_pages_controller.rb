@@ -17,4 +17,10 @@ class StaticPagesController < ApplicationController
 
   def stylists
   end
+
+  def admin
+  end
+
+  def policy
+  end
 end
