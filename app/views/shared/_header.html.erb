@@ -21,9 +21,20 @@
 
 
 
-<!-- ログイン中 -->
+
   <div class="right menu">
 
+    <!-- スタイリストでない場合、スタイリストになることを誘うボタン -->
+      <% if logged_in? && current_user.stylist? %>
+      <% else %>
+        <% if logged_in? %>
+        <%= link_to "Become a Stylist ?", edit_user_path(current_user) %>
+        <% else %>
+        <%= link_to "Become a Stylist ?", stylists_path %>
+        <% end %>
+      <% end %>
+
+<!-- ログイン中 -->
   <% @user ||= current_user %>
   <% if logged_in? %>
   <%= link_to gravatar_for(current_user, size: 50), current_user %>
@@ -33,7 +44,7 @@
       <div class="menu">
         <div class="item"><%= link_to "Post New", new_post_path %></div>
         <div class="item"><%= link_to "My Posts Index", posts_path %></div>
-        <div class="item"><%= link_to "Got Stylings", got_path %></div>
+        <div class="item"><%= link_to "Styling List", got_path %></div>
         <div class="item"><i class="heart icon"></i><%= link_to "My favorites", favorites_path(current_user) %></div>
         <div class="item">
           <i class="dropdown icon"></i>
@@ -49,7 +60,7 @@
 <!-- スタイリストなら -->
   <% if logged_in? && current_user.stylist? %>
     <div class="divider"></div>
-    <div class="item"><%= link_to "Sent Stylings", sent_path %></div>
+    <div class="item"><%= link_to "Past Stylings", sent_path %></div>
     <div class="item"><%= link_to "Send Styling", start_path %></div>
     <div class="divider"></div>
     <div class="item"><%= link_to "Upgrade Stylist", stylists_path %></div>

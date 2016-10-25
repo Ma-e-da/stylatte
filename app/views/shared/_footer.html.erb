@@ -1,32 +1,52 @@
-<div class="ui inverted vertical footer segment">
+<div class="ui vertical divided footer segment">
+<div class="ui divider"></div>
   <div class="ui container">
 
-    <div class="ui stackable inverted divided equal height stackable grid">
-        <div class="eight wide column">
-          <h4 class="ui inverted header">About</h4>
-          <div class="ui inverted link list"><br>
-            <%= link_to "Stylist Plans", stylists_path %><br>
-            <%= link_to "Help", help_path %><i class="help icon"></i><br>
-            <%= link_to "Private Policy", users_path %><br>
-            <%= link_to "Stylatte SNS", about_path %><i class="facebook icon"></i><i class="twitter icon"></i>
-          </div>
+    <div class="ui stackable divided equal height stackable grid">
+
+
+      <div class="eight wide column">
+        <h4 class="ui header">About</h4>
+        <div class="ui link list"><br>
+          <%= link_to "Stylist Plans", stylists_path %><br>
+          <%= link_to "Help", help_path %><i class="help icon"></i><br>
+          <%= link_to "Stylatte SNS", about_path %><i class="facebook icon"></i><i class="twitter icon"></i>
         </div>
-        <div class="eight wide column">
-          <h4 class="ui inverted header">Services</h4>
-          <div class="ui inverted link list">
-            <%= link_to "Company", about_path %>
-            <button class="ui red basic button"><%= link_to "Admin", root_path %></button>
-          </div>
+        <!-- 言語選択 -->
+
+      </div>
+
+      <div class="eight wide column">
+        <h4 class="ui header">About</h4>
+
+        <div class="ui link list">
+          <%= link_to "Company", about_path %><br>
+          <%= link_to "Terms and Conditions", users_path %><br>
+          <%= link_to "Private Policy", users_path %><br>
+
         </div>
-        <div class="sixteen wide column">
-          <p>Copyright © 2016 Stylatte. All rights reserved.</p>
+        <!-- コピーライト -->
+        <p>Copyright © 2016 Stylatte. All rights reserved.</p>
+
+        <!-- 管理者への入り口 -->
+        <div class="ui inverted link list">
+          <button class="ui red basic button"><%= link_to "Admin", root_path %></button>
         </div>
       </div>
 
-<!-- 言語選択 -->
-
-
+    </div>
 
 
   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
 </div>
