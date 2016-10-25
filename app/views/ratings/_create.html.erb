@@ -1,3 +1,7 @@
 <%= link_to ratings_path(rating: {scomment_user: scomment.user.id, star: '1', scomment_id: scomment.id }), remote: true, method: :post, class: 'rating-link' do %>
+
 <i class="empty star icon"></i>
+
 <% end %>
+
+<a class="ui left pointing olive basic label">Press Star for Thanks!</a>

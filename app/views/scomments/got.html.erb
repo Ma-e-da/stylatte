@@ -1,9 +1,30 @@
-<h1>You got scomments!</h1>
+<h1>Styling List</h1>
+<p>All Stylings you got.</p>
 
 
-  <% @scomments.each do |scomment| %>
-  <div class="ui card">
-    <%= scomment.content %>
+<% @scomments.each do |scomment| %>
+
+
+
+  <div class="ui comments">
+    <div class="comment">
+      <a class="avatar">
+        <%= link_to gravatar_for(current_user, size: 30), current_user %>
+      </a>
+      <div class="content">
+        <a class="author"><%= scomment.user.name %></a>
+        <div class="metadata">
+          <div class="date"><%= time_ago_in_words(scomment.created_at) %> ago</div>
+          <div class="rating">
+            <i class="star icon"></i>
+            5 Faves
+          </div>
+        </div>
+        <div class="text">
+          <%= scomment.content %>
+        </div>
+      </div>
+    </div>
   </div>
-  <%= time_ago_in_words(scomment.created_at) %> ago.
-  <% end %>
+
+<% end %>

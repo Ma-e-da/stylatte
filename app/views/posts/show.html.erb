@@ -1,20 +1,27 @@
 ＜＜posts/showページはじまり。
 
-<h1><%= t 'views.posts.show.My posts' %></h1>
-
-<div class="ui card">
-  <h4>~ 私の投稿内容 ~</h4>
-  <%= @post.content %>
-
-  <h4>~ このPostに対するコメント数 ~</h4>
-  <%= @post.scomments.count %>
+<!-- 選択したPost内容 -->
+<div class="ui segments">
+  <div class="ui segment">
+    <p>
+      <%= @post.content %>
+    </p>
+    <%= image_tag @post.picture.url if @post.picture? %>
+  </div>
 </div>
 
+<!-- コメント数 & 一覧 （ポストした人のみ見れる）-->
 <% if current_user?(@post.user) %>
-<%= render @post.scomments %>
+  <span>
+    <i class="idea icon"></i>
+    <%= @post.scomments.count %>stylings now
+  </span>
+
+  <%= render @post.scomments %>
+
 <% end %>
 
+<!-- このポストへコメントを送るフォーム（スタイリストならみんな見れる） -->
 <% if logged_in? && current_user.stylist? %>
-<h1>Send Styling from here!</h1>
-<%= render 'scomments/scomment_form' %>
+  <%= render 'scomments/scomment_form' %>
 <% end %>
