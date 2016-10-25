@@ -1,10 +1,13 @@
-<div class="ui segment">
+
 feedページスタート＞＞
+
+<!-- ポスト -->
 <% if @feed_items.any? %>
   <ol class="posts">
     <%= render @feed_items %>
   </ol>
 
 <% end %>
-＜＜feedページおわり
-</div>
+
+<!-- コメント -->
+<%= render @post.scomments %>

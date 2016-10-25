@@ -5,12 +5,17 @@
   User.gendersと記述することで、unknown, male, female, otherとそれぞれの値が取得できる。
   User.genders というのはUserというModelに定義されたgenderというenum( 列挙型 )のキーと値を全て配列で取得する。
   include_blankをtrueと指定することで初期値がブランクに。 -->
-<h1>Find Users by Name, Gender and Country!</h1>
+<h1><i class="circular search link icon"></i>Find Users</h1>
 <div>
   <%= form_tag(users_path, method: "get") do %>
 
-    <%= label_tag :name, "NAME" %>
-    <%= text_field_tag :name, params[:name] %>
+
+    <div class="ui input">
+
+      <%= label_tag :name, "NAME" %>
+      <%= text_field_tag :name, params[:name] %>
+    </div>
+
 
     <%= label_tag :name, "GENDER" %>
     <%= select_tag :gender, options_for_select(User.genders), include_blank: true %>
@@ -19,10 +24,11 @@
     <%= select_tag :country, options_for_select(User.countries), include_blank: true %>
 
 
-    <%= submit_tag "Search!" %>
+    <%= submit_tag "Search!", class: "ui button" %>
     ここにクリアボタンもつくる。
   <% end %>
 </div>
+
 
 <!-- 全ユーザー表示 -->
 <% provide(:title, 'Users') %>
@@ -30,3 +36,17 @@
 <ul class="users">
   <%= render @users %>
 </ul>
+
+<!-- ページネーション -->
+<div class="ui pagination menu">
+        <a class="icon item">
+          <i class="left chevron icon"></i>
+        </a>
+        <a class="item">1</a>
+        <a class="item">2</a>
+        <a class="item">3</a>
+        <a class="item">4</a>
+        <a class="icon item">
+          <i class="right chevron icon"></i>
+        </a>
+      </div>

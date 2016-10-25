@@ -1,5 +1,5 @@
-<div class="ui segment">
-Statページスタート＞＞
+
+<!-- Stats -->
   <% @user ||= current_user %>
   <div class="stats">
     <a href="<%= following_user_path(@user) %>">
@@ -20,17 +20,31 @@ Statページスタート＞＞
       </strong>
       posts
     </a>
-    
+
     <strong class="stat">
       <%= @user.favorite_scomments.count %>
       <%= link_to "favorites", favorites_path(current_user) %>
       <i class="heart icon"></i>
     </strong>
-
-
-
-
-
   </div>
 
-</div>
+
+<!-- Stats/ まだリンクできていない。 -->
+  <div class="ui compact menu">
+    <a class="item">
+       Posts
+      <div class="floating ui red label"><%= @user.posts.count %></div>
+    </a>
+    <a class="item">
+      <i class="icon users"></i> Following
+      <div class="floating ui teal label"><%= @user.following.count %></div>
+    </a>
+    <a class="item">
+      <i class="icon users"></i> Followers
+      <div class="floating ui teal label"><%= @user.followers.count %></div>
+    </a>
+    <a class="item">
+      <i class="heart icon"></i> Favorites
+      <div class="floating ui teal label"><%= @user.favorite_scomments.count %></div>
+    </a>
+  </div>

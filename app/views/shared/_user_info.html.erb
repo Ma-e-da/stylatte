@@ -1,8 +1,16 @@
 <% @user ||= current_user %>
 
   <div class="ui card">
+
+
     <div class="userimg">
       <div class="image">
+        <!-- ラベル、スタイリストならステータスと共に変わる。 -->
+        <% if logged_in? && current_user.stylist? %>
+          <a class="ui red left corner label">
+            <i class="heart icon"></i>
+          </a>
+        <% end %>
         <%= link_to image_tag("stylatte_50.png", alt: "STYLATTE"), root_path %>
       </div>
       <span>
@@ -13,11 +21,8 @@
       <div class="header">
         <%= current_user.name %>
       </div>
-      <% if logged_in? && current_user.stylist? %>
-      <div class="meta">
-        <a>(Stylist)</a>
-      </div>
-      <% end %>
+
+
       <div class="description">
         #Matthew is an interior designer living in New York.#
       </div>
