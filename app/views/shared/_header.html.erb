@@ -1,33 +1,42 @@
-1)と2)は携帯だと消えるようにする。
-
 <div class="ui fixed menu">
 
 
 
+<!-- <1~4>カラム；グリッド携帯だと消える部分分ける(1;ロゴ  2;メッセージはコンピューターのみ　3;スタイリストに誘う&アバタ-PCのみ 4;MENU -->
+<div class="ui four column grid">
+
+
+
+
 <!-- 0)ロゴ -->
-  <a href="#" class="header item">
-    <img class="logo" src="assets/images/face5.jpg">
-    STYLATTE
-  </a>
+  <!-- <1>カラム -->
+  <div class="four column">
+    <a href="#" class="header item">
+        <img class="logo" src="assets/images/logo.png">
+    </a>
+  </div>
 <!-- 0)End;ロゴ -->
 
+<!-- <2>カラム -->
+<div class="computer only four column">
 
 <!-- 1)ログイン前のユーザー向けWelcomeメッセージ（ログイン、サインアップボタン） -->
-  <div class="item">
+<a href="#" class="item">
     <% if logged_in? %>
     Welcome! <%= current_user.name %>
     <% else %>
     <button class="ui green basic button"><%= link_to "Log in", login_path %></button>
     <button class="ui blue basic button"><%= link_to "Sign up", signup_path %></button>
     <% end %>
-  </div>
+</a>
 <!-- 1)End: ログイン前のユーザー向けWelcomeメッセージ（ログイン、サインアップボタン） -->
+</div>
 
 
-
+<!-- <3>カラム -->
+<div class="computer only four column">
 
 <!-- 2)スタイリストでない場合、スタイリストになることを誘うボタン -->
-    <div class="item">
       <% if logged_in? && current_user.stylist? %>
       <% else %>
       <% if logged_in? %>
@@ -36,9 +45,7 @@
       <%= link_to "Become a Stylist ?", stylists_path %>
       <% end %>
       <% end %>
-    </div>
 <!-- 2)END; スタイリストでない場合、スタイリストになることを誘うボタン -->
-
 
 <!-- 3)アバター（ログイン中のみ） -->
     <% if logged_in? %>
@@ -47,15 +54,20 @@
     <% end %>
 <!-- 3)END; アバター-->
 
+</div>
+
+
+
+<!-- <4>カラム -->
+<div class="four column">
 
 <!-- 4)ここをright menuにすると、右端に寄ってくれるが、それだと見れない部分が出てくる。 -->
-<div class="menu">
 
 <!-- 5)ドロップダウンメニュー （ログイン中のみ） ＊　simple dropdownしか使えないので注意。(java scriptの関係で？) ＊　-->
 <% if logged_in? %>
 
 <!-- 6)メニュードロップダウン開く前 -->
-<div class="ui simple dropdown item">
+<div class="ui simple dropdown ">
       <div class="text">Menu</div>
       <i class="dropdown icon"></i>
 
@@ -122,10 +134,15 @@
 <% end %>
 <!-- END; 5)ドロップダウンメニュー （ログイン中のみ） ＊　simple dropdownしか使えないので注意。(java scriptの関係で？) ＊　-->
 
-</div>
+
 <!-- END; 4)ここをright menuにすると、右端に寄ってくれるが、それだと見れない部分が出てくる。 -->
 
 
+</div>
+<!-- END <4> -->
+
+</div>
+<!-- END; <1~4>カラム；グリッド携帯だと消える部分分ける(1;ロゴ  2;メッセージはコンピューターのみ　3;スタイリストに誘う&アバタ-PCのみ 4;MENU -->
 
 
 
