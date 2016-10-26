@@ -1,47 +1,68 @@
-<div class="ui header">
-<div class="ui container menu">
+1)と2)は携帯だと消えるようにする。
 
-<!-- Home -->
-  <div class="item">
-    <%= link_to "STYLATTE", root_path %>
-  </div>
+<div class="ui fixed menu">
 
-<!-- ログイン前 -->
+
+
+<!-- 0)ロゴ -->
+  <a href="#" class="header item">
+    <img class="logo" src="assets/images/face5.jpg">
+    STYLATTE
+  </a>
+<!-- 0)End;ロゴ -->
+
+
+<!-- 1)ログイン前のユーザー向けWelcomeメッセージ（ログイン、サインアップボタン） -->
   <div class="item">
     <% if logged_in? %>
     Welcome! <%= current_user.name %>
     <% else %>
-    <div class="item">
-      <button class="ui green basic button"><%= link_to "Log in", login_path %></button>
-      <button class="ui blue basic button"><%= link_to "Sign up", signup_path %></button>
-    </div>
+    <button class="ui green basic button"><%= link_to "Log in", login_path %></button>
+    <button class="ui blue basic button"><%= link_to "Sign up", signup_path %></button>
     <% end %>
   </div>
+<!-- 1)End: ログイン前のユーザー向けWelcomeメッセージ（ログイン、サインアップボタン） -->
 
 
 
 
-
-  <div class="right menu">
-
-    <!-- スタイリストでない場合、スタイリストになることを誘うボタン -->
+<!-- 2)スタイリストでない場合、スタイリストになることを誘うボタン -->
+    <div class="item">
       <% if logged_in? && current_user.stylist? %>
       <% else %>
-        <% if logged_in? %>
-        <%= link_to "Become a Stylist ?", edit_user_path(current_user) %>
-        <% else %>
-        <%= link_to "Become a Stylist ?", stylists_path %>
-        <% end %>
+      <% if logged_in? %>
+      <%= link_to "Become a Stylist ?", edit_user_path(current_user) %>
+      <% else %>
+      <%= link_to "Become a Stylist ?", stylists_path %>
       <% end %>
+      <% end %>
+    </div>
+<!-- 2)END; スタイリストでない場合、スタイリストになることを誘うボタン -->
 
-<!-- ログイン中 -->
-  <% @user ||= current_user %>
-  <% if logged_in? %>
-  <%= link_to gravatar_for(current_user, size: 50), current_user %>
-    <div class="ui simple dropdown item">
+
+<!-- 3)アバター（ログイン中のみ） -->
+    <% if logged_in? %>
+    <% @user ||= current_user %>
+    <%= link_to gravatar_for(current_user, size: 50), current_user %>
+    <% end %>
+<!-- 3)END; アバター-->
+
+
+<!-- 4)ここをright menuにすると、右端に寄ってくれるが、それだと見れない部分が出てくる。 -->
+<div class="menu">
+
+<!-- 5)ドロップダウンメニュー （ログイン中のみ） ＊　simple dropdownしか使えないので注意。(java scriptの関係で？) ＊　-->
+<% if logged_in? %>
+
+<!-- 6)メニュードロップダウン開く前 -->
+<div class="ui simple dropdown item">
       <div class="text">Menu</div>
       <i class="dropdown icon"></i>
-      <div class="menu">
+
+<!-- 7)開いた中身大枠 -->
+<div class="menu">
+
+<!-- 8)中身（スタイリストでない人もスタイリストもログインした人全員へ） -->
         <div class="item"><%= link_to "Post New", new_post_path %></div>
         <div class="item"><%= link_to "My Posts Index", posts_path %></div>
         <div class="item"><%= link_to "Styling List", got_path %></div>
@@ -55,47 +76,58 @@
             <div class="item"><%= link_to "Find Users", users_path %></div>
           </div>
         </div>
-  <% end %>
+<!-- 8)END; 中身（スタイリストでない人もスタイリストもログインした人全員へ） -->
 
-<!-- スタイリストなら -->
-  <% if logged_in? && current_user.stylist? %>
-    <div class="divider"></div>
-    <div class="item"><%= link_to "Past Stylings", sent_path %></div>
-    <div class="item"><%= link_to "Send Styling", start_path %></div>
-    <div class="divider"></div>
-    <div class="item"><%= link_to "Upgrade Stylist", stylists_path %></div>
-    <div class="item">
-      <!-- 星の合計と平均 -->
-      <i class="dropdown icon"></i>
-      <i class="star icon"></i>Status
-      <div class="menu">
-        <div class="item">Sum<i class="star icon"></i><%= @total_rating %></div>
-        <div class="item">Average<i class="star icon"></i><%= @average_rating %></div>
-        <div class="item"><i class="bar chart icon"></i><%= link_to "Analitics", edit_user_path(current_user) %></div>
-      </div>
-    </div>
-  <% end %>
 
-<!-- ログイン中 -->
+<!-- 9)ログイン中のスタイリストへ -->
+        <% if logged_in? && current_user.stylist? %>
         <div class="divider"></div>
-        <% if logged_in? %>
+        <div class="item"><%= link_to "Past Stylings", sent_path %></div>
+        <div class="item"><%= link_to "Send Styling", start_path %></div>
+        <div class="divider"></div>
+        <div class="item"><%= link_to "Upgrade Stylist", stylists_path %></div>
+
+<!-- 10) 星の合計と平均 -->
+        <div class="item">
+          <i class="dropdown icon"></i>
+          <i class="star icon"></i>Status
+          <div class="menu">
+            <div class="item">Sum<i class="star icon"></i><%= @total_rating %></div>
+            <div class="item">Average<i class="star icon"></i><%= @average_rating %></div>
+            <div class="item"><i class="bar chart icon"></i><%= link_to "Analitics", edit_user_path(current_user) %></div>
+          </div>
+        </div>
+<!-- 10)END; 星の合計と平均 -->
+
+        <% end %>
+<!-- 9) END; ログイン中のスタイリストへ -->
+
+<!-- 11)プロフィールEdit, Logout（ログイン中全員）-->
+        <div class="divider"></div>
         <div class="item"><%= link_to "Edit profile", edit_user_path(current_user) %></div>
         <div class="item"><%= link_to "Log out", logout_path, method: "delete" %></div>
-        <% end %>
-
         <div class="divider"></div>
-
         <div class="item">
           <i class="help icon"></i>
           <%= link_to "Help", help_path %>
         </div>
+<!-- 11) END; プロフィールEdit, Logout（ログイン中全員） -->
 
-      </div>
-    </div>
-
-
-
-  </div>
 </div>
+<!-- END; 7)開いた中身大枠 -->
+
+</div>
+<!-- END; 6)メニュードロップダウン開く前 -->
+
+<% end %>
+<!-- END; 5)ドロップダウンメニュー （ログイン中のみ） ＊　simple dropdownしか使えないので注意。(java scriptの関係で？) ＊　-->
+
+</div>
+<!-- END; 4)ここをright menuにすると、右端に寄ってくれるが、それだと見れない部分が出てくる。 -->
+
+
+
+
+
 
 </div>
