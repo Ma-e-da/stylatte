@@ -21,3 +21,36 @@ body {
     color: rgba(0, 0, 0, 0.87);
     font-smoothing: antialiased;
 }
+
+/*******************************
+            Accordion(acod)
+*******************************/
+
+
+input[type="checkbox"].on-off{
+    display: none;
+}
+
+.acodmenu ul {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.acodmenu li {
+    padding: 5px;
+}
+
+input[type="checkbox"].on-off + ul{
+    height: 0;
+    overflow: hidden;
+}
+
+input[type="checkbox"].on-off:checked + ul{
+    height: 200px;
+}
