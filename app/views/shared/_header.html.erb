@@ -1,150 +1,86 @@
-<div class="ui fixed menu">
+<nav class="paradeiser" id="paradeiser">
 
 
 
-<!-- <1~4>カラム；グリッド携帯だと消える部分分ける(1;ロゴ  2;メッセージはコンピューターのみ　3;スタイリストに誘う&アバタ-PCのみ 4;MENU -->
-<div class="ui four column grid">
+<!-- ロゴ -->
+        <a href="#">
+            <img src="http://danielwinter.at/apple-touch-icon_76x76.png" alt="Logo of Daniel Winter" class="paradeiser_logo">
+        </a>
 
-
-
-
-<!-- 0)ロゴ -->
-  <!-- <1>カラム -->
-  <div class="four column">
-    <a href="#" class="header item">
-        <img class="logo" src="assets/images/logo.png">
-    </a>
-  </div>
-<!-- 0)End;ロゴ -->
-
-<!-- <2>カラム -->
-<div class="computer only four column">
-
-<!-- 1)ログイン前のユーザー向けWelcomeメッセージ（ログイン、サインアップボタン） -->
-<a href="#" class="item">
-    <% if logged_in? %>
-    Welcome! <%= current_user.name %>
-    <% else %>
-    <button class="ui green basic button"><%= link_to "Log in", login_path %></button>
-    <button class="ui blue basic button"><%= link_to "Sign up", signup_path %></button>
-    <% end %>
+<!-- PCとタブレットのみ表示 -->
+<a href="#" class="paradeiser-hidden-phone">
+  <icon class="paradeiser_icon_canvas">
+    <b>Welcome!</b>
+  </icon>
+  <% if logged_in? %>
+  <span><%= current_user.name %></span>
+  <% @user ||= current_user %>
+  <%= link_to gravatar_for(current_user, size: 50), current_user %>
+  <% else %>
+  <span><%= link_to "Log in", login_path %></span>
+  <% end %>
 </a>
-<!-- 1)End: ログイン前のユーザー向けWelcomeメッセージ（ログイン、サインアップボタン） -->
-</div>
+
+<!-- PCのみ表示
+        <a href="#" class="paradeiser-hidden-phone paradeiser-hidden-tablet">
+            <icon class="paradeiser_icon_canvas">
+                <img src="img/menu_contact.svg" alt="Navigate to Contact">
+            </icon>
+            <span>Desktop Only</span>
+        </a> -->
+
+<!-- モバイルのみ表示
+        <a href="#" class="paradeiser-hidden-desktop paradeiser-hidden-tablet">
+            <icon class="paradeiser_icon_canvas">
+                <img src="img/menu_contact.svg" alt="Navigate to Contact">
+            </icon>
+            <span>Mobile Only</span>
+        </a> -->
+
+<!-- タブレットのみ表示
+        <a href="#" class="paradeiser-hidden-phone paradeiser-hidden-desktop">
+            <icon class="paradeiser_icon_canvas">
+                <img src="img/menu_contact.svg" alt="Navigate to Contact">
+            </icon>
+            <span>Tablet Only</span>
+        </a> -->
 
 
-<!-- <3>カラム -->
-<div class="computer only four column">
+<!-- メニュードロップダウンここから -->
+        <div class="paradeiser_dropdown">
+  <!-- アイコン -->
+            <a href="#paradeiser-more" id="paradeiser-dropdown">
 
-<!-- 2)スタイリストでない場合、スタイリストになることを誘うボタン -->
-      <% if logged_in? && current_user.stylist? %>
-      <% else %>
-      <% if logged_in? %>
-      <%= link_to "Become a Stylist ?", edit_user_path(current_user) %>
-      <% else %>
-      <%= link_to "Become a Stylist ?", stylists_path %>
-      <% end %>
-      <% end %>
-<!-- 2)END; スタイリストでない場合、スタイリストになることを誘うボタン -->
+                <span>MENU</span>
+            </a>
+  <!-- 開いた後の中身 -->
+            <ul class="paradeiser_children" id="paradeiser-more">
+              <% if logged_in? %>
+                <li><%= link_to "Post New", new_post_path %></li>
+                <li><%= link_to "My Posts Index", posts_path %></li>
+                <li><%= link_to "Styling List", got_path %></li>
+                <li><%= link_to "My favorites", favorites_path(current_user) %></li>
+                <li><%= link_to "Find Users", users_path %></li>
+              <!-- 携帯、タブレットのみ -->
+                <!-- <li class="paradeiser-hidden-desktop"><a href="#">Hidden on desktop</a></li> -->
+              <!-- PC,携帯のみ -->
+                <!-- <li class="paradeiser-hidden-tablet"><a href="#">Hidden on tablet</a></li> -->
+              <!-- PC,タブレットのみ -->
+                <!-- <li class="paradeiser-hidden-phone"><a href="#">Hidden on phone</a></li> -->
+                <li><%= link_to "Edit profile", edit_user_path(current_user) %></li>
+                <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+                <li><%= link_to "Help", help_path %></li>
+              <% end %>
+              <!-- 下１行なにかわからないが、ないと上の一番したのliがグレーになるから置いておく。 -->
+              <li id="greybox"><a href="#!"></a></li>
 
-<!-- 3)アバター（ログイン中のみ） -->
-    <% if logged_in? %>
-    <% @user ||= current_user %>
-    <%= link_to gravatar_for(current_user, size: 50), current_user %>
-    <% end %>
-<!-- 3)END; アバター-->
-
-</div>
+            </ul>
 
 
-
-<!-- <4>カラム -->
-<div class="four column">
-
-<!-- 4)ここをright menuにすると、右端に寄ってくれるが、それだと見れない部分が出てくる。 -->
-
-<!-- 5)ドロップダウンメニュー （ログイン中のみ） ＊　simple dropdownしか使えないので注意。(java scriptの関係で？) ＊　-->
-<% if logged_in? %>
-
-<!-- 6)メニュードロップダウン開く前 -->
-<div class="ui simple dropdown ">
-      <div class="text">Menu</div>
-      <i class="dropdown icon"></i>
-
-<!-- 7)開いた中身大枠 -->
-<div class="menu">
-
-<!-- 8)中身（スタイリストでない人もスタイリストもログインした人全員へ） -->
-        <div class="item"><%= link_to "Post New", new_post_path %></div>
-        <div class="item"><%= link_to "My Posts Index", posts_path %></div>
-        <div class="item"><%= link_to "Styling List", got_path %></div>
-        <div class="item"><i class="heart icon"></i><%= link_to "My favorites", favorites_path(current_user) %></div>
-        <div class="item">
-          <i class="dropdown icon"></i>
-          <i class="user icon"></i>Users
-          <div class="menu">
-            <div class="item"><%= @user.following.count %><%= link_to "Following", following_user_path(current_user) %></div>
-            <div class="item"><%= @user.followers.count %><%= link_to "Followers", followers_user_path(current_user) %></div>
-            <div class="item"><%= link_to "Find Users", users_path %></div>
-          </div>
+  <!-- 開いた後の中身ここまで -->
         </div>
-<!-- 8)END; 中身（スタイリストでない人もスタイリストもログインした人全員へ） -->
-
-
-<!-- 9)ログイン中のスタイリストへ -->
-        <% if logged_in? && current_user.stylist? %>
-        <div class="divider"></div>
-        <div class="item"><%= link_to "Past Stylings", sent_path %></div>
-        <div class="item"><%= link_to "Send Styling", start_path %></div>
-        <div class="divider"></div>
-        <div class="item"><%= link_to "Upgrade Stylist", stylists_path %></div>
-
-<!-- 10) 星の合計と平均 -->
-        <div class="item">
-          <i class="dropdown icon"></i>
-          <i class="star icon"></i>Status
-          <div class="menu">
-            <div class="item">Sum<i class="star icon"></i><%= @total_rating %></div>
-            <div class="item">Average<i class="star icon"></i><%= @average_rating %></div>
-            <div class="item"><i class="bar chart icon"></i><%= link_to "Analitics", edit_user_path(current_user) %></div>
-          </div>
-        </div>
-<!-- 10)END; 星の合計と平均 -->
-
-        <% end %>
-<!-- 9) END; ログイン中のスタイリストへ -->
-
-<!-- 11)プロフィールEdit, Logout（ログイン中全員）-->
-        <div class="divider"></div>
-        <div class="item"><%= link_to "Edit profile", edit_user_path(current_user) %></div>
-        <div class="item"><%= link_to "Log out", logout_path, method: "delete" %></div>
-        <div class="divider"></div>
-        <div class="item">
-          <i class="help icon"></i>
-          <%= link_to "Help", help_path %>
-        </div>
-<!-- 11) END; プロフィールEdit, Logout（ログイン中全員） -->
-
-</div>
-<!-- END; 7)開いた中身大枠 -->
-
-</div>
-<!-- END; 6)メニュードロップダウン開く前 -->
-
-<% end %>
-<!-- END; 5)ドロップダウンメニュー （ログイン中のみ） ＊　simple dropdownしか使えないので注意。(java scriptの関係で？) ＊　-->
-
-
-<!-- END; 4)ここをright menuにすると、右端に寄ってくれるが、それだと見れない部分が出てくる。 -->
-
-
-</div>
-<!-- END <4> -->
-
-</div>
-<!-- END; <1~4>カラム；グリッド携帯だと消える部分分ける(1;ロゴ  2;メッセージはコンピューターのみ　3;スタイリストに誘う&アバタ-PCのみ 4;MENU -->
+<!-- メニュードロップダウンここまで -->
 
 
 
-
-</div>
+    </nav>
