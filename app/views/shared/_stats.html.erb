@@ -27,32 +27,3 @@
       <i class="heart icon"></i>
     </strong>
   </div>
-
-
-<!-- Stats/ まだリンクできていない。 -->
-  <div class="ui compact menu">
-    <a class="item">
-       Posts
-      <div class="floating ui red label"><%= @user.posts.count %></div>
-    </a>
-    <a class="item">
-      <i class="icon users"></i> Following
-      <div class="floating ui teal label"><%= @user.following.count %></div>
-    </a>
-    <a class="item">
-      <i class="icon users"></i> Followers
-      <div class="floating ui teal label"><%= @user.followers.count %></div>
-    </a>
-    <a class="item">
-      <i class="heart icon"></i> Favorites
-      <div class="floating ui teal label"><%= @user.favorite_scomments.count %></div>
-    </a>
-  </div>
-
-
-<!-- まだ -->
-<div class="ui basic buttons">
-  <div class="ui button">Posts</div>
-  <div class="ui button"><i class="icon users"></i> Following</div>
-  <div class="ui button"><i class="icon users"></i> Followers</div>
-</div>
