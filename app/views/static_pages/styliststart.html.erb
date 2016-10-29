@@ -1,10 +1,11 @@
 <!-- semanticUIのトップページのヘッダー真似したがうまく動いていない。 -->
 <div class="ui container">
+
     <div class="introduction">
       <%= link_to image_tag("stylatte_logo_7.png", alt: "STYLATTE"), root_path %>
       <h1 class="ui header">
         <span class="library">
-          Semantic UI
+          STYLATTE
         </span>
         <span class="tagline">
           Your idea may help someone.
@@ -15,195 +16,90 @@
       <a href="/introduction/getting-started.html" class="ui huge inverted download button">
         Get Started
       </a>
-      <a href="/introduction/new.html" class="ui huge inverted basic button">New in 2.2 - June 2016</a>
-    </div>
-    <div class="advertisement">
 
+      <a href="/introduction/new.html" class="ui huge inverted basic button">New in 2.2 - June 2016</a>
+
+    </div>
+
+    <div class="advertisement">
       <div id="carbonads-container">
         <div class="carbonad">
           <div id="azcarbon"></div>
           <script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_VERTDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
         </div>
       </div>
-
     </div>
-  </div>
+<p>Free, you can get advices from cool friends all over world.</p>
 
-          <p>Free, you can get advices from cool friends all over world.</p>
-            <p>I understand <a href="#"> Privacy Statement</a></p>
+</div>
+
+
+
+
+
 
 
 <!-- プライスリスト -->
-<table class="ui celled table">
-  <thead>
-    <tr></tr>
-    <tr>
-
-      <th>Stylist(Free)</th>
-      <th>Stylist-Plus</th>
-      <th>Stylist-Premium</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-
-      <td>Cell</td>
-      <td>Cell</td>
-    </tr>
-    <tr>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-    </tr>
-    <tr>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr><th colspan="3">
-    </th>
-  </tr></tfoot>
-</table>
+プライスリスト
 
 
-          <!-- 3 -->
-          <div class="ui four steps">
-            <div class="ui active step">
-              Shipping
+<!-- スタイリストサインイン 選んだコースによって、（上のボタンで）出てくるフォームがかわる。）-->
+<h2>Become a stylist! or Upgrade a stylist status!</h2>
+<div class="container-fluid">
+  ログイン済みのユーザーなら、Edit　profileが出てくる。
+  ・You hava already account and use it?
+  <!-- ステップ -->
+            <div class="ui four steps">
+              <div class="ui active step">
+                Sign up
+              </div>
+              <div class="ui active step">
+                Check "Stylist"
+              </div>
+              <div class="ui disabled step">
+                Confirm Order
+              </div>
+              <div class="ui disabled step">
+                Complete
+              </div>
             </div>
-            <div class="ui disabled step">
-              Billing
+
+  ログイン前のユーザーならログインフォーム(Signup)が出てくる。
+  ・You need to make account first, and go to edit profile page, and check stylist.
+
+  <!-- ステップ -->
+            <div class="ui four steps">
+              <div class="ui disabled step">
+                Sign up
+              </div>
+              <div class="ui disabled step">
+                Check "Stylist"
+              </div>
+              <div class="ui disabled step">
+                Confirm Order
+              </div>
+              <div class="ui disabled step">
+                Complete
+              </div>
             </div>
-            <div class="ui disabled step">
-              Confirm Order
-            </div>
-            <div class="ui disabled step">
-              Complete
-            </div>
-          </div>
+  </div>
+
+
+
+<!-- よくある質問コーナー -->
+<h2>FAQ</h2>
+<div class="ui top attached segment">
+  <p>This segment is on top</p>
+</div>
+<div class="ui attached segment">
+  <p>This segment is attached on both sides</p>
+</div>
+<div class="ui bottom attached segment">
+  <p>This segment is on bottom</p>
+</div>
+
 
 
 
 <h2>Need more info? contact us.</h2>
-<p>There is the way for company to promote your own brands items!</p>
-
-  </div>
-
-<!-- スタイリストサインイン 選んだコースによって、（上のボタンで）出てくるフォームがかわる。）-->
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-
-      <h1 class="cover-heading">You hava already account and use it? <br> or Make other account or completely New to this site</h1>
-      <button class="button1">
-        <%= link_to "Use my user account", login_path %>
-      </button>
-      <button class="button1">
-        <%= link_to "New account", signup_path %>
-      </button>
-
-        <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-      </div>
-    </div>
-  </div>
-
-  <h1 class="cover-heading">Questions</h1>
-
-  <!-- よくある質問コーナー -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-6">
-        <dl>
-          <dt>
-            Description lists
-          </dt>
-          <dd>
-            A description list is perfect for defining terms.
-          </dd>
-          <dt>
-            Euismod
-          </dt>
-          <dd>
-            Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
-          </dd>
-          <dd>
-            Donec id elit non mi porta gravida at eget metus.
-          </dd>
-          <dt>
-            Malesuada porta
-          </dt>
-          <dd>
-            Etiam porta sem malesuada magna mollis euismod.
-          </dd>
-          <dt>
-            Felis euismod semper eget lacinia
-          </dt>
-          <dd>
-            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </dd>
-        </dl>
-      </div>
-
-      <div class="col-md-6">
-        <dl>
-          <dt>
-            Description lists
-          </dt>
-          <dd>
-            A description list is perfect for defining terms.
-          </dd>
-          <dt>
-            Euismod
-          </dt>
-          <dd>
-            Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
-          </dd>
-          <dd>
-            Donec id elit non mi porta gravida at eget metus.
-          </dd>
-          <dt>
-            Malesuada porta
-          </dt>
-          <dd>
-            Etiam porta sem malesuada magna mollis euismod.
-          </dd>
-          <dt>
-            Felis euismod semper eget lacinia
-          </dt>
-          <dd>
-            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </dd>
-        </dl>
-      </div>
-    </div>
-  </div>
-
-<!-- まだうまく動いていない。画像にしたら、プライスリストを入れる。 -->
-  <div class="ui three column grid">
-    <div class="column">
-      <div class="ui fluid image">
-        <a class="ui left corner label">
-        <i class="heart icon"></i>
-      </a>
-        <img src="/images/wireframe/image.png">
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui fluid image">
-        <div class="ui blue ribbon label">
-          <i class="spoon icon"></i> Upcoming
-        </div>
-        <img src="/images/wireframe/image.png">
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui fluid image">
-        <div class="ui black ribbon label">
-          <i class="hotel icon"></i> Hotel
-        </div>
-        <img src="/images/wireframe/image.png">
-      </div>
-    </div>
-  </div>
+  <p>There is the way for company to promote your own brands items!</p>
