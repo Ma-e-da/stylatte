@@ -267,3 +267,28 @@ input[type="checkbox"].on-off:checked + ul{
     display: none !important;
   }
 }
+
+/*******************************
+            Mapなど(iframe)をリスポンシブにする。
+*******************************/
+
+/* iframe要素内でサイズ指定している場合は必要なし */
+.iframe {
+  width: 560px;
+  height: 315px;
+}
+/* CSSでレスポンシブ対応 */
+@media screen and (max-width: 560px) {
+  .iframe-wrapper {
+    position: relative;
+    width: 100%;
+    padding: calc(315 / 560 * 100%) 0 0;
+  }
+  .iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
