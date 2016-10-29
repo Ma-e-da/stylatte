@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'stylists' => 'static_pages#styliststart'
     get 'admin' => 'static_pages#admin'
     get 'policy' => 'static_pages#policy'
+    get 'terms' => 'static_pages#terms'
     get 'signup'  => 'users#new'
     get    'login'   => 'sessions#new'
     post   'login'   => 'sessions#create'
