@@ -7,7 +7,7 @@
       <div class="image">
         <!-- ラベル、スタイリストならステータスと共に変わる。 -->
         <% if logged_in? && current_user.stylist? %>
-          <a class="ui red left corner label">
+          <a class="ui green left corner label">
             <i class="heart icon"></i>
           </a>
         <% end %>
@@ -26,25 +26,14 @@
       <div class="description">
         #Matthew is an interior designer living in New York.#
       </div>
+
     </div>
     <div class="extra content">
-      <span class="right floated">
-        <%= current_user.created_at %>
-      </span>
       <% if logged_in? %>
-      <span>
+      <span class="right floated">
         <%= link_to "Edit profile", edit_user_path(current_user) %>
       </span>
       <% end %>
     </div>
-    <div class="content">
-      <span class="left floated">
-        <i class="comment outline icon">#</i>
-      </span>
-      <% if logged_in? && current_user.stylist? %>
-      <span class="right floated">
-        <i class="star icon"><%= @user.rating_scomments.count %></i>
-      </span>
-      <% end %>
-    </div>
+
   </div>

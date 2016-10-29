@@ -2,12 +2,12 @@
 <!-- Stats -->
 <% @user ||= current_user %>
 
-<div class="four ui basic mini buttons">
+<div class="two ui basic small buttons">
 
   <div class="ui button">
     <strong class="stat">
-      <%= @user.following.count %>
-      <%= link_to "following", following_user_path(current_user) %>
+      <%= @user.following.count %><br>
+      <%= link_to "following", following_user_path(current_user) %><br>
       <i class="icon user"></i>
     </strong>
   </a>
@@ -15,16 +15,20 @@
 
 <div class="ui button">
   <strong class="stat">
-    <%= @user.followers.count %>
-    <%= link_to "followers", followers_user_path(current_user) %>
+    <%= @user.followers.count %><br>
+    <%= link_to "followers", followers_user_path(current_user) %><br>
     <i class="icon user"></i>
   </strong>
 </a>
 </div>
 
+</div>
+
+<div class="two ui basic small buttons">
+
 <div class="ui button">
   <strong class="stat">
-    <%= @user.posts.count %>
+    <%= @user.posts.count %><br>
     <%= link_to "posts", posts_path(current_user) %><br>
     <i class="mail icon"></i>
   </strong>
@@ -33,10 +37,38 @@
 
 <div class="ui button">
   <strong class="stat">
-    <%= @user.favorite_scomments.count %>
-    <%= link_to "favorites", favorites_path(current_user) %>
+    <%= @user.favorite_scomments.count %><br>
+    <%= link_to "favorites", favorites_path(current_user) %><br>
     <i class="heart icon"></i>
   </strong>
 </div>
 
 </div>
+
+<% if logged_in? && current_user.stylist? %>
+<div class="two ui basic green small buttons">
+
+<div class="ui button">
+  <strong class="stat">
+    <%= @user.posts.count %><br>
+    <%= link_to "Styling List", got_path %><br>
+    <i class="mail icon"></i>
+  </strong>
+</a>
+</div>
+
+<div class="ui button">
+  <strong class="stat">
+    <%= @user.rating_scomments.count %><br>
+    Stars<br>
+    <i class="star icon"></i>
+  </strong>
+</div>
+
+</div>
+
+<div class="ui green basic button">
+  <%= link_to "Stylist Analytics", got_path %>
+</div>
+
+<% end %>
