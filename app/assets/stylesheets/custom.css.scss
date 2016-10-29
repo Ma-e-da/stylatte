@@ -29,7 +29,7 @@ body {
             Accordion(acod)
 *******************************/
 
-
+// アコーディオンの押すところ
 input[type="checkbox"].on-off{
     display: none;
 }
@@ -49,6 +49,7 @@ input[type="checkbox"].on-off{
     padding: 5px;
 }
 
+// アコーディオン閉めるところ
 input[type="checkbox"].on-off + ul{
     height: 0;
     overflow: hidden;
