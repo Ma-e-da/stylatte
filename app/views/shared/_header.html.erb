@@ -74,8 +74,8 @@
               <!-- PC,タブレットのみ -->
                 <!-- <li class="paradeiser-hidden-phone"><a href="#">Hidden on phone</a></li> -->
                 <li><%= link_to "Edit profile", edit_user_path(current_user) %></li>
-                <li><%= link_to "Log out", logout_path, method: "delete" %></li>
                 <li><%= link_to "Help", help_path %></li>
+                <li><%= link_to "Log out", logout_path, method: "delete" %></li>
               <% end %>
               <!-- 下１行なにかわからないが、ないと上の一番したのliがグレーになるから置いておく。 -->
               <li id="greybox"><a href="#!"></a></li>
