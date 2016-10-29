@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @posts = @user.posts.all
     @ratings = Rating.all
     @total_rating = @user.ratings.sum(:star)
-    @average_rating = @user.ratings.average(:star)    
+    @average_rating = @user.ratings.average(:star)
   end
 
   def new
@@ -92,7 +92,7 @@ class UsersController < ApplicationController
 
    def user_params
      params.require(:user).permit(:name, :email, :password,
-                                  :password_confirmation)
+                                  :password_confirmation, :stylist)
    end
 
    # beforeフィルター
