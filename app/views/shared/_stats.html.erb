@@ -46,7 +46,7 @@
 </div>
 
 <% if logged_in? && current_user.stylist? %>
-<div class="two ui basic green small buttons">
+<div class="two ui basic green tiny buttons">
 
 <div class="ui button">
   <strong class="stat">
@@ -68,7 +68,7 @@
 </div>
 
 <div class="ui green basic button">
-  <%= link_to "Stylist Analytics", got_path %>
+  <%= link_to "To Stylist Analysis Page", stylistanalysis_path %>
 </div>
 
 <% end %>
