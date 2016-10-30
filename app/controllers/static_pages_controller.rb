@@ -17,7 +17,10 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
-  def stylists
+  def styliststart
+  end
+
+  def stylistsanalysis
   end
 
   def admin

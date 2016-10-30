@@ -5,14 +5,20 @@ Rails.application.routes.draw do
     get 'help'    => 'static_pages#help'
     get 'about'   => 'static_pages#about'
     get 'contact' => 'static_pages#contact'
-    get 'stylists' => 'static_pages#styliststart'
+
+    get 'styliststart' => 'static_pages#styliststart'
+    get 'stylistanalysis' => 'static_pages#stylistanalysis'
+
     get 'admin' => 'static_pages#admin'
+
     get 'policy' => 'static_pages#policy'
     get 'terms' => 'static_pages#terms'
+
     get 'signup'  => 'users#new'
     get    'login'   => 'sessions#new'
     post   'login'   => 'sessions#create'
     delete 'logout'  => 'sessions#destroy'
+
     get 'start'   => 'scomments#start'
     get 'sent' => 'scomments#sent'
     get 'got' => 'scomments#got'
