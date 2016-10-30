@@ -76,6 +76,10 @@
                 <li><%= link_to "Edit profile", edit_user_path(current_user) %></li>
                 <li><%= link_to "Help", help_path %></li>
                 <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+              <% else %>
+              <li><%= link_to "Log in", login_path %></li>
+              <li><%= link_to "Become a stylist?", stylists_path %></li>
+              <li><%= link_to "Help", help_path %></li>
               <% end %>
               <!-- 下１行なにかわからないが、ないと上の一番したのliがグレーになるから置いておく。 -->
               <li id="greybox"><a href="#!"></a></li>

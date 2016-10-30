@@ -5,28 +5,19 @@
 
 <!-- ユーザーinfoとstats -->
   <div class="six wide column">
-  ＞＞homeページからshared/user_infoとstatsページへ。
   <%= render 'shared/user_info' %>
   <%= render 'shared/stats' %>
 
   <!-- ポストフォーム -->
-    ＞＞homeページからposts/post_formページへ。
     <%= render 'posts/post_form' %>
   </div>
 
 <!-- フィード -->
   <div class="ten wide column">
-    ＞＞homeページからshared/feedページへ。
     <%= render 'shared/feed' %>
   </div>
 
-
-
 </div>
-
-
-
-
 
 <!-- 広告欄  -->
   <!-- <div class="ui banner ad">
@@ -39,7 +30,22 @@
     </script>
   </div> -->
 
-
 <% else %>
-<%= render 'sessions/landing' %>
+
+
+
+
+<!-- ランディングページ (公開一覧ポスト)なにか押したら、sessions/new〜ログインページに移る。（できたらHoverで出てくるようにする。）-->
+<div class="ui two column stackable grid">
+
+  <div class="twelve wide column">
+    <h2>Posts</h2>
+    <%= render @posts %>
+  </div>
+
+  <div class="four wide column">
+  </div>
+
+</div>
+
 <% end %>
