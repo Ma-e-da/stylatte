@@ -2,8 +2,10 @@
 
 <div class="gravatar_edit">
   <%= gravatar_for @user %>
-  <a href="http://gravatar.com/emails">change</a>
+  <a href="http://gravatar.com/emails">change an avatar</a>
 </div>
+
+
 
 <div class="ui form">
 
@@ -11,18 +13,25 @@
 
   <%= render 'shared/error_messages', object: f.object %>
 
+<!-- Name -->
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
+  <p>Username will be publicly displayed. You can use Nickname here.<%= link_to "Learn more.", styliststart_path %></p>
+
+<!-- Email -->
   <div class="field">
     <%= f.label :email %>
     <%= f.email_field :email, class: 'form-control' %>
   </div>
+  <p>Email will not be publicly displayed.<%= link_to "Learn more.", styliststart_path %></p>
   <div class="field">
     <%= f.label :password %>
     <%= f.password_field :password, class: 'form-control' %>
   </div>
+
+<!-- password -->
   <div class="field">
     <%= f.label :password_confirmation, "Confirmation" %>
     <%= f.password_field :password_confirmation, class: 'form-control' %>
@@ -30,15 +39,54 @@
 
 <!-- スタイリスト,チェックボックス-->
 <div class="grouped inline fields">
+  <%= f.label :stylist? %>
   <div class="field">
-    <%= f.radio_button :stylist, true, class: 'ui radio checkbox' %> Become stylist
+    <%= f.radio_button :stylist, true, class: 'ui radio checkbox' %> Become stylist(Basic for FREE)
   </div>
   <div class="field">
     <%= f.radio_button :stylist, false, class: 'ui radio checkbox' %> Quit stylist
   </div>
 </div>
+<p>How to upgrade Stylist status.<%= link_to "Learn more.", styliststart_path %></p>
 
-<p><%= link_to "Upgrade Stylist status.", stylists_path %></p>
+
+<!-- 性別（integer=数字になっている(Users一覧ページで検索ができるように)、スタイリストと同じラジオボタンにすること！） -->
+<!-- user.rbファイル内でenumで定義している（:unknown, :male, :female, :other）ので、integerでなくてもintegerになってDBに保存される。 -->
+<!-- 順番だけ気をつける。 -->
+
+<div class="field">
+  <%= f.label :gender %>
+  <%= f.radio_button :gender, "unknown", class: "ui checkbox"%>no choice
+  <%= f.radio_button :gender, "male", class: "ui checkbox"%>male
+  <%= f.radio_button :gender, "female", class: "ui checkbox" %>female
+  <%= f.radio_button :gender, "other", class: "ui checkbox" %>other
+</div>
+
+<!-- 国（integer=数字になっているが、enumの文字で書くこと。DBに保存するときは、直してくれる。）
+{ other_country: 0, japan: 1, usa: 2, china: 9 }
+ -->
+<div class="field">
+  <%= f.label :country %>
+  <%= f.select :country, [["other_country"],["japan"],["usa"], ["china"]], class: 'form-control' %>
+</div>
+<p>Select your country. This setting is saved to this browser.</p>
+
+<!-- ヘッダー写真 -->
+Change a header photo<br>
+
+<!-- WEBサイト -->
+Website　(form_forの書き方、f.?でwebアドレス用のフォームがあるっぽい。）
+<div class="ui labeled input">
+  <div class="ui label">
+    http://
+  </div>
+  <input type="text" placeholder="mysite.com">
+</div>
+<!-- 自己紹介 -->
+Bio
+<p>Add a short description</p>
+
+
 
 <!-- More /アコーディオン/ 必ずulは入れること（custom.css操作）-->
 
@@ -52,40 +100,28 @@
         <input type="checkbox" id="Panel20" class="on-off" />
         <ul>
 
-          <!-- URL -->
           <div class="ui labeled input">
             <div class="ui label">
               http://
             </div>
             <input type="text" placeholder="mysite.com">
           </div>
+<p>size,hairstyle,haircolor,my favorites...</p>
 
-          <!-- country -->
-          <div class="ui labeled input">
-            <div class="ui label">
-              country
-            </div>
-            <input type="text" placeholder="mysite.com">
-          </div>
-
-          <!-- gender -->
-          <div class="ui labeled input">
-            <div class="ui label">
-              gender
-            </div>
-            <input type="text" placeholder="mysite.com">
-          </div>
-
-          <!-- Free text (showed on profile. eg: favorites) -->
-          <div class="ui labeled input">
-            <div class="ui label">
-              Free text
-            </div>
-            <input type="text" placeholder="mysite.com">
-          </div>
 
         </ul>
     </div>
+
+<!-- 公開/非公開 -->
+<h2>Privacy Settings</h2>
+
+<div class="ui toggle checkbox">
+  <input type="checkbox" name="pet">
+  <label>Set it to be a private or public.</label>
+</div>
+
+<!-- ユーザーアカウント閉鎖 -->
+<h2>Deactivate my account</h2>
 
 
 <!-- submit -->

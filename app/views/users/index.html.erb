@@ -4,11 +4,13 @@
   <!-- 性別は、select_tagメソッドを使用してセレクトボックス作成。
   User.gendersと記述することで、unknown, male, female, otherとそれぞれの値が取得できる。
   User.genders というのはUserというModelに定義されたgenderというenum( 列挙型 )のキーと値を全て配列で取得する。
+  enumの値を全て取得する場合は、定義したenum名の複数形にします。
   include_blankをtrueと指定することで初期値がブランクに。 -->
 <h1><i class="circular search link icon"></i>Find Users</h1>
+
+<!-- form_tagはModelに基づかない場合に使用します( 主に検索 )。 form_forはModelに基づく場合に使用します( 主に更新や新規作成の場合 )。-->
 <div>
   <%= form_tag(users_path, method: "get") do %>
-
 
     <div class="ui input">
 
@@ -20,7 +22,8 @@
     <%= label_tag :name, "GENDER" %>
     <%= select_tag :gender, options_for_select(User.genders), include_blank: true %>
 
-    <%= label_tag :name, "COUNTRY" %>
+
+    <%= label_tag :country, "COUNTRY" %>
     <%= select_tag :country, options_for_select(User.countries), include_blank: true %>
 
 

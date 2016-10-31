@@ -132,10 +132,12 @@ class User < ActiveRecord::Base
       ratings.find_by(scomment_id: scomment.id)
   end
 
-# Modelの機能である、scopeでユーザーを絞り込む（検索）。
-enum gender: { unknown: 0, male: 1, female: 2, other: 9 }
+# enum; プログラムからは文字列（名前）でアクセスでき、DBには整数値で保存される属性を作成できます。
+# DBカラムのデフォルト値はenumの初期値と合わせておきます。
+enum gender: [:unknown, :male, :female, :other]
 enum country: { other_country: 0, japan: 1, usa: 2, china: 9 }
 
+# scope/絞り込み（ユーザーが入力し、usersコントローラーからの指令が出たらscope（絞り込み）をする。）
   # ユーザー名による絞り込み
   scope :get_by_name, ->(name) {
     where("name like ?", "%#{name}%")
@@ -148,6 +150,7 @@ enum country: { other_country: 0, japan: 1, usa: 2, china: 9 }
   scope :get_by_country, ->(country) {
     where(country: country)
   }
+
 
   private
 
