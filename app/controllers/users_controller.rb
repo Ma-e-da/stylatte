@@ -6,7 +6,10 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    # 検索
+
+    # 検索。
+    # ユーザー名と性別の両方を受け取っている場合は両方のscopeを使用。
+    # どちらも受け取っていない場合は、当然絞り込みは行わない。
     if params[:name].present?
       @users = @users.get_by_name params[:name]
     end
@@ -15,6 +18,9 @@ class UsersController < ApplicationController
     end
     if params[:country].present?
       @users = @users.get_by_country params[:country]
+    end
+    if params[:stylist].present?
+      @users = @users.get_by_stylist params[:stylist]
     end
 
   end
@@ -92,7 +98,7 @@ class UsersController < ApplicationController
 
    def user_params
      params.require(:user).permit(:name, :email, :password,
-                                  :password_confirmation, :stylist)
+                                  :password_confirmation, :stylist, :gender, :country)
    end
 
    # beforeフィルター

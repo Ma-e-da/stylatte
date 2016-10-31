@@ -26,6 +26,8 @@
     <%= label_tag :country, "COUNTRY" %>
     <%= select_tag :country, options_for_select(User.countries), include_blank: true %>
 
+    <%= label_tag :stylist, "STYLIST" %>
+    <%= select_tag :stylist, grouped_options_for_select(User::SELECT_OPTIONS), include_blank: true %>
 
     <%= submit_tag "Search!", class: "ui button" %>
     ここにクリアボタンもつくる。

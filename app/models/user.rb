@@ -150,6 +150,19 @@ enum country: { other_country: 0, japan: 1, usa: 2, china: 9 }
   scope :get_by_country, ->(country) {
     where(country: country)
   }
+  # stylistかによる絞り込み
+  scope :get_by_stylist, ->(stylist) {
+    where(stylist: stylist)
+  }
+
+  # スタイリストかどうかによる絞り込み（プルダウンで）enumなし。integerでなく真偽値なので。
+  SELECT_OPTIONS = [
+      ['Stylist', [
+          ['Not Stylist', 'f'],
+          ['Stylist', 't'],
+        ]
+      ],
+    ]
 
 
   private
