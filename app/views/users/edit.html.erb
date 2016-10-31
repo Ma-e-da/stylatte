@@ -71,20 +71,22 @@
 </div>
 <p>Select your country. This setting is saved to this browser.</p>
 
-<!-- ヘッダー写真 -->
-Change a header photo<br>
 
 <!-- WEBサイト -->
-Website　(form_forの書き方、f.?でwebアドレス用のフォームがあるっぽい。）
 <div class="ui labeled input">
-  <div class="ui label">
-    http://
-  </div>
-  <input type="text" placeholder="mysite.com">
+  <%= f.label :website %>
+  <%= f.url_field :website, class: 'ui label', placeholder: "http://stylatte.com" %>
 </div>
+
 <!-- 自己紹介 -->
-Bio
-<p>Add a short description</p>
+    <div class="field">
+      <%= f.label :bio %>
+      <%= f.text_area :bio, placeholder: "I am ..." %>
+    </div>
+    <p>Add a short description</p>
+
+
+
 
 
 

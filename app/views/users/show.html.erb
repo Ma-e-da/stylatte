@@ -26,7 +26,10 @@
         <%= @user.name %>
       </div>
       <div class="description">
-        #Matthew is an interior designer living in New York.#
+        <%= current_user.bio %>
+      </div>
+      <div class="right floated description">
+        <%= current_user.website %>
       </div>
     </div>
     <div class="extra content">
