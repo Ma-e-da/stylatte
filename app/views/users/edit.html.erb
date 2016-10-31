@@ -122,9 +122,6 @@
   <label>Set it to be a private or public.</label>
 </div>
 
-<!-- ユーザーアカウント閉鎖 -->
-<h2>Deactivate my account</h2>
-
 
 <!-- submit -->
 <div class="field">
@@ -132,6 +129,11 @@
 </div>
 
 <% end %>
+
+<!-- ユーザーアカウント閉鎖 (報告と同じようにadminへDeleteされる)-->
+<!-- とりあえずは、アラームが出て今の所ログアウトする。 -->
+<h2>Deactivate my account</h2>
+<button class="ui red basic button"><%= link_to "Delete Account", logout_path, method: "delete", data: { confirm: "You sure?１５日後に完全に削除されます。それまでなら再度ログインできます。" } %></button>
 
 
 </div>
