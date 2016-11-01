@@ -2,11 +2,9 @@
 
   <div class="ui card">
 
-
-    <div class="userimg">
-      <div class="image">
-
-        <!-- コーナーラベル：　スタイリストならステータスと共に変わる。 -->
+<!-- プロフィール写真がまだないとき 、背景つくれなかった。-->
+    <div class="image">
+      <!-- コーナーラベル：　スタイリストならステータスと共に変わる。 -->
         <% if logged_in? && current_user.stylist? %>
           <a class="ui green left corner label">
             <i class="heart icon"></i>
@@ -17,21 +15,16 @@
           <% if @user.picture %>
             <%= image_tag @user.picture.url %>
           <% end %>
-
-          <%= link_to image_tag("stylatte_50.png", alt: "STYLATTE"), root_path %>
-
-        <!-- アバター -->
-        <span>
-          <%= link_to gravatar_for(current_user, size: 70), current_user %>
-        </span>
-
-      </div>
     </div>
 
 
     <div class="content">
       <div class="header">
         <%= current_user.name %>
+        <!-- アバター -->
+        <div class="right floated description">
+          <%= link_to gravatar_for(current_user, size: 70), current_user %>
+        </div>
       </div>
       <div class="description">
         <%= current_user.bio %>
@@ -39,8 +32,8 @@
       <div class="right floated description">
         <%= current_user.website %>
       </div>
-
     </div>
+
     <div class="extra content">
       <% if logged_in? %>
       <span class="right floated">
@@ -48,4 +41,6 @@
       </span>
       <% end %>
     </div>
+
+
   </div>
