@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+# ヘッダーの写真（アバターと違う方）
+  mount_uploader :picture, PictureUploader
+  validate :picture_size
+
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest
@@ -176,6 +180,13 @@ enum country: { other_country: 0, japan: 1, usa: 2, china: 9 }
   def create_activation_digest
     self.activation_token  = User.new_token
     self.activation_digest = User.digest(activation_token)
+  end
+
+  # アップロード画像のサイズを検証する
+  def picture_size
+    if picture.size > 5.megabytes
+      errors.add(:picture, "should be less than 5MB")
+    end
   end
 
 end
