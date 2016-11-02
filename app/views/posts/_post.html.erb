@@ -1,32 +1,59 @@
-＞＞posts/_postページはじまり。
+posts/_postページ＞＞
 
 <li id="post-<%= post.id %>"></li>
-  <%= link_to gravatar_for(post.user, size: 50), post.user %>
-  <%= link_to post.user.name, post.user %><br>
-  <div class="ui segments">
-    <div class="ui segment">
-      <%= post.content %><br>
+
+
+<div class="ui feed">
+
+  <div class="event">
+    <div class="label">
+      <%= link_to gravatar_for(post.user, size: 50), post.user %>
     </div>
-  <%= image_tag post.picture.url if post.picture? %><br>
-  <span>Posted <%= time_ago_in_words(post.created_at) %> ago.</span>
-  <!-- このポストを削除する -->
-      <% if current_user?(post.user) %>
-          <i class="trash icon"></i>
-          <%= link_to "Delete Post", post, method: :delete, data: { confirm: "You sure?" } %>
-      <% end %>
+    <div class="content">
+      <div class="date">
+        <%= time_ago_in_words(post.created_at) %> ago
+      </div>
+
+      <a><%= link_to post.user.name, post.user %></a>
+
+      <div class="ui segment">
+        <%= post.content %><br>
+      </div>
+      <div class="extra images">
+        <a><%= image_tag post.picture.url if post.picture? %></a>
+      </div>
+    </div>
+
   </div>
+
+<!-- スタイリングを送る -->
+    <% if logged_in? && current_user.stylist? %>
+          <div class="summary">
+            <h4>
+            <i class="pencil icon"></i>
+            <%= link_to 'Send Styling to this Post!', post %>
+            </h4>
+          </div>
+    <% end %>
+
 <!-- コメント数表示 & もらったスタイリングコメントへのリンク-->
-  <span>
+  <div class="summary">
     <i class="idea icon"></i>
     <%= post.scomments.count %>
     <%= link_to 'Stylings', post %>
-  </span>
-<!-- スタイリングを送る -->
-  <% if logged_in? && current_user.stylist? %>
-    <span>
-      <i class="reply icon"></i>
-      <%= link_to 'Send Styling to this Post!', post %>
-    </span>
-  <% end %>
+  </div>
 
-<div class="ui divider"></div>
+<!-- このポストを削除する -->
+  <div class="summary">
+    <% if current_user?(post.user) %>
+        <i class="trash icon"></i>
+        <%= link_to "Delete Post", post, method: :delete, data: { confirm: "You sure?" } %>
+    <% end %>
+  </div>
+
+
+
+
+  <div class="ui divider"></div>
+
+</div>
