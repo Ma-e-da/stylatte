@@ -9,7 +9,7 @@ Post_formページスタート＞＞
   <div class="ui form">
       <div class="field">
         <label>Post Content</label>
-        <%= f.text_area :content, placeholder: "I need a ..." %>
+        <%= f.text_area :content, placeholder: "I need a ...", rows:"2" %>
       </div>
   </div>
 
@@ -18,7 +18,101 @@ Post_formページスタート＞＞
     <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
   </span>
 
-  <%= f.submit "SEND", class: "ui submit button" %>
+  <div class="ui divider"></div>
+  <!-- ポストの詳細選ぶ（アコーディオン）必ずulは入れること（custom.cssにて操作）-->
+      <div class="acodmenu">
+          <label for="Panel13">
+            <div class="active title">
+              <i class="dropdown icon"></i>
+              Optional Details
+            </div>
+          </label>
+          <input type="checkbox" id="Panel13" class="on-off" />
+          <ul>
+
+
+        <div class="content field">
+          <!-- サイズ選ぶ -->
+
+          <div class="ui form item">
+            <div class="grouped inline fields">
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" name="size" value="small">
+                  <label>Small</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" name="size" value="medium">
+                  <label>Medium</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" name="size" value="large">
+                  <label>Large</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" name="size" value="x-large">
+                  <label>X-Large</label>
+                </div>
+              </div>
+              <div class="ui checkbox">
+                <input type="checkbox" name="fun">
+                <label>I enjoy having fun</label>
+              </div>
+
+              <div class="ui toggle checkbox">
+                <input type="checkbox" name="pet">
+                <label>Allow other people to pet my dog</label>
+              </div>
+
+
+            </div>
+          </div>
+
+          <!-- サイズ選ぶ終わり -->
+
+          <!-- 色選ぶ -->
+            <div class="ui form item">
+              <div class="grouped inline fields">
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="small">
+                    <label>Red</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="medium">
+                    <label>Orange</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="large">
+                    <label>Green</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="x-large">
+                    <label>Blue</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      <!-- 色選ぶ終わり -->
+          </ul>
+      </div>
+<div class="ui divider"></div>
+
+
+  <%= f.submit "SEND", class: "ui basic blue button" %>
 
 
 <% end %>

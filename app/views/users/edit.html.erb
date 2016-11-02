@@ -1,11 +1,10 @@
+<!-- ユーザーアカウント閉鎖 (報告と同じようにadminへDeleteされる)-->
+<!-- とりあえずは、アラームが出て今の所ログアウトする。 -->
+<h2>Deactivate my account</h2>
+<button class="ui red basic button"><%= link_to "Delete Account", logout_path, method: "delete", data: { confirm: "You sure?１５日後に完全に削除されます。それまでなら再度ログインできます。" } %></button>
+
+
 <h1>Edit profile</h1>
-
-<div class="gravatar_edit">
-  <%= gravatar_for @user %>
-  <a href="http://gravatar.com/emails">change an avatar</a>
-</div>
-
-
 
 <div class="ui form">
 
@@ -40,6 +39,7 @@
 <!-- スタイリスト,チェックボックス-->
 <div class="grouped inline fields">
   <%= f.label :stylist? %>
+  <p>- How to upgrade Stylist status.<%= link_to "Learn more.", styliststart_path %> -</p>
   <div class="field">
     <%= f.radio_button :stylist, true, class: 'ui radio checkbox' %> Become stylist(Basic for FREE)
   </div>
@@ -47,7 +47,6 @@
     <%= f.radio_button :stylist, false, class: 'ui radio checkbox' %> Quit stylist
   </div>
 </div>
-<p>How to upgrade Stylist status.<%= link_to "Learn more.", styliststart_path %></p>
 
 
 <!-- 性別（integer=数字になっている(Users一覧ページで検索ができるように)、スタイリストと同じラジオボタンにすること！） -->
@@ -66,35 +65,48 @@
 { other_country: 0, japan: 1, usa: 2, china: 9 }
  -->
 <div class="field">
-  <%= f.label :country %>
+  <%= f.label :country %><p>- Select your country. This setting is saved to this browser. -</p>
   <%= f.select :country, [["other_country"],["japan"],["usa"], ["china"]], class: 'form-control' %>
 </div>
-<p>Select your country. This setting is saved to this browser.</p>
+
 
 
 <!-- WEBサイト -->
-<div class="ui labeled input">
+<div class="field">
   <%= f.label :website %>
-  <%= f.url_field :website, class: 'ui label', placeholder: "http://stylatte.com" %>
+  <%= f.url_field :website, class: 'ui label' %>
 </div>
 
 <!-- 自己紹介 -->
     <div class="field">
-      <%= f.label :bio %>
-      <%= f.text_area :bio, placeholder: "I am ..." %>
+      <%= f.label :bio %><p>- Add a short description. -</p>
+        <%= f.text_area :bio, placeholder: "I am ..." ,rows:"2"%>
     </div>
-    <p>Add a short description</p>
+
+
+<!-- アバター -->
+    <div class="gravatar_edit">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails">change an avatar</a>
+    </div>
+
 
 <!-- ヘッダーの写真(アバターじゃない方のプロフィール写真) -->
+<div class="ui card">
+<div class="image">
+    <%= image_tag @user.picture.url %>
+
     <div class="field">
       <i class="photo icon"></i>
-      <%= f.label :picture %>
+      change<%= f.label :picture %>
       <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
     </div>
 
-
+</div>
+</div>
 
 <!-- More /アコーディオン/ 必ずulは入れること（custom.css操作）-->
+<div class="ui divider"></div>
 
     <div class="acodmenu">
         <label for="Panel20">
@@ -103,29 +115,27 @@
             Set More
           </div>
         </label>
+
         <input type="checkbox" id="Panel20" class="on-off" />
+
         <ul>
 
-          <div class="ui labeled input">
-            <div class="ui label">
-              http://
-            </div>
-            <input type="text" placeholder="mysite.com">
-          </div>
+
 <p>size,hairstyle,haircolor,my favorites...</p>
 
 
         </ul>
     </div>
+    <div class="ui divider"></div>
+
 
 <!-- 公開/非公開 -->
-<h2>Privacy Settings</h2>
-
-<div class="ui toggle checkbox">
-  <input type="checkbox" name="pet">
-  <label>Set it to be a private or public.</label>
+<div class="field">
+  <div class="ui toggle checkbox">
+    <input type="checkbox" name="pet">
+    <label>Private or public.</label>
+  </div>
 </div>
-
 
 <!-- submit -->
 <div class="field">
@@ -134,10 +144,6 @@
 
 <% end %>
 
-<!-- ユーザーアカウント閉鎖 (報告と同じようにadminへDeleteされる)-->
-<!-- とりあえずは、アラームが出て今の所ログアウトする。 -->
-<h2>Deactivate my account</h2>
-<button class="ui red basic button"><%= link_to "Delete Account", logout_path, method: "delete", data: { confirm: "You sure?１５日後に完全に削除されます。それまでなら再度ログインできます。" } %></button>
 
 
 </div>
