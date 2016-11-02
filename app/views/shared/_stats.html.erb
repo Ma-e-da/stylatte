@@ -51,8 +51,8 @@
 <div class="ui button">
   <strong class="stat">
     <%= @user.posts.count %><br>
-    <%= link_to "Styling List", got_path %><br>
-    <i class="mail icon"></i>
+    <%= link_to "Sent Stylings", sent_path %><br>
+    <i class="pencil icon"></i>
   </strong>
 </a>
 </div>
@@ -67,9 +67,7 @@
 
 </div>
 
-<div class="ui green basic button">
-  <%= link_to "Sent Stylings", sent_path %>
-</div>
+
 <div class="ui green basic button">
   <%= link_to "To Stylist Analysis Page", stylistanalysis_path %>
 </div>

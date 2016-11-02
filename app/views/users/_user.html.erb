@@ -1,8 +1,9 @@
 ＞＞users/_userページはじまり。
 
-<div class="ui card">
-  <div class="userimg">
-    <div class="image">
+<div class="ui feed">
+
+  <div class="event">
+    <div class="label">
       <%= gravatar_for user, size: 50 %>
     </div>
     <p><%= link_to user.name, user %></p>
@@ -21,5 +22,7 @@
      <%= link_to "UnFollow", user, method: :delete, data: { confirm: "Really unfollow this user?" } %>
   <% end %>
 </button>
+
+<div class="ui divider"></div>
 
 </div>

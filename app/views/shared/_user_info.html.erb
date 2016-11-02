@@ -21,10 +21,6 @@
     <div class="content">
       <div class="header">
         <%= current_user.name %>
-        <!-- アバター -->
-        <div class="right floated description">
-          <%= link_to gravatar_for(current_user, size: 70), current_user %>
-        </div>
       </div>
       <div class="description">
         <%= current_user.bio %>
@@ -34,13 +30,19 @@
       </div>
     </div>
 
+<% if logged_in? %>
     <div class="extra content">
-      <% if logged_in? %>
+      <span class="left floated">
+        <i class="idea icon"></i>
+        <%= link_to "See My got Stylings", got_path %><br>
+      </span>
+    </div>
+
+    <div class="extra content">
       <span class="right floated">
         <%= link_to "Edit profile", edit_user_path(current_user) %>
       </span>
-      <% end %>
     </div>
-
+<% end %>
 
   </div>
