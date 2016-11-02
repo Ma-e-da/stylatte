@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031124033) do
+ActiveRecord::Schema.define(version: 20161102094354) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id",     null: false
@@ -94,6 +94,13 @@ ActiveRecord::Schema.define(version: 20161031124033) do
     t.string   "picture"
     t.string   "website"
     t.text     "bio"
+    t.integer  "height"
+    t.integer  "size"
+    t.integer  "age"
+    t.integer  "hair_style"
+    t.integer  "hair_color"
+    t.integer  "eyes_color"
+    t.text     "favorites"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
