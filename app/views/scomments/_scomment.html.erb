@@ -2,17 +2,13 @@
 <% @user ||= current_user %>
 <div id="scomment-<%= scomment.id %>">
 
-
-<div class="ui segments">
-
-  <div class="ui segment">
-
 <!-- スタイリングしたコメント者情報 -->
-      <%= gravatar_for scomment.user, size: 20 %>
-      <span><%= link_to scomment.user.name, scomment.user %></span>
+<h3>
+  This styling supposition is created by <%= link_to scomment.user.name, scomment.user %>
+    <%= gravatar_for scomment.user, size: 20 %>
 
-<!-- 報告など -->
-  <% if current_user?(scomment.user) %>
+<!-- 報告 -->
+
     <div class="ui simple dropdown item">
       <i class="configure icon"></i>
       <div class="menu">
@@ -27,27 +23,32 @@
         </div>
 
         <div class="divider"></div>
+        
+        <% if current_user?(scomment.user) %>
+          <div class="item">
+            <%= link_to "Delete this styling", scomment, method: :delete, data: { confirm: "You sure?" }, title: scomment.content %>
+          </div>
+        <% end %>
 
-        <div class="item">
-          <%= link_to "Delete this styling", scomment, method: :delete, data: { confirm: "You sure?" }, title: scomment.content %>
-        </div>
       </div>
     </div>
-  <% end %>
 
-  </div>
+</h3>
+
 
 <!-- スタイリングコメント内容 -->
-    <div class="ui segment">
-      <div class="description">
+      <div class="ui card">
+        <%= image_tag scomment.picture.url if scomment.picture? %>
+      </div>
+
+      <div class="ui segment">
         <p><%= scomment.content %></p>
-        <a><%= image_tag scomment.picture.url if scomment.picture? %></a>
       </div>
 
       <div class="metadata">
         <span><%= time_ago_in_words(scomment.created_at) %> ago.</span>
       </div>
-    </div>
+
 
 <!-- お気に入りと星をつける欄(Postユーザーのみ) -->
 <% if current_user?(@post.user) %>
@@ -60,4 +61,4 @@
 <% end %>
 
 
-</div>
+<div class="ui divider"></div>

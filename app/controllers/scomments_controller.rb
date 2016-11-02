@@ -8,7 +8,7 @@ class ScommentsController < ApplicationController
     @scomment.user_id = current_user.id
         if @scomment.save
           flash[:success] = "Thank you for a styling! Your Comment has been sent!"
-          redirect_to (:back)
+          redirect_to root_url
         else
           @feed_items = []
           render 'static_pages/home'
