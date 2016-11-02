@@ -1,8 +1,24 @@
-<h1><%= @user_name %> sent scomments!</h1>
+<h1>Stylings you sent !</h1>
+
 
 
   <% @scomments.each do |scomment| %>
-  <div class="ui card">
-    <%= scomment.content %>
-  </div>
+
+    <div class="ui card">
+      <%= image_tag scomment.picture.url if scomment.picture? %>
+    </div>
+    <div class="ui segment">
+      <%= scomment.content %>
+    </div>
+    <div class="date">
+      <%= time_ago_in_words(scomment.created_at) %> ago
+    </div>
+
+    <h3>
+      <i class="star icon"></i>
+ここに星の数入れる
+    </h3>
+
   <% end %>
+
+  <div class="ui divider"></div>

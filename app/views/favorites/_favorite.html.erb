@@ -1,8 +1,27 @@
-<h1>わたしがfavoriteしたコメントの一覧</h1>
+<h2>My favorites</h2>
 
-  <% @user.favorite_scomments.each do |scomment| %>
+<% @user.favorite_scomments.each do |scomment| %>
+
 <div class="ui card">
-    <%= scomment.content %>
-    <%= link_to scomment.user.name, scomment.user %>
+  <%= image_tag scomment.picture.url if scomment.picture? %>
 </div>
-  <% end %>
+<div class="ui segment">
+  <%= scomment.content %>
+</div>
+<div class="date">
+  <%= time_ago_in_words(scomment.created_at) %> ago
+</div>
+
+<h4>
+  From.
+  <a class="author">
+     <%= scomment.user.name %>
+  </a>
+  <a class="avatar">
+    <%= link_to gravatar_for(scomment.user, size: 30) %>
+  </a>
+</h4>
+
+<% end %>
+
+<div class="ui divider"></div>

@@ -1,30 +1,58 @@
 <h1>Styling List</h1>
-<p>All Stylings you got.</p>
+<p> - All Stylings you got.</p>
 
 
 <% @scomments.each do |scomment| %>
 
+<h4>From
+  <a class="author">
+    <%= scomment.user.name %>
+  </a>
+  <a class="avatar">
+    <%= link_to gravatar_for(scomment.user, size: 30) %>
+  </a>
 
+  <!-- 報告 -->
 
-  <div class="ui comments">
-    <div class="comment">
-      <a class="avatar">
-        <%= link_to gravatar_for(current_user, size: 30), current_user %>
-      </a>
-      <div class="content">
-        <a class="author"><%= scomment.user.name %></a>
-        <div class="metadata">
-          <div class="date"><%= time_ago_in_words(scomment.created_at) %> ago</div>
-          <div class="rating">
-            <i class="star icon"></i>
-            5 Faves
+      <div class="ui simple dropdown item">
+        <i class="configure icon"></i>
+        <div class="menu">
+          <div class="item">
+            #URLへジャンプする
           </div>
-        </div>
-        <div class="text">
-          <%= scomment.content %>
+          <div class="item">
+            #シェアする
+          </div>
+          <div class="item">
+            #違反報告する
+          </div>
+
+          <div class="divider"></div>
+
+          <% if current_user?(scomment.user) %>
+            <div class="item">
+              <%= link_to "Delete this styling", scomment, method: :delete, data: { confirm: "You sure?" }, title: scomment.content %>
+            </div>
+          <% end %>
+
         </div>
       </div>
+</h4>
+
+
+    <div class="ui card">
+      <%= image_tag scomment.picture.url if scomment.picture? %>
     </div>
-  </div>
+
+    <div class="ui segment">
+      <%= scomment.content %>
+    </div>
+
+    <div class="date">
+      <%= time_ago_in_words(scomment.created_at) %> ago
+    </div>
+
 
 <% end %>
+
+<div class="ui divider"></div>
