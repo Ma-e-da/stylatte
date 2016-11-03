@@ -67,7 +67,9 @@
 
   <%= render 'shared/header' %>
     <% flash.each do |message_type, message| %>
-    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <div class="ui <%= message_type %> message">
+      <%= message %>
+  </div>
   <% end %>
 
 
