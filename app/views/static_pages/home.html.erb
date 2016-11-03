@@ -33,7 +33,11 @@
 <% else %>
 
 
-
+<div class="ui compact green message">
+  <p>Get all the best styling from all over the world. For free.</p>
+  <%= link_to "Log in", login_path %>
+  <p>New user? Sign up now!</p><%= link_to "sign up", signup_path %>
+</div>
 
 <!-- ランディングページ (公開一覧ポスト)なにか押したら、sessions/new〜ログインページに移る。（できたらHoverで出てくるようにする。）-->
 <div class="ui two column stackable grid">
