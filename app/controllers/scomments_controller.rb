@@ -7,7 +7,7 @@ class ScommentsController < ApplicationController
     @scomment = @post.scomments.create(scomment_params)
     @scomment.user_id = current_user.id
         if @scomment.save
-          flash[:success] = "Thank you for a styling! Your Comment has been sent!"
+          flash[:green] = "Thank you for a styling! Your Comment has been sent!"
           redirect_to root_url
         else
           @feed_items = []

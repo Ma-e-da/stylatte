@@ -2,7 +2,7 @@ class RatingsController < ApplicationController
   def create
     @rating = current_user.ratings.build(rating_params)
     if @rating.save
-      flash[:success] = "Star sent!"
+      flash[:green] = "Star sent!"
       redirect_to root_url
     end
   end
