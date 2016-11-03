@@ -1,5 +1,5 @@
-$('#scomment_<%= @scomment.id %>').html('<%= escape_javascript(render("ratings/rating_btn", scomment: @scomment)) %>')
-$('#ratings').text('<%= scomment_user.ratings.count %>')
+$("#scomment_<%= @scomment.id %>").html("<%= escape_javascript(render('ratings/rating_btn', scomment: @scomment)) %>")
+$("#ratings").text('<%= scomment_user.ratings.count %>')
 
 
 

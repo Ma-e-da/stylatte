@@ -1,4 +1,4 @@
-<%= link_to rating_path(current_user.ratings.find_by(scomment_id: scomment.id)), remote: true, method: :get, class: 'rating-link' do %>
+<%= link_to rating_path(current_user.ratings.find_by(scomment_id: scomment.id)), remote: true, method: :get, class: 'rating-link', data: { confirm: "You sure?" } do %>
   <i class="big star icon"></i>
 <% end %>
 
