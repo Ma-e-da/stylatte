@@ -94,13 +94,13 @@ ActiveRecord::Schema.define(version: 20161102094354) do
     t.string   "picture"
     t.string   "website"
     t.text     "bio"
-    t.integer  "height"
-    t.integer  "size"
-    t.integer  "age"
-    t.integer  "hair_style"
-    t.integer  "hair_color"
-    t.integer  "eyes_color"
-    t.text     "favorites"
+    t.text     "height"
+    t.text     "size"
+    t.text     "age"
+    t.text     "hair_style"
+    t.text     "hair_color"
+    t.text     "eyes_color"
+    t.text     "favs"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

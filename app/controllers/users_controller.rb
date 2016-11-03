@@ -98,7 +98,11 @@ class UsersController < ApplicationController
 
    def user_params
      params.require(:user).permit(:name, :email, :password,
-                                  :password_confirmation, :stylist, :gender, :country, :website, :bio, :picture)
+                                  :password_confirmation,
+                                  :stylist,
+                                  :gender, :country,
+                                  :picture, :website, :bio,
+                                  :height, :size, :age, :hair_style, :hair_color, :eyes_color, :favs)
    end
 
    # beforeフィルター
