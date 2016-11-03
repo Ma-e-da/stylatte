@@ -1,5 +1,5 @@
 ＞＞users/showページはじまり。(だれからもユーザーを探すをしたら見れるページ。)
-
+ここは、user_infoにrenderできない。(user_infoの方はログインしているユーザーの情報、こちらはアクセスした先のみたいユーザーの情報と別だから。)
 <div class="ui two column stackable grid">
 
 <!-- ユーザー情報 -->
@@ -29,16 +29,26 @@
       </div>
       </div>
       <div class="description">
-        <%= @user.bio %>
+        <%= @user.bio %><br>
       </div>
-      <div class="right floated description">
-        <%= @user.website %>
-      </div>
+    </div>
+    <div class="content">
+      country/  <%= @user.country %><br>
+      My favorites/  <%= @user.favs %><br>
+      URL/  <%= @user.website %>
     </div>
     <div class="extra content">
+<!-- ユーザーの詳しい情報 -->
+      Height / <%= @user.height %><br>
+      Size / <%= @user.size %><br>
+      Age / <%= @user.age %><br>
+      Hair style / <%= @user.hair_style %><br>
+      Hair Color / <%= @user.hair_color %><br>
+      Eyes Color / <%= @user.eyes_color %>
+    </div>
+
     <!-- フォロー、アンフォローボタン -->
     <%= render 'follow_form' if logged_in? %>
-    </div>
 
   </div>
 

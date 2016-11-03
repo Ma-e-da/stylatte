@@ -29,20 +29,29 @@
         <%= current_user.website %>
       </div>
     </div>
-
-<% if logged_in? %>
     <div class="extra content">
-      <span class="left floated">
-        <i class="idea icon"></i>
-        <%= link_to "See My got Stylings", got_path %><br>
-      </span>
+      <!-- ユーザーの詳しい情報 -->
+            Height / <%= @user.height %><br>
+            Size / <%= @user.size %><br>
+            Age / <%= @user.age %><br>
+            Hair style / <%= @user.hair_style %><br>
+            Hair Color / <%= @user.hair_color %><br>
+            Eyes Color / <%= @user.eyes_color %>
+
     </div>
 
-    <div class="extra content">
+<% if logged_in? %>
+    <div class="content">
+      <span class="left floated">
+        <i class="idea icon"></i>
+        <%= link_to "See My got Stylings", got_path %>
+      </span>
       <span class="right floated">
         <%= link_to "Edit profile", edit_user_path(current_user) %>
       </span>
     </div>
+
+
 <% end %>
 
   </div>
