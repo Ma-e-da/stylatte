@@ -51,7 +51,13 @@
     <div class="date">
       <%= time_ago_in_words(scomment.created_at) %> ago
     </div>
-
+    <!-- お気に入り、星ボタン -->
+    <span id="scomment_<%= scomment.id %>">
+      <%= render 'favorites/favorite_btn', scomment: scomment %>
+    </span>
+    <span id="scomment_<%= scomment.id %>">
+    <%= render 'ratings/rating_btn', scomment: scomment %>
+    </span>
 
 <% end %>
 

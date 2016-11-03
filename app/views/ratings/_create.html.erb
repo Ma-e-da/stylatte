@@ -1,3 +1,16 @@
 <%= link_to ratings_path(rating: {scomment_user: scomment.user.id, star: '1', scomment_id: scomment.id }), remote: true, method: :post, class: 'rating-link', data: { confirm: "Send one star?" } do %>
 <i class="big empty star icon"></i>
 <% end %>
+<%= link_to ratings_path(rating: {scomment_user: scomment.user.id, star: '2', scomment_id: scomment.id }), remote: true, method: :post, class: 'rating-link', data: { confirm: "Send two star?" } do %>
+<i class="big empty star icon"></i>
+<% end %>
+<%= link_to ratings_path(rating: {scomment_user: scomment.user.id, star: '3', scomment_id: scomment.id }), remote: true, method: :post, class: 'rating-link', data: { confirm: "Send three star?" } do %>
+<i class="big empty star icon"></i>
+<% end %>
+<%= link_to ratings_path(rating: {scomment_user: scomment.user.id, star: '4', scomment_id: scomment.id }), remote: true, method: :post, class: 'rating-link', data: { confirm: "Send four star?" } do %>
+<i class="big empty star icon"></i>
+<% end %>
+<%= link_to ratings_path(rating: {scomment_user: scomment.user.id, star: '5', scomment_id: scomment.id }), remote: true, method: :post, class: 'rating-link', data: { confirm: "Send five star?" } do %>
+<i class="big empty star icon"></i>
+<% end %>
+<a class="ui left pointing basic label">Press Star for Thanks!</a>
