@@ -82,6 +82,10 @@
       <%= f.label :bio %><p>- Add a short description. -</p>
         <%= f.text_area :bio, placeholder: "I am ..." ,rows:"2"%>
     </div>
+    <div class="field">
+      <%= f.label :favs %><p>- Add a short description. -</p>
+        <%= f.text_area :favs, placeholder: "My favorites ..." ,rows:"2"%>
+    </div>
 
 
 <!-- アバター -->
@@ -91,9 +95,10 @@
     </div>
 
 
+
 <!-- ヘッダーの写真(アバターじゃない方のプロフィール写真) -->
 <div class="ui card">
-<div class="image">
+  <div class="image">
     <%= image_tag @user.picture.url %>
 
     <div class="field">
@@ -101,31 +106,64 @@
       change<%= f.label :picture %>
       <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
     </div>
+  </div>
+</div>
 
-</div>
-</div>
+
 
 <!-- More /アコーディオン/ 必ずulは入れること（custom.css操作）-->
 <div class="ui divider"></div>
 
     <div class="acodmenu">
+
         <label for="Panel20">
           <div class="active title">
-            <i class="dropdown icon"></i>
-            Set More
+            <h3>
+              <i class="dropdown icon"></i>
+              Set More
+            </h3>
           </div>
         </label>
 
         <input type="checkbox" id="Panel20" class="on-off" />
 
         <ul>
+                  <div class="field">
+                    <%= f.label :height %>
+                    <%= f.select :height, [["-"],["~140cm"],["~150cm"], ["~160cm"], ["~170cm"], ["~180cm"], ["~190cm"], ["others"]], class: 'form-control' %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :size %>
+                    <%= f.select :size, [["-"],["XXS"],["XS"], ["M"], ["L"], ["XL"], ["XXL"], ["others"]], class: 'form-control' %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :age %>
+                    <%= f.select :age, [["-"],["10's"],["20's"], ["30's"], ["40's"], ["50's"], ["60's"], ["70's"], ["80's"], ["90's"]], class: 'form-control' %>
+                  </div>
 
 
-<p>size,hairstyle,haircolor,my favorites...</p>
+                  <div class="field">
+                    <%= f.label :hair_style %>
+                    <%= f.select :hair_style, [["-"],["short"],["middle"], ["long"], ["others"]], class: 'form-control' %>
+                  </div>
 
+
+                  <div class="field">
+                    <%= f.label :hair_color %>
+                    <%= f.select :hair_color, [["-"],["black"],["brown"], ["blond"], ["red"], ["others"]], class: 'form-control' %>
+                  </div>
+
+
+                  <div class="field">
+                    <%= f.label :eyes_color %>
+                    <%= f.select :eyes_color, [["-"],["brown"], ["blue"], ["green"], ["others"]], class: 'form-control' %>
+                  </div>
 
         </ul>
     </div>
+
     <div class="ui divider"></div>
 
 
