@@ -94,12 +94,12 @@ ActiveRecord::Schema.define(version: 20161102094354) do
     t.string   "picture"
     t.string   "website"
     t.text     "bio"
-    t.text     "height"
-    t.text     "size"
-    t.text     "age"
-    t.text     "hair_style"
-    t.text     "hair_color"
-    t.text     "eyes_color"
+    t.string   "height"
+    t.string   "size"
+    t.string   "age"
+    t.string   "hair_style"
+    t.string   "hair_color"
+    t.string   "eyes_color"
     t.text     "favs"
   end
 
