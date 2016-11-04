@@ -1,69 +1,45 @@
 
 <!-- Stats -->
 <% @user ||= current_user %>
+<div class="ui card">
 
-<div class="two ui basic small buttons">
+  <div class="content">
 
-  <div class="ui button">
-    <strong class="stat">
+    <span class="left floated">
       <%= @user.following.count %><br>
-      <%= link_to "following", following_user_path(current_user) %><br>
+      <%= link_to "following", following_user_path(current_user) %>
       <i class="icon user"></i>
-    </strong>
-  </a>
-</div>
+    </span>
 
-<div class="ui button">
-  <strong class="stat">
-    <%= @user.followers.count %><br>
-    <%= link_to "followers", followers_user_path(current_user) %><br>
-    <i class="icon user"></i>
-  </strong>
-</a>
-</div>
 
-</div>
+    <span class="right floated">
+      <%= @user.followers.count %><br>
+      <%= link_to "followers", followers_user_path(current_user) %>
+      <i class="icon user"></i>
+    </span>
 
-<div class="two ui basic small buttons">
+  </div>
 
-<div class="ui button">
-  <strong class="stat">
+
+
+
+<div class="content">
+<span class="left floated">
     <%= @user.posts.count %><br>
-    <%= link_to "posts", posts_path(current_user) %><br>
+    <%= link_to "posts", posts_path(current_user) %>
     <i class="mail icon"></i>
-  </strong>
-</a>
-</div>
-
-<div class="ui button">
-  <strong class="stat">
+</span>
+<span class="right floated">
     <%= @user.favorite_scomments.count %><br>
-    <%= link_to "favorites", favorites_path(current_user) %><br>
+    <%= link_to "favorites", favorites_path(current_user) %>
     <i class="heart icon"></i>
-  </strong>
+</span>
+
 </div>
 
 </div>
 
 <% if logged_in? && current_user.stylist? %>
-<div class="two ui basic green tiny buttons">
-
-<div class="ui button">
-  <strong class="stat">
-    <%= @user.posts.count %><br>
-    <%= link_to "Sent Stylings", sent_path %><br>
-    <i class="pencil icon"></i>
-  </strong>
-</a>
-</div>
-
-
-
-</div>
-
-
-<p>You are getting <%= @user.rating_scomments.count %> Stars<i class="star icon"></i></p>
-
 
 <div class="ui green basic button">
   <%= link_to "To Stylist Analysis Page", stylistanalysis_path %>
