@@ -6,13 +6,19 @@
     <div class="label">
       <%= gravatar_for user, size: 50 %>
     </div>
-    <p><%= link_to user.name, user %></p>
+    <%= link_to user.name, user %>
   </div>
 
+  <div class="event">
+    <span><%= user.bio %></span>
+  </div>
+
+
   <% if user.stylist? %>
+  <span>StylingBook</span>
     <button class="ui red basic button">
       <i class="book icon"></i>
-      <%= link_to "StylingBook", user %>
+      <%= link_to "", user %>
     </button>
   <% end %>
 
