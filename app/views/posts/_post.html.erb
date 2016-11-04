@@ -46,12 +46,12 @@ posts/_postページ＞＞
 
 
 <!-- コメント数表示 & もらったスタイリングコメントへのリンク-->
-  <div class="summary">
+
+  <div class="ui blue label">
     <i class="idea icon"></i>
     <%= post.scomments.count %>
-    <%= link_to 'Stylings', post %>
+    <a class="detail"><%= link_to 'Stylings', post %></a>
   </div>
-
 <!-- スタイリングを送る -->
   <div class="ui green basic button">
     <% if logged_in? && current_user.stylist? %>

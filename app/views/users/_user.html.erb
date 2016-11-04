@@ -15,11 +15,13 @@
 
 
   <% if user.stylist? %>
-  <span>StylingBook</span>
+
     <button class="ui red basic button">
       <i class="book icon"></i>
       <%= link_to "", user %>
     </button>
+    <a class="ui red tag label">StylingBook</a>
+    
   <% end %>
 
   <% if current_user.admin? && !current_user?(user) %>
