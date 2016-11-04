@@ -17,11 +17,10 @@
     <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
   </span>
 
-  <div class="ui divider"></div>
+<div class="ui divider"></div>
 
-
-  <!-- ポストの詳細選ぶ（アコーディオン）必ずulは入れること（custom.cssにて操作中）-->
-  <div class="acodmenu">
+<!-- ポストの詳細選ぶ（アコーディオン）必ずulは入れること（custom.cssにて操作中）-->
+<div class="acodmenu">
 
     <!-- 閉まっているときの表示 -->
     <label for="Panel13">
@@ -33,104 +32,68 @@
 
     <input type="checkbox" id="Panel13" class="on-off" />
 
-    <!-- 開いたときの内容 -->
-    <ul>
-        <!-- 各種ボタン -->
-        <div class="content field">
-
-          <!-- ラジオボタン（複数選択不可） -->
-          <div class="ui form item">
-
-            <div class="grouped inline fields">
-
-
-              <div class="field">
-                <div class="ui radio checkbox">
-                  <input type="radio" name="size" value="small">
-                  <label>Small</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui radio checkbox">
-                  <input type="radio" name="size" value="medium">
-                  <label>Medium</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui radio checkbox">
-                  <input type="radio" name="size" value="large">
-                  <label>Large</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui radio checkbox">
-                  <input type="radio" name="size" value="x-large">
-                  <label>X-Large</label>
-                </div>
-              </div>
-              <div class="ui checkbox">
-                <input type="checkbox" name="fun">
-                <label>I enjoy having fun</label>
-              </div>
-
-
-
-            </div>
-
-          </div>
-
-
-
-          <!-- チェックボタン（　複数選択可 ） -->
-            <div class="ui form item">
-              <div class="grouped inline fields">
-
-                <div class="field">
-                  <div class="ui checkbox">
-                    <input type="checkbox" name="small">
-                    <label>Red</label>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui checkbox">
-                    <input type="checkbox" name="medium">
-                    <label>Orange</label>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui checkbox">
-                    <input type="checkbox" name="large">
-                    <label>Green</label>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui checkbox">
-                    <input type="checkbox" name="x-large">
-                    <label>Blue</label>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-
-          </div>
-
-        <!-- トグルボタン -->
-        <div class="ui toggle checkbox">
-          <input type="checkbox" name="pet">
-          <label>Set to Private</label>
+<!-- 開いたときの内容 -->
+<ul>
+<div class="ui form">
+      <!-- アイテムの種類 -->
+        <div class="field">
+          <%= f.label :item %>
+          <%= f.select :item, {"-" => "0", "outerwear" => "1", "tops" => "2", "bottoms" => "3", "others" => "4"}, class: 'form-control' %>
         </div>
-
-
-    </ul>
-    <!-- 開いたときの内容おわり   -->
-
+      <!-- 誰のためのか -->
+        <div class="field">
+          <%= f.label :for %>
+          <%= f.select :for_who, {"-" => "0", "MEN" => "1", "WOMEN" => "2", "Others" => "3", "DOGS/CATS" => "4"}, class: 'form-control' %>
+        </div>
+      <!-- サイズ -->
+        <div class="field">
+          <%= f.label :size %>
+          <%= f.select :size, {"-" => "0", "XXS" => "1", "XS" => "2", "M" => "3", "L" => "4", "XL" => "4", "XXL" => "4", "others" => "4"}, class: 'form-control' %>
+        </div>
+      <!-- 色 -->
+        <div class="field">
+          <%= f.label :color %>
+          <%= f.select :color, {"-" => "0", "BLACK" => "1", "WOMEN" => "2", "Others" => "3", "DOGS/CATS" => "4"}, class: 'form-control' %>
+        </div>
+      <!-- スタイル・ジャンル -->
+        <div class="field">
+          <%= f.label :style_genre %>
+          <%= f.select :color, {"-" => "0", "COOL" => "1", "SIMPLE" => "2", "CUTE" => "3", "ELEGANT" => "4", "CLASSIC" => "5", "VINTAGE" => "6"}, class: 'form-control' %>
+        </div>
+      <!-- シーン -->
+        <div class="field">
+          <%= f.label :scene %>
+          <%= f.select :scene, {"-" => "0", "Formal" => "1", "Casual" => "2"}, class: 'form-control' %>
+        </div>
+      <!-- シーズン -->
+        <div class="field">
+          <%= f.label :season %>
+          <%= f.select :season, {"-" => "0", "spring" => "1", "summer" => "2", "automn" => "3", "winter" => "4"}, class: 'form-control' %>
+        </div>
+      <!-- 価格帯 -->
+        <div class="field">
+          <%= f.label :price_range %>
+          <%= f.select :season, {"-" => "0", "spring" => "1", "summer" => "2", "automn" => "3", "winter" => "4"}, class: 'form-control' %>
+        </div>
+      <!-- いつまでに欲しいか -->
+        <div class="field">
+          <%= f.label :deadline %>
+          <%= f.date_select :deadline %>
+        </div>
   </div>
+</ul>
+<!-- 開いたときの内容おわり   -->
+
+</div>
 
 
 <div class="ui divider"></div>
 
+<!-- トグルボタン -->
+<div class="ui toggle checkbox">
+  <input type="checkbox" name="pet">
+  <label>Set to Private</label>
+</div>
 
   <%= f.submit "SEND", class: "ui basic blue button" %>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102094354) do
+ActiveRecord::Schema.define(version: 20161104101721) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id",     null: false
@@ -27,9 +27,18 @@ ActiveRecord::Schema.define(version: 20161102094354) do
   create_table "posts", force: :cascade do |t|
     t.text     "content"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "picture"
+    t.integer  "item"
+    t.integer  "for_who"
+    t.integer  "size"
+    t.integer  "color"
+    t.integer  "style_genre"
+    t.integer  "scene"
+    t.integer  "season"
+    t.integer  "price_range"
+    t.datetime "deadline"
   end
 
   add_index "posts", ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"

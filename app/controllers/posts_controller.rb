@@ -40,7 +40,8 @@ end
 private
 
   def post_params
-    params.require(:post).permit(:content, :picture)
+    params.require(:post).permit(:content, :picture, :item, :for_who, :size, :color,
+                                  :style_genre, :scene, :season, :price_range, :deadline )
   end
 
   def correct_user
