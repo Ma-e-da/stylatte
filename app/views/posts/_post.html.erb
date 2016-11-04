@@ -1,40 +1,49 @@
 posts/_postページ＞＞
 
-<li id="post-<%= post.id %>"></li>
-
-
 <div class="ui feed">
 
   <div class="event">
-    <div class="label">
-      <%= link_to gravatar_for(post.user, size: 50), post.user %>
-    </div>
+
     <div class="content">
-      <div class="date">
-        <%= time_ago_in_words(post.created_at) %> ago
+
+      <!-- 名前＆アバター -->
+      <a><%= link_to post.user.name, post.user %></a>
+      <div class="ui avatar image">
+        <%= link_to gravatar_for(post.user, size: 50), post.user %>
       </div>
 
-      <a><%= link_to post.user.name, post.user %></a>
+
+        <!-- 日時 -->
+        <div class="date">
+          <%= time_ago_in_words(post.created_at) %> ago
+        </div>
 
       <div class="ui segment">
+
+        <!-- ポスト　コンテント -->
         <%= post.content %><br>
+        <!-- ポストイメージ -->
+        <div class="extra images">
+          <a><%= image_tag post.picture.url if post.picture? %></a>
+        </div>
+
+        <!-- ポストしたユーザーのみ見れるリンク -->
+        <% if current_user?(post.user) %>
+            <!-- このポストを詳しくみる -->
+                <i class="search icon"></i>
+                <%= link_to 'See Details', post %><br>
+            <!-- このポストを削除する -->
+                <i class="trash icon"></i>
+                <%= link_to "Delete", post, method: :delete, data: { confirm: "You sure?" } %>
+        <% end %>
+
       </div>
-      <div class="extra images">
-        <a><%= image_tag post.picture.url if post.picture? %></a>
-      </div>
+
     </div>
 
   </div>
 
-<!-- スタイリングを送る -->
-    <% if logged_in? && current_user.stylist? %>
-          <div class="summary">
-            <h4>
-            <i class="pencil icon"></i>
-            <%= link_to 'Send Styling to this Post!', post %>
-            </h4>
-          </div>
-    <% end %>
+
 
 <!-- コメント数表示 & もらったスタイリングコメントへのリンク-->
   <div class="summary">
@@ -43,15 +52,18 @@ posts/_postページ＞＞
     <%= link_to 'Stylings', post %>
   </div>
 
-<!-- このポストを削除する -->
-  <div class="summary">
-    <% if current_user?(post.user) %>
-        <i class="trash icon"></i>
-        <%= link_to "Delete Post", post, method: :delete, data: { confirm: "You sure?" } %>
+<!-- スタイリングを送る -->
+  <div class="ui green basic button">
+    <% if logged_in? && current_user.stylist? %>
+          <div class="summary">
+
+            <i class="pencil icon"></i>
+            <%= link_to 'Suppose Styling', post %>
+
+
+          </div>
     <% end %>
   </div>
-
-
 
 
   <div class="ui divider"></div>
