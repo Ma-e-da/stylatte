@@ -1,5 +1,3 @@
-＞＞users/indexページはじまり。
-
 <!-- 検索 -->
   <!-- 性別は、select_tagメソッドを使用してセレクトボックス作成。
   User.gendersと記述することで、unknown, male, female, otherとそれぞれの値が取得できる。
@@ -10,11 +8,14 @@
 
 <!-- form_tagはModelに基づかない場合に使用します( 主に検索 )。 form_forはModelに基づく場合に使用します( 主に更新や新規作成の場合 )。-->
 <div>
+
   <%= form_tag(users_path, method: "get") do %>
 
-    <div class="ui input">
-      <%= label_tag :name, "NAME" %>
-      <%= text_field_tag :name, params[:name] %>
+    <div class="ui form">
+      <div class="field">
+        <%= label_tag :name, "NAME" %>
+        <%= text_field_tag :name, params[:name] %>
+      </div>
     </div>
 
     <div class="ui form">
@@ -39,9 +40,11 @@
     </div>
 
 
-    <div class="segment">
-      <%= submit_tag "Search!", class: "ui basic blue button" %>
-    </div>
+
+      <div class="field">
+        <%= submit_tag "Search!", class: "ui basic blue button" %>
+      </div>
+
 
       <!-- ここにクリアボタンもつくる。 -->
 
