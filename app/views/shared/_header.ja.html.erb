@@ -1,0 +1,96 @@
+<nav class="paradeiser" id="paradeiser">
+
+
+
+<!-- ロゴ -->
+<!-- ここは、ふつうのRails pathだと表示崩れするため、htmlの書き方のままで。 -->
+<!-- 元のコードは、
+<a href="#">
+    <img src="http://danielwinter.at/apple-touch-icon_76x76.png" alt="Logo of Daniel Winter" class="paradeiser_logo">
+</a>
+だった。 -->
+
+<a href="http://192.168.99.100:3000">STYLATTE</a>
+
+
+<!-- PCとタブレットのみ表示 -->
+<a href="#" class="paradeiser-hidden-phone">
+  <icon class="paradeiser_icon_canvas">
+    <b>Welcome!</b>
+  </icon>
+  <% if logged_in? %>
+  <span><%= current_user.name %></span>
+  <% @user ||= current_user %>
+  <%= link_to gravatar_for(current_user, size: 50), current_user %>
+  <% else %>
+  <span><%= link_to "Log in", login_path %></span>
+  <% end %>
+</a>
+
+<!-- PCのみ表示
+        <a href="#" class="paradeiser-hidden-phone paradeiser-hidden-tablet">
+            <icon class="paradeiser_icon_canvas">
+                <img src="img/menu_contact.svg" alt="Navigate to Contact">
+            </icon>
+            <span>Desktop Only</span>
+        </a> -->
+
+<!-- モバイルのみ表示
+        <a href="#" class="paradeiser-hidden-desktop paradeiser-hidden-tablet">
+            <icon class="paradeiser_icon_canvas">
+                <img src="img/menu_contact.svg" alt="Navigate to Contact">
+            </icon>
+            <span>Mobile Only</span>
+        </a> -->
+
+<!-- タブレットのみ表示
+        <a href="#" class="paradeiser-hidden-phone paradeiser-hidden-desktop">
+            <icon class="paradeiser_icon_canvas">
+                <img src="img/menu_contact.svg" alt="Navigate to Contact">
+            </icon>
+            <span>Tablet Only</span>
+        </a> -->
+
+
+<!-- メニュードロップダウンここから -->
+        <div class="paradeiser_dropdown">
+  <!-- アイコン -->
+            <a href="#paradeiser-more" id="paradeiser-dropdown">
+
+                <span>MENU</span>
+            </a>
+  <!-- 開いた後の中身 -->
+            <ul class="paradeiser_children" id="paradeiser-more">
+              <% if logged_in? %>
+                <li><%= link_to "スタイリングを希望する", new_post_path %></li>
+                <li><%= link_to "私のスタイリング希望一覧", posts_path %></li>
+                <li><%= link_to "もらったスタイリング", got_path %></li>
+                <li><%= link_to "お気に入り", favorites_path(current_user) %></li>
+                <li><%= link_to "ユーザーをさがす", users_path %></li>
+              <!-- 携帯、タブレットのみ -->
+                <!-- <li class="paradeiser-hidden-desktop"><a href="#">Hidden on desktop</a></li> -->
+              <!-- PC,携帯のみ -->
+                <!-- <li class="paradeiser-hidden-tablet"><a href="#">Hidden on tablet</a></li> -->
+              <!-- PC,タブレットのみ -->
+                <!-- <li class="paradeiser-hidden-phone"><a href="#">Hidden on phone</a></li> -->
+                <li><%= link_to "プロフィール編集", edit_user_path(current_user) %></li>
+                <li><%= link_to "ヘルプ", help_path %></li>
+                <li><%= link_to "ログアウト", logout_path, method: "delete" %></li>
+              <% else %>
+              <li><%= link_to "ログイン", login_path %></li>
+              <li><%= link_to "スタイングする側になってみませんか?", styliststart_path %></li>
+              <li><%= link_to "ヘルプ", help_path %></li>
+              <% end %>
+              <!-- 下１行なにかわからないが、ないと上の一番したのliがグレーになるから置いておく。 -->
+              <li id="greybox"><a href="#!"></a></li>
+
+            </ul>
+
+
+  <!-- 開いた後の中身ここまで -->
+        </div>
+<!-- メニュードロップダウンここまで -->
+
+
+
+    </nav>
