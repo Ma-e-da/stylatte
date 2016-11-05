@@ -15,7 +15,11 @@
           <i class="facebook icon"></i><a href="https://www.facebook.com/Stylatte-335151873516229/" target="_blank">Facebook</a>
           <i class="twitter icon"></i><br>
         </div>
-        <!-- 言語選択入れる -->
+
+        <!-- 言語選択 -->
+        <%= link_to_if params[:locale].present?, '日本語',  url_for(controller: controller.controller_name, action: controller.action_name, locale: 'ja') %> |
+        <%= link_to_if params[:locale] != 'en',  'English',  url_for(controller: controller.controller_name, action: controller.action_name, locale: 'en') %>
+
       </div>
 
       <div class="eight wide column">
