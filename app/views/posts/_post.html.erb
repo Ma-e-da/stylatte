@@ -47,7 +47,7 @@ posts/_postページ＞＞
 
 <!-- コメント数表示 & もらったスタイリングコメントへのリンク-->
 
-  <div class="ui blue label">
+  <div class="ui large blue label">
     <i class="idea icon"></i>
     <%= post.scomments.count %>
     <a class="detail"><%= link_to 'Stylings', post %></a>
@@ -55,7 +55,7 @@ posts/_postページ＞＞
 <!-- スタイリングを送る -->
 <% if logged_in? && current_user.stylist? %>
 
-  <div class="ui green basic button">
+  <div class="ui middle green basic button">
           <div class="summary">
             <i class="pencil icon"></i>
             <%= link_to 'Suppose Styling', post %>
