@@ -30,14 +30,14 @@ ActiveRecord::Schema.define(version: 20161104101721) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "picture"
-    t.integer  "item"
-    t.integer  "for_who"
-    t.integer  "size"
-    t.integer  "color"
-    t.integer  "style_genre"
-    t.integer  "scene"
-    t.integer  "season"
-    t.integer  "price_range"
+    t.string   "product"
+    t.string   "for_who"
+    t.string   "size"
+    t.string   "color"
+    t.string   "style_genre"
+    t.string   "scene"
+    t.string   "season"
+    t.string   "price_range"
     t.datetime "deadline"
   end
 
