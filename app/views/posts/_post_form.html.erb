@@ -37,9 +37,9 @@
 <div class="ui form">
       <!-- アイテムの種類 -->
         <div class="field">
-          <%= f.label :item %>
-          <%= f.select :item, {"-" => "0", "outerwear" => "1", "tops" => "2", "bottoms" => "3", "others" => "4"}, class: 'form-control' %>
-        </div>
+          <%= f.label :product %>
+            <%= f.select :product, {"-" => "-", "outerwear" => "outerwear", "tops" => "tops", "bottoms" => "bottoms", "others" => "others"}, class: 'form-control' %>
+          </div>
       <!-- 誰のためのか -->
         <div class="field">
           <%= f.label :for %>
