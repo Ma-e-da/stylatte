@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+# gTLD を使用したサブディレクトリのためのscope
+scope "(:locale)" do
 # 最もベーシックな書き方。get 'products/:id' => 'catalog#view'
   root             'static_pages#home'
     get 'help'    => 'static_pages#help'
@@ -58,5 +59,7 @@ Rails.application.routes.draw do
     resources :ratings, only: [:create, :show]
 
 
+
+  end
 
 end
