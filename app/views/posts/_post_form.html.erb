@@ -76,11 +76,13 @@
           <%= f.label :price_range %>
           <%= f.select :season, {"-" => "0", "spring" => "1", "summer" => "2", "automn" => "3", "winter" => "4"}, class: 'form-control' %>
         </div>
-      <!-- いつまでに欲しいか -->
+        <!-- いつまでに欲しいか -->
         <div class="field">
           <%= f.label :deadline %>
           <%= f.date_select :deadline %>
         </div>
+
+
   </div>
 </ul>
 <!-- 開いたときの内容おわり   -->
