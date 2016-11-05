@@ -15,10 +15,12 @@
       <% end %>
 
       <!-- プロフィール写真 -->
-        <% if @user.picture %>
-          <%= image_tag @user.picture.url %>
-        <% end %>
-
+      <% if @user.picture.present? %>
+        <%= image_tag @user.picture.url %>
+      <% else %>
+      <%= image_tag("stylatte_50.png", alt: "STYLATTE") %>
+      <% end %>
+      
       </div>
 
     <div class="content">
