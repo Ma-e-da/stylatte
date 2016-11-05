@@ -1,5 +1,7 @@
 <%= t 'views.static_pages.home.Make your style new!' %>
 
+
+
 <% if logged_in? %>
 
 <div class="ui two column stackable grid">
@@ -35,16 +37,16 @@
 
 
 <div class="ui compact green message">
-  <p>Get all the best styling from all over the world. For free.</p>
-  <%= link_to "Log in", login_path %>
-  <p>New user? Sign up now!</p><%= link_to "sign up", signup_path %>
+  <p>世界中から自分に一番似合う服を提案してもらおう。</p>
+  <%= link_to "ログイン", login_path %>
+  <p>アカウント作成はこちら</p><%= link_to "サインアップ", signup_path %>
 </div>
 
 <!-- ランディングページ (公開一覧ポスト)なにか押したら、sessions/new〜ログインページに移る。（できたらHoverで出てくるようにする。）-->
 <div class="ui two column stackable grid">
 
   <div class="twelve wide column">
-    <h2>Posts</h2>
+    <h2>スタイリング募集中</h2>
     <%= render @posts %>
   </div>
 

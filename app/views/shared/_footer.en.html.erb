@@ -1,0 +1,51 @@
+<div class="ui vertical divided footer segment">
+<div class="ui divider"></div>
+  <div class="ui container">
+
+    <div class="ui stackable divided equal height stackable grid">
+
+
+      <div class="eight wide column">
+        <h4 class="ui header">How to use</h4>
+        <div class="ui link list">
+          <%= link_to "Help", help_path %><br>
+          <%= link_to "Become a stylist?", styliststart_path %><br>
+          <%= link_to "Stylist Analize", stylistanalysis_path %><br>
+          More info on SNS /
+          <i class="facebook icon"></i><a href="https://www.facebook.com/Stylatte-335151873516229/" target="_blank">Facebook</a>
+          <i class="twitter icon"></i><a href="https://twitter.com/stylatte2016" target="_blank">ツィッター</a><br>
+        </div>
+
+        <!-- 言語選択 -->
+        <%= link_to_if params[:locale].present?, '日本語',  url_for(controller: controller.controller_name, action: controller.action_name, locale: 'ja') %> |
+        <%= link_to_if params[:locale] != 'en',  'English',  url_for(controller: controller.controller_name, action: controller.action_name, locale: 'en') %>
+
+      </div>
+
+      <div class="eight wide column">
+        <h4 class="ui header">About</h4>
+        <div class="ui link list">
+          <%= link_to "About Us", about_path %><br>
+          <%= link_to "Terms and Conditions", terms_path %><br>
+          <%= link_to "Private Policy", policy_path %><br>
+        </div>
+        <!-- コピーライト -->
+        <p>Copyright © 2016 Stylatte. All rights reserved.</p>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>

@@ -1,0 +1,59 @@
+<% @user ||= current_user %>
+
+  <div class="ui card">
+
+<!-- プロフィール写真がまだないとき 、背景つくれなかった。-->
+    <div class="image">
+      <!-- コーナーラベル：　スタイリストならステータスと共に変わる。 -->
+        <% if logged_in? && current_user.stylist? %>
+          <a class="ui green left corner label">
+            <i class="heart icon"></i>
+          </a>
+        <% end %>
+
+        <!-- プロフィール写真 -->
+          <% if @user.picture.present? %>
+            <%= image_tag @user.picture.url %>
+          <% else %>
+          <%= image_tag("stylatte_50.png", alt: "STYLATTE") %>
+          <% end %>
+    </div>
+
+
+    <div class="content">
+      <div class="header">
+        <%= current_user.name %>
+      </div>
+      <div class="description">
+        <%= current_user.bio %>
+      </div>
+      <div class="right floated description">
+        <%= current_user.website %>
+      </div>
+    </div>
+    <div class="extra content">
+      <!-- ユーザーの詳しい情報 -->
+            身長 / <%= @user.height %><br>
+            服のサイズ / <%= @user.size %><br>
+            年齢層 / <%= @user.age %><br>
+            髪型 / <%= @user.hair_style %><br>
+            髪色 / <%= @user.hair_color %><br>
+            目の色 / <%= @user.eyes_color %>
+
+            <span class="right floated">
+              <%= link_to "編集する", edit_user_path(current_user) %>
+            </span>
+    </div>
+
+
+
+<% if logged_in? %>
+    <div class="content">
+      <span class="left floated">
+        <i class="idea icon"></i>
+        <%= link_to "もらったスタイリング一覧", got_path %>
+      </span>
+    </div>
+<% end %>
+
+  </div>

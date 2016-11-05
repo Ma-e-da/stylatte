@@ -1,0 +1,56 @@
+
+
+<% if logged_in? %>
+
+<div class="ui two column stackable grid">
+
+<!-- ユーザーinfoとstats -->
+  <div class="six wide column">
+  <%= render 'shared/user_info' %>
+  <%= render 'shared/stats' %>
+
+  <!-- ポストフォーム -->
+    <%= render 'posts/post_form' %>
+  </div>
+
+<!-- フィード -->
+  <div class="ten wide column">
+    <%= render 'shared/feed' %>
+  </div>
+
+</div>
+
+<!-- 広告欄  -->
+  <!-- <div class="ui banner ad">
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:468px;height:60px"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXXXXXXXX"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div> -->
+
+<% else %>
+
+
+<div class="ui compact green message">
+  <p>Get all the best styling from all over the world. For free.</p>
+  <%= link_to "Log in", login_path %>
+  <p>New user? Sign up now!</p><%= link_to "sign up", signup_path %>
+</div>
+
+<!-- ランディングページ (公開一覧ポスト)なにか押したら、sessions/new〜ログインページに移る。（できたらHoverで出てくるようにする。）-->
+<div class="ui two column stackable grid">
+
+  <div class="twelve wide column">
+    <h2>Posts</h2>
+    <%= render @posts %>
+  </div>
+
+  <div class="four wide column">
+  </div>
+
+</div>
+
+<% end %>

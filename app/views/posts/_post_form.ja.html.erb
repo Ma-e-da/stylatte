@@ -1,0 +1,116 @@
+
+<h3>投稿<i class="pencil icon"></i></h3>
+<%= t '_post_form.Ask Styling!' %>
+
+<%= form_for(@post, html: { multipart: true }) do |f| %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="ui form">
+      <div class="field">
+        <label>スタイリング希望内容</label>
+        <%= f.text_area :content, placeholder: "I need a ...", rows:"2" %>
+      </div>
+  </div>
+
+  <span class="picture">
+    <i class="photo icon"></i>
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
+
+<div class="ui divider"></div>
+
+<!-- ポストの詳細選ぶ（アコーディオン）必ずulは入れること（custom.cssにて操作中）-->
+<div class="acodmenu">
+
+    <!-- 閉まっているときの表示 -->
+    <label for="Panel13">
+            <div class="active title">
+              <i class="dropdown icon"></i>
+              詳しく希望を設定する
+            </div>
+    </label>
+
+    <input type="checkbox" id="Panel13" class="on-off" />
+
+<!-- 開いたときの内容 -->
+<ul>
+<div class="ui form">
+      <!-- アイテムの種類 -->
+        <div class="field">
+          <%= f.label :アイテム %>
+            <%= f.select :product, {"未選択" => "-", "アウター" => "outerwear", "トップス" => "tops", "ボトムス" => "bottoms", "その他" => "others"}, class: 'form-control' %>
+          </div>
+      <!-- 誰のためのか -->
+        <div class="field">
+          <%= f.label :だれの %>
+          <%= f.select :for_who, {"-" => "0", "MEN" => "1", "WOMEN" => "2", "Others" => "3", "DOGS/CATS" => "4"}, class: 'form-control' %>
+        </div>
+      <!-- サイズ -->
+        <div class="field">
+          <%= f.label :サイズ %>
+          <%= f.select :size, {"-" => "0", "XXS" => "1", "XS" => "2", "M" => "3", "L" => "4", "XL" => "4", "XXL" => "4", "others" => "4"}, class: 'form-control' %>
+        </div>
+      <!-- 色 -->
+        <div class="field">
+          <%= f.label :色 %>
+          <%= f.select :color, {"-" => "0", "BLACK" => "1", "WOMEN" => "2", "Others" => "3", "DOGS/CATS" => "4"}, class: 'form-control' %>
+        </div>
+      <!-- スタイル・ジャンル -->
+        <div class="field">
+          <%= f.label :ジャンル %>
+          <%= f.select :color, {"-" => "0", "COOL" => "1", "SIMPLE" => "2", "CUTE" => "3", "ELEGANT" => "4", "CLASSIC" => "5", "VINTAGE" => "6"}, class: 'form-control' %>
+        </div>
+      <!-- シーン -->
+        <div class="field">
+          <%= f.label :シーン %>
+          <%= f.select :scene, {"-" => "0", "Formal" => "1", "Casual" => "2"}, class: 'form-control' %>
+        </div>
+      <!-- シーズン -->
+        <div class="field">
+          <%= f.label :シーズン %>
+          <%= f.select :season, {"-" => "0", "spring" => "1", "summer" => "2", "automn" => "3", "winter" => "4"}, class: 'form-control' %>
+        </div>
+      <!-- 価格帯 -->
+        <div class="field">
+          <%= f.label :価格帯 %>
+          <%= f.select :season, {"-" => "0", "spring" => "1", "summer" => "2", "automn" => "3", "winter" => "4"}, class: 'form-control' %>
+        </div>
+        <!-- いつまでに欲しいか -->
+        <div class="field">
+          <%= f.label :いつまでにほしい %>
+          <%= f.date_select :deadline %>
+        </div>
+
+
+  </div>
+</ul>
+<!-- 開いたときの内容おわり   -->
+
+</div>
+
+
+<div class="ui divider"></div>
+
+<!-- トグルボタン -->
+<div class="ui toggle checkbox">
+  <input type="checkbox" name="pet">
+  <label>Set to Private</label>
+</div>
+
+  <%= f.submit "SEND", class: "ui big basic blue button" %>
+
+
+<% end %>
+
+
+
+
+<script type="text/javascript">
+  $('#post_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>

@@ -1,0 +1,49 @@
+
+<!-- Stats -->
+<% @user ||= current_user %>
+<div class="ui card">
+
+  <div class="content">
+
+    <span class="left floated">
+      <%= @user.following.count %><br>
+      <%= link_to "フォロー中", following_user_path(current_user) %>
+      <i class="icon user"></i>
+    </span>
+
+
+    <span class="right floated">
+      <%= @user.followers.count %><br>
+      <%= link_to "フォロワー", followers_user_path(current_user) %>
+      <i class="icon user"></i>
+    </span>
+
+  </div>
+
+
+
+
+<div class="content">
+<span class="left floated">
+    <%= @user.posts.count %><br>
+    <%= link_to "ポスト", posts_path(current_user) %>
+    <i class="mail icon"></i>
+</span>
+<span class="right floated">
+    <%= @user.favorite_scomments.count %><br>
+    <%= link_to "お気に入り", favorites_path(current_user) %>
+    <i class="heart icon"></i>
+</span>
+
+</div>
+
+</div>
+
+<% if logged_in? && current_user.stylist? %>
+
+<div class="ui big green basic button">
+  <i class="bar chart icon"></i>
+  <%= link_to "To Stylist Analysis Page", stylistanalysis_path %>
+</div>
+
+<% end %>
