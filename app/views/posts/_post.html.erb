@@ -53,17 +53,15 @@ posts/_postページ＞＞
     <a class="detail"><%= link_to 'Stylings', post %></a>
   </div>
 <!-- スタイリングを送る -->
-  <div class="ui green basic button">
-    <% if logged_in? && current_user.stylist? %>
-          <div class="summary">
+<% if logged_in? && current_user.stylist? %>
 
+  <div class="ui green basic button">
+          <div class="summary">
             <i class="pencil icon"></i>
             <%= link_to 'Suppose Styling', post %>
-
-
           </div>
-    <% end %>
   </div>
+<% end %>
 
 
   <div class="ui divider"></div>

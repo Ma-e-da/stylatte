@@ -39,8 +39,13 @@
             Hair style / <%= @user.hair_style %><br>
             Hair Color / <%= @user.hair_color %><br>
             Eyes Color / <%= @user.eyes_color %>
-
+            
+            <span class="right floated">
+              <%= link_to "Edit profile", edit_user_path(current_user) %>
+            </span>
     </div>
+
+
 
 <% if logged_in? %>
     <div class="content">
@@ -48,12 +53,7 @@
         <i class="idea icon"></i>
         <%= link_to "Got Stylings", got_path %>
       </span>
-      <span class="right floated">
-        <%= link_to "Edit profile", edit_user_path(current_user) %>
-      </span>
     </div>
-
-
 <% end %>
 
   </div>
