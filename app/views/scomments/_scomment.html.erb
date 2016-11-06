@@ -23,7 +23,7 @@
         </div>
 
         <div class="divider"></div>
-        
+
         <% if current_user?(scomment.user) %>
           <div class="item">
             <%= link_to "Delete this styling", scomment, method: :delete, data: { confirm: "You sure?" }, title: scomment.content %>
@@ -42,7 +42,8 @@
       </div>
 
       <div class="ui segment">
-        <p><%= scomment.content %></p>
+        <p><%= scomment.content %></p><br>
+        <p><%= scomment.product_url %></p>
       </div>
 
       <div class="metadata">

@@ -40,7 +40,7 @@ class ScommentsController < ApplicationController
   private
 
    def scomment_params
-     params.require(:scomment).permit(:user_id, :content, :picture)
+     params.require(:scomment).permit(:user_id, :content, :picture, :product_url)
    end
    def correct_user
        @post = current_user.posts.find_by(id: params[:id])

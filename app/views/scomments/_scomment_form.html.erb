@@ -19,6 +19,12 @@
         <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
       </span>
 
+      <!-- WEBサイト -->
+      <div class="field">
+        <%= f.label :product_url %>
+        <%= f.url_field :product_url, class: 'ui label' %>
+      </div>
+
       <%= f.submit "SEND", class: "ui positive basic button" %>
 
   <% end %>

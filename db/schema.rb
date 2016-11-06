@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106103219) do
+ActiveRecord::Schema.define(version: 20161106111747) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id",     null: false
@@ -75,9 +75,10 @@ ActiveRecord::Schema.define(version: 20161106103219) do
     t.integer  "user_id"
     t.integer  "post_id"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "picture"
+    t.string   "product_url"
   end
 
   add_index "scomments", ["post_id"], name: "index_scomments_on_post_id"
