@@ -20,7 +20,7 @@
       <% else %>
       <%= image_tag("stylatte_50.png", alt: "STYLATTE") %>
       <% end %>
-      
+
       </div>
 
     <div class="content">
@@ -33,6 +33,12 @@
       <div class="description">
         <%= @user.bio %><br>
       </div>
+      <% if @user.public? %>
+      <% else %>
+      <span class="right floated">
+          非公開中
+      </span>
+      <% end %>
     </div>
     <div class="content">
       country/  <%= @user.country %><br>
