@@ -168,6 +168,17 @@
 
 
 <!-- 公開/非公開 -->
+<!-- スタイリスト,チェックボックス-->
+<div class="grouped inline fields">
+  <%= f.label :private? %>
+  <div class="field">
+    <%= f.radio_button :public, true, class: 'ui radio checkbox' %> Public
+  </div>
+  <div class="field">
+    <%= f.radio_button :public, false, class: 'ui radio checkbox' %> Make account private
+  </div>
+</div>
+
 <div class="field">
   <div class="ui toggle checkbox">
     <input type="checkbox" name="pet">

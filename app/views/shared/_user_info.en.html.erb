@@ -30,6 +30,12 @@
       <div class="right floated description">
         <%= current_user.website %>
       </div>
+      <% if logged_in? && current_user.public? %>
+      <% else %>
+      <span class="right floated">
+          非公開中
+      </span>
+      <% end %>
     </div>
     <div class="extra content">
       <!-- ユーザーの詳しい情報 -->
@@ -39,7 +45,7 @@
             Hair style / <%= @user.hair_style %><br>
             Hair Color / <%= @user.hair_color %><br>
             Eyes Color / <%= @user.eyes_color %>
-            
+
             <span class="right floated">
               <%= link_to "Edit profile", edit_user_path(current_user) %>
             </span>
