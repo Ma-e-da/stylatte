@@ -31,7 +31,7 @@ posts/_postページ＞＞
         <% if current_user?(post.user) %>
             <!-- このポストを詳しくみる -->
                 <i class="search icon"></i>
-                <%= link_to 'See Details', post %><br>
+                <%= link_to 'See Details', post %>
             <!-- このポストを削除する -->
                 <i class="trash icon"></i>
                 <%= link_to "Delete", post, method: :delete, data: { confirm: "You sure?" } %>
