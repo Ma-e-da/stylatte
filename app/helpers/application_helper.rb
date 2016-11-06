@@ -13,6 +13,11 @@ module ApplicationHelper
     current_user(:stylist, true)
   end
 
+  # 現在のユーザーのpublicカラムにt入っていたら、trueを返す
+  def public?
+    current_user(:public, true)
+  end
+
   # 引数で与えられたユーザーのGravatar画像を返す
   def gravatar_for(user, options = { size: 50 })
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)

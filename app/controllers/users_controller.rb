@@ -102,7 +102,8 @@ class UsersController < ApplicationController
                                   :stylist,
                                   :gender, :country,
                                   :picture, :website, :bio,
-                                  :height, :size, :age, :hair_style, :hair_color, :eyes_color, :favs)
+                                  :height, :size, :age, :hair_style, :hair_color, :eyes_color, :favs,
+                                  :public)
    end
 
    # beforeフィルター
