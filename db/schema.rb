@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104101721) do
+ActiveRecord::Schema.define(version: 20161106103219) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id",     null: false
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20161104101721) do
     t.string   "hair_color"
     t.string   "eyes_color"
     t.text     "favs"
+    t.boolean  "public",            default: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
