@@ -1,5 +1,5 @@
-＞＞users/showページはじまり。(だれからもユーザーを探すをしたら見れるページ。)
-ここは、user_infoにrenderできない。(user_infoの方はログインしているユーザーの情報、こちらはアクセスした先のみたいユーザーの情報と別だから。)
+<!-- ここは、user_infoにrenderできない。(user_infoの方はログインしているユーザーの情報、こちらはアクセスした先のみたいユーザーの情報と別だから。) -->
+
 <div class="ui two column stackable grid">
 
 <!-- ユーザー情報 -->
@@ -33,20 +33,21 @@
       <div class="description">
         <%= @user.bio %><br>
       </div>
-      <% if @user.public? %>
-      <% else %>
-      <span class="right floated">
-          非公開中
-      </span>
-      <% end %>
     </div>
+
+<!-- ***
+Userアカウントが公開の場合は、ユーザーのプロフィール詳細。
+***      -->
+
+  <% if @user.public? %>
+
     <div class="content">
       country/  <%= @user.country %><br>
       My favorites/  <%= @user.favs %><br>
       URL/  <%= @user.website %>
     </div>
     <div class="extra content">
-<!-- ユーザーの詳しい情報 -->
+    <!-- ユーザーの詳しい情報 -->
       Height / <%= @user.height %><br>
       Size / <%= @user.size %><br>
       Age / <%= @user.age %><br>
@@ -55,10 +56,17 @@
       Eyes Color / <%= @user.eyes_color %>
     </div>
 
-    <!-- フォロー、アンフォローボタン -->
-    <%= render 'follow_form' if logged_in? %>
+<!-- **
+Userアカウントが非公開の場合、プロフィール詳細は表示されない。
+** -->
 
-  </div>
+  <% else %>
+    <div class="extra content">
+        Now unpublic
+    </div>
+  <% end %>
+
+</div>
 
   <!-- ユーザーがスタイリストの場合、スタイリングブックをみせる。 -->
   <% if @user.stylist? %>
@@ -69,11 +77,18 @@
 
 </div>
 
-<!-- ポストを公開している場合、一覧を見せる。 -->
+
+
   <div class="twelve wide column">
+
+    <!-- フォロー、アンフォローボタン -->
+    <%= render 'follow_form' if logged_in? %>
+
+    <!-- ポストを公開している場合、一覧を見せる。 -->
     <ol class="posts">
       <%= render @posts %>
     </ol>
+    
   </div>
 
 </div>
