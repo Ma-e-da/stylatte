@@ -1,10 +1,55 @@
-<!-- レンダーしてくる場合に備えて条件分岐
-ポストした本人なら、内容がみれる。
-ポストした本人以外が見に来て、非公開中（今はスタイリスト）の人のはPost一覧に出ず、みれない。とする。 -->
+<!--
+*******
+_post.html.erbパーシャルに、レンダーしてくる場合に備えて条件分岐。
+０）ログインしていないLandingPage
+１）ログインし、ポストした本人なら、Post内容がみれる。
+２）ポストした本人以外がshowにあるPostを見に来ても、アカウント非公開中の人の場合は、Postみれない。とする。
+*******
+-->
 
-<!-- ログインしている人がポストした本人だった場合 -->
+
+<!--
+*****
+０）ログインしていないLandingPage
+*****
+-->
+<% unless logged_in? %>
+      <!-- 最新の2０件だけとってきて（postした人のアカウントがpublic; trueの分だけ）表示するようにした。（static_pagesコントローラーで設定している。） -->
+      <% if post.user.public? %>
+          <!-- どこかを押すと、ログインpathでログインへ誘導するようにしている。 -->
+          <div class="ui feed">
+            <div class="event">
+              <div class="content">
+                <!-- 名前＆アバター -->
+                <a><%= link_to post.user.name, login_path %></a>
+                <div class="ui avatar image">
+                  <%= link_to gravatar_for(post.user, size: 50), login_path %>
+                </div>
+                  <!-- 日時 -->
+                  <div class="date">
+                    <%= time_ago_in_words(post.created_at) %><%= t '_post.ago' %>
+                  </div>
+                <div class="ui segment">
+                  <!-- ポスト　コンテント -->
+                    <%= post.content %><br>
+                  <!-- ポストイメージ -->
+                  <div class="extra images">
+                    <a><%= image_tag post.picture.url if post.picture? %></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+      <% end %>
+<% end %>
+
+
+<!--
+****
+１）ログインし、その人がポストした本人だった場合、Post内容がみれる。
+****
+ -->
 <% if current_user?(post.user) %>
-posts/_postページ＞＞
+
 <div class="ui feed">
   <div class="event">
     <div class="content">
@@ -51,31 +96,18 @@ posts/_postページ＞＞
             </div>
         </div>
       <% end %>
-  <div class="ui divider"></div>
-</div>
+    <div class="ui divider"></div>
+  </div>
 <% end %>
 
+<!--
+**
+２）ポストした本人以外がshowにあるPostを見に来ても、アカウント非公開中の人の場合は、Postみれない。とする。
+**
+ -->
 
-<!-- ログインをしていないとき elseifかunlessを使う-->
-<% unless logged_in? %>
-      <!-- postした人が(public)trueのときは -->
-      <% if post.user.public? %>
-          <div class="ui segment">
-            <%= post.content %>
-            <%= link_to post.user.name, post.user %>
-          </div>
-          <!-- ログインをしていないとき、かつ、ポストした人が(public)trueのときは、 -->
-          <!-- スタイリスト(public)trueの人のポストだけみれる。 -->
-      <% end %>
-<% end %>
-
-
-
-<!-- ログインしているとき -->
-<!-- ログイン後、Userを探すページからみたとき、postした人が(public)trueのときは、 -->
 <% if logged_in? && post.user.public? %>
-    <!-- ポストした人が(public)trueのときは -->
-    posts/_postページ＞＞
+    <!-- ポストした人がpublic; trueのときは -->
     <div class="ui feed">
       <div class="event">
         <div class="content">
