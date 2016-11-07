@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
     @post = current_user.posts.build if logged_in?
     @feed_items = current_user.feed
    else
-     @posts = Post.all
+     @posts = Post.order(:created_at).limit(20)
    end
   end
 
