@@ -1,16 +1,7 @@
-<!--
-*******
-_post.html.erbパーシャルに、レンダーしてくる場合に備えて条件分岐。
-０）ログインしていないLandingPage
-１）ログインし、ポストした本人なら、Post内容がみれる。
-２）ポストした本人以外がshowにあるPostを見に来ても、アカウント非公開中の人の場合は、Postみれない。とする。
-*******
--->
-
 
 <!--
 *****
-０）ログインしていないLandingPage
+０）ログインしていないとき。〜home.html.erbで使用〜　LandingPage
 *****
 -->
 <% unless logged_in? %>
@@ -45,12 +36,13 @@ _post.html.erbパーシャルに、レンダーしてくる場合に備えて条
 
 <!--
 ****
-１）ログインし、その人がポストした本人だった場合、Post内容がみれる。
+１）ログインしたあと。　ポストしたのが本人のとき。　〜show.html.erbで使用〜
 ****
  -->
-<% if current_user?(post.user) %>
+<% if logged_in? && current_user?(post.user) %>
 
 <div class="ui feed">
+
   <div class="event">
     <div class="content">
       <!-- 名前＆アバター -->
@@ -101,20 +93,14 @@ _post.html.erbパーシャルに、レンダーしてくる場合に備えて条
 
 <!--
   ****
-  ログインし、その人がポストした本人ではなかった場合、Post内容がみれる。
+  ２）ポストした本人以外がログインした場合
   ****
 -->
 
 <% else %>
 
-<!--
-**
-２）ポストした本人以外がshowにあるPostを見に来ても、アカウント非公開中の人の場合は、Postみれない。とする。
-**
- -->
-
-<% if logged_in? && post.user.public? %>
-    <!-- ポストした人がpublic; trueのときは -->
+<!-- ポストした人がpublic; trueのみポストをみせる。-->
+<% if post.user.public? %>
     <div class="ui feed">
       <div class="event">
         <div class="content">
@@ -132,8 +118,8 @@ _post.html.erbパーシャルに、レンダーしてくる場合に備えて条
             </div>
           </div>
 
-          <!-- スタイリングを送る -->
-          <% if logged_in? && current_user.stylist? %>
+          <!-- ログインしている人が、スタイリストなら、スタイリングを送るボタンがみれる -->
+          <% if current_user.stylist? %>
             <div class="ui middle green basic button">
                 <div class="summary">
                   <i class="pencil icon"></i>
