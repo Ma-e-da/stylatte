@@ -98,7 +98,14 @@ _post.html.erbパーシャルに、レンダーしてくる場合に備えて条
       <% end %>
     <div class="ui divider"></div>
   </div>
-<% end %>
+
+<!--
+  ****
+  ログインし、その人がポストした本人ではなかった場合、Post内容がみれる。
+  ****
+-->
+
+<% else %>
 
 <!--
 **
@@ -115,6 +122,7 @@ _post.html.erbパーシャルに、レンダーしてくる場合に備えて条
             <div class="date">
               <%= time_ago_in_words(post.created_at) %><%= t '_post.ago' %>
             </div>
+
           <div class="ui segment">
             <!-- ポスト　コンテント -->
               <%= post.content %><br>
@@ -123,8 +131,22 @@ _post.html.erbパーシャルに、レンダーしてくる場合に備えて条
               <a><%= image_tag post.picture.url if post.picture? %></a>
             </div>
           </div>
+
+          <!-- スタイリングを送る -->
+          <% if logged_in? && current_user.stylist? %>
+            <div class="ui middle green basic button">
+                <div class="summary">
+                  <i class="pencil icon"></i>
+                  <%= link_to 'Suppose Styling', post %>
+                </div>
+            </div>
+          <% end %>
+
         </div>
       </div>
       <div class="ui divider"></div>
     </div>
+<% end %>
+
+
 <% end %>
