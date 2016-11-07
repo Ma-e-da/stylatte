@@ -34,7 +34,8 @@ gem 'turbolinks', '2.3.0'
 gem 'jbuilder', '2.2.3'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '0.4.0', group: :doc
-
+# データベースからとったデータ結果を多言語化したいため
+gem 'enum_help', '0.0.16'
 
 
 group :development, :test do
