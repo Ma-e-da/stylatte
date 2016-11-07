@@ -1,7 +1,19 @@
-<% if current_user.rating?(scomment) %>
-    <%= render 'ratings/show', scomment: scomment %>
-<% else %>
-    <%= render 'ratings/create', scomment: scomment %>
-<% end %>
+<!-- **
+自分では、星つけれない。
+** -->
+<% unless current_user == scomment.user %>
 
-<!-- かつもし、current_userがscomment_userならという条件を一行目に付け足す。 -->
+    <!-- **
+    もし、ログイン中のユーザーがすでに星をつけていたら、星の結果が表示される。
+    ** -->
+    <% if current_user.rating?(scomment) %>
+        <%= render 'ratings/show', scomment: scomment %>
+
+    <!-- **
+    まだ星をつけていなければ、空の星が表示される。
+    ** -->
+    <% else %>
+        <%= render 'ratings/create', scomment: scomment %>
+    <% end %>
+
+<% end %>
