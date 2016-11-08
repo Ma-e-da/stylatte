@@ -1,0 +1,209 @@
+<title>Edit Profile | Stylatte</title>
+
+<!-- ユーザーアカウント閉鎖 (報告と同じようにadminへDeleteされる)-->
+<!-- とりあえずは、アラームが出て今の所ログアウトする。 -->
+<h2>Deactivate my account</h2>
+<button class="ui red basic button"><%= link_to "Delete Account", logout_path, method: "delete", data: { confirm: "You sure?１５日後に完全に削除されます。それまでなら再度ログインできます。" } %></button>
+
+
+<h1>Edit profile</h1>
+
+<div class="ui form">
+
+<%= form_for(@user, html: { multipart: true }) do |f| %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+<!-- Name -->
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <p>Username will be publicly displayed. You can use Nickname here.<%= link_to "Learn more.", styliststart_path %></p>
+
+<!-- Email -->
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+  </div>
+  <p>Email will not be publicly displayed.<%= link_to "Learn more.", styliststart_path %></p>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+
+<!-- password -->
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirmation" %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+
+<!-- スタイリスト,チェックボックス-->
+<div class="grouped inline fields">
+  <%= f.label :stylist? %>
+  <p>- How to upgrade Stylist status.<%= link_to "Learn more.", styliststart_path %> -</p>
+  <div class="field">
+    <%= f.radio_button :stylist, true, class: 'ui radio checkbox' %> Become stylist(Basic for FREE)
+  </div>
+  <div class="field">
+    <%= f.radio_button :stylist, false, class: 'ui radio checkbox' %> Quit stylist
+  </div>
+</div>
+
+
+<!-- 性別（integer=数字になっている(Users一覧ページで検索ができるように)、スタイリストと同じラジオボタンにすること！） -->
+<!-- user.rbファイル内でenumで定義している（:unknown, :male, :female, :other）ので、integerでなくてもintegerになってDBに保存される。 -->
+<!-- 順番だけ気をつける。 -->
+
+<div class="field">
+  <%= f.label :gender %>
+  <%= f.radio_button :gender, "no_choice_gender", class: "ui checkbox"%>no choice
+  <%= f.radio_button :gender, "male", class: "ui checkbox"%>male
+  <%= f.radio_button :gender, "female", class: "ui checkbox" %>female
+  <%= f.radio_button :gender, "others", class: "ui checkbox" %>other
+</div>
+
+<!-- 国（integer=数字になっているが、enumの文字で書くこと。DBに保存するときは、直してくれる。）
+{ other_country: 0, japan: 1, usa: 2, china: 9 }
+ -->
+<div class="field">
+  <%= f.label :country %><p>- Select your country. This setting is saved to this browser. -</p>
+  <%= f.select :country, [["no_choice_country"],["japan"],["usa"], ["china"], ["other_countries"]], class: 'form-control' %>
+</div>
+
+
+
+<!-- WEBサイト -->
+<div class="field">
+  <%= f.label :website %>
+  <%= f.url_field :website, class: 'ui label' %>
+</div>
+
+<!-- 自己紹介 -->
+    <div class="field">
+      <%= f.label :bio %><p>- Add a short description. -</p>
+        <%= f.text_area :bio, placeholder: "I am ..." ,rows:"2"%>
+    </div>
+    <div class="field">
+      <%= f.label :favs %><p>- Add a short description. -</p>
+        <%= f.text_area :favs, placeholder: "My favorites ..." ,rows:"2"%>
+    </div>
+
+
+<!-- アバター -->
+    <div class="gravatar_edit">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails">change an avatar</a>
+    </div>
+
+
+
+<!-- ヘッダーの写真(アバターじゃない方のプロフィール写真) -->
+<div class="ui card">
+  <div class="image">
+    <%= image_tag @user.picture.url %>
+
+    <div class="field">
+      <i class="photo icon"></i>
+      change<%= f.label :picture %>
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- More /アコーディオン/ 必ずulは入れること（custom.css操作）-->
+<div class="ui divider"></div>
+
+    <div class="acodmenu">
+
+        <label for="Panel20">
+          <div class="active title">
+            <h3>
+              <i class="dropdown icon"></i>
+              Set More
+            </h3>
+          </div>
+        </label>
+
+        <input type="checkbox" id="Panel20" class="on-off" />
+
+        <ul>
+                  <div class="field">
+                    <%= f.label :height %>
+                    <%= f.select :height, [["-"],["~140cm"],["~150cm"], ["~160cm"], ["~170cm"], ["~180cm"], ["~190cm"], ["others"]], class: 'form-control' %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :size %>
+                    <%= f.select :size, [["-"],["XXS"],["XS"], ["M"], ["L"], ["XL"], ["XXL"], ["others"]], class: 'form-control' %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :age %>
+                    <%= f.select :age, [["-"],["10's"],["20's"], ["30's"], ["40's"], ["50's"], ["60's"], ["70's"], ["80's"], ["90's"]], class: 'form-control' %>
+                  </div>
+
+
+                  <div class="field">
+                    <%= f.label :hair_style %>
+                    <%= f.select :hair_style, [["no_choice_hair_style"],["short"],["middle"], ["long"], ["other_hair_style"]], class: 'form-control' %>
+                  </div>
+
+
+                  <div class="field">
+                    <%= f.label :hair_color %>
+                    <%= f.select :hair_color, [["no_choice_hair_color"],["black_hair"],["brown_hair"], ["blond_hair"], ["red_hair"], ["other_hair_color"]], class: 'form-control' %>
+                  </div>
+
+
+                  <div class="field">
+                    <%= f.label :eyes_color %>
+                    <%= f.select :eyes_color, [["no_choice_eyes_color"],["brown"], ["blue"], ["green"], ["other_eyes_color"]], class: 'form-control' %>
+                  </div>
+
+        </ul>
+    </div>
+
+    <div class="ui divider"></div>
+
+
+<!-- 公開/非公開 -->
+<!-- スタイリスト,チェックボックス-->
+<div class="grouped inline fields">
+  <%= f.label :private? %>
+  <div class="field">
+    <%= f.radio_button :public, true, class: 'ui radio checkbox' %> Public
+  </div>
+  <div class="field">
+    <%= f.radio_button :public, false, class: 'ui radio checkbox' %> Make account private
+  </div>
+</div>
+
+<div class="field">
+  <div class="ui toggle checkbox">
+    <input type="checkbox" name="pet">
+    <label>Private or public.</label>
+  </div>
+</div>
+
+<!-- submit -->
+<div class="field">
+  <%= f.submit "Save changes", class: "ui blue basic button" %>
+</div>
+
+<% end %>
+
+
+
+</div>
+
+<script type="text/javascript">
+  $('#user_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>
