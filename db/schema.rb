@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106111747) do
+ActiveRecord::Schema.define(version: 20161104101721) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id",     null: false
@@ -30,13 +30,13 @@ ActiveRecord::Schema.define(version: 20161106111747) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "picture"
-    t.string   "product"
-    t.string   "for_who"
-    t.string   "size"
-    t.string   "color"
-    t.string   "style_genre"
-    t.string   "scene"
-    t.string   "season"
+    t.integer  "product"
+    t.integer  "for_who"
+    t.string   "item_size"
+    t.integer  "color"
+    t.integer  "style_genre"
+    t.integer  "scene"
+    t.integer  "season"
     t.string   "price_range"
     t.datetime "deadline"
   end
@@ -99,19 +99,19 @@ ActiveRecord::Schema.define(version: 20161106111747) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.boolean  "stylist",           default: false
-    t.integer  "gender"
-    t.integer  "country"
+    t.boolean  "public",            default: true
     t.string   "picture"
     t.string   "website"
     t.text     "bio"
+    t.text     "favs"
+    t.integer  "gender"
+    t.integer  "country"
     t.string   "height"
     t.string   "size"
     t.string   "age"
-    t.string   "hair_style"
-    t.string   "hair_color"
-    t.string   "eyes_color"
-    t.text     "favs"
-    t.boolean  "public",            default: true
+    t.integer  "hair_style"
+    t.integer  "hair_color"
+    t.integer  "eyes_color"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
