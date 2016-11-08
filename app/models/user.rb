@@ -138,8 +138,22 @@ class User < ActiveRecord::Base
 
 # enum; プログラムからは文字列（名前）でアクセスでき、DBには整数値で保存される属性を作成できます。
 # DBカラムのデフォルト値はenumの初期値と合わせておきます。
-enum gender: [:unknown, :male, :female, :other]
-enum country: { other_country: 0, japan: 1, usa: 2, china: 9 }
+
+# add_column :users, :gender, :integer
+# add_column :users, :country, :integer
+# add_column :users, :height, :string
+# add_column :users, :size, :string
+# add_column :users, :age, :string
+# add_column :users, :hair_style, :integer
+# add_column :users, :hair_color, :integer
+# add_column :users, :eyes_color, :integer
+
+enum gender: { no_choice_gender: 0, male: 1, female: 2, others: 3 }
+enum country: { no_choice_country: 0, japan: 1, usa: 2, china: 3, other_countries: 4 }
+enum hair_style: { no_choice_hair_style: 0, short: 1, middle: 2, long: 3, other_hair_style: 4 }
+enum hair_color: { no_choice_hair_color: 0, black_hair: 1, brown_hair: 2, blond_hair: 3, red_hair: 4, other_hair_color: 4 }
+enum eyes_color: { no_choice_eyes_color: 0, brown: 1, blue: 2, green: 3, other_eyes_color: 4 }
+
 
 # scope/絞り込み（ユーザーが入力し、usersコントローラーからの指令が出たらscope（絞り込み）をする。）
   # ユーザー名による絞り込み

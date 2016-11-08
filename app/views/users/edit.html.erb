@@ -55,10 +55,10 @@
 
 <div class="field">
   <%= f.label :gender %>
-  <%= f.radio_button :gender, "unknown", class: "ui checkbox"%>no choice
+  <%= f.radio_button :gender, "no_choice_gender", class: "ui checkbox"%>no choice
   <%= f.radio_button :gender, "male", class: "ui checkbox"%>male
   <%= f.radio_button :gender, "female", class: "ui checkbox" %>female
-  <%= f.radio_button :gender, "other", class: "ui checkbox" %>other
+  <%= f.radio_button :gender, "others", class: "ui checkbox" %>other
 </div>
 
 <!-- 国（integer=数字になっているが、enumの文字で書くこと。DBに保存するときは、直してくれる。）
@@ -66,7 +66,7 @@
  -->
 <div class="field">
   <%= f.label :country %><p>- Select your country. This setting is saved to this browser. -</p>
-  <%= f.select :country, [["other_country"],["japan"],["usa"], ["china"]], class: 'form-control' %>
+  <%= f.select :country, [["no_choice_country"],["japan"],["usa"], ["china"], ["other_countries"]], class: 'form-control' %>
 </div>
 
 
@@ -146,19 +146,19 @@
 
                   <div class="field">
                     <%= f.label :hair_style %>
-                    <%= f.select :hair_style, [["-"],["short"],["middle"], ["long"], ["others"]], class: 'form-control' %>
+                    <%= f.select :hair_style, [["no_choice_hair_style"],["short"],["middle"], ["long"], ["other_hair_style"]], class: 'form-control' %>
                   </div>
 
 
                   <div class="field">
                     <%= f.label :hair_color %>
-                    <%= f.select :hair_color, [["-"],["black"],["brown"], ["blond"], ["red"], ["others"]], class: 'form-control' %>
+                    <%= f.select :hair_color, [["no_choice_hair_color"],["black_hair"],["brown_hair"], ["blond_hair"], ["red_hair"], ["other_hair_color"]], class: 'form-control' %>
                   </div>
 
 
                   <div class="field">
                     <%= f.label :eyes_color %>
-                    <%= f.select :eyes_color, [["-"],["brown"], ["blue"], ["green"], ["others"]], class: 'form-control' %>
+                    <%= f.select :eyes_color, [["no_choice_eyes_color"],["brown"], ["blue"], ["green"], ["other_eyes_color"]], class: 'form-control' %>
                   </div>
 
         </ul>

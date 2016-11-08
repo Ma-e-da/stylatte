@@ -1,17 +1,42 @@
-ja:
-  enums:
-    user:
-      gender:
-        unknown: 未選択
-        male: 男性
-        female: 女性
-        other: その他
+# add_column :users, :gender, :integer
+# add_column :users, :country, :integer
+# add_column :users, :height, :string
+# add_column :users, :size, :string
+# add_column :users, :age, :string
+# add_column :users, :hair_style, :integer
+# add_column :users, :hair_color, :integer
+# add_column :users, :eyes_color, :integer
 
 ja:
   enums:
     user:
+      gender:
+        no_choice_gender: 未選択
+        male: 男性
+        female: 女性
+        others: その他
       country:
-        other_country: 未選択
+        no_choice_country: 未選択
         japan: 日本
         usa: アメリカ
         china: 中国
+        other_countries: その他
+      hair_style:
+        no_choice_hair_style: 未選択
+        short: 短い
+        middle: 中間
+        long: 長い
+        other_hair_style: その他
+      hair_color:
+        no_choice_hair_color: 未選択
+        black_hair: 黒
+        brown_hair: 茶
+        blond_hair: 金
+        red_hair: 赤
+        other_hair_color: その他
+      eyes_color:
+        no_choice_eyes_color: 未選択
+        brown: 茶
+        blue: 青
+        green: 緑
+        other_eyes_color: その他
