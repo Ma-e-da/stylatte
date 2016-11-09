@@ -1,0 +1,118 @@
+<div class="dd">
+<h3><%= t '_post_form.Ask Styling!' %></h3>
+
+
+<%= form_for(@post, html: { multipart: true }) do |f| %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="ui form">
+      <div class="field">
+        <label>Post Content</label>
+        <%= f.text_area :content, placeholder: "I need a ...", rows:"2" %>
+      </div>
+  </div>
+
+  <span class="picture">
+    <i class="photo icon"></i>
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
+
+<div class="ui divider"></div>
+
+<!-- ポストの詳細選ぶ（アコーディオン）必ずulは入れること（custom.cssにて操作中）-->
+<div class="acodmenu">
+
+    <!-- 閉まっているときの表示 -->
+    <label for="Panel13">
+            <div class="active title">
+              <i class="dropdown icon"></i>
+              Optional Details
+            </div>
+    </label>
+
+    <input type="checkbox" id="Panel13" class="on-off" />
+
+<!-- 開いたときの内容 -->
+<ul>
+<div class="ui form">
+      <!-- アイテムの種類 (enum,integer)  ***-->
+        <div class="field">
+          <%= f.label :製品 %>
+          <%= f.select :product, {"未選択" => "no_choice_product", "アウターウェア" => "outerwears", "トップス" => "tops", "ボトムス" => "bottoms", "ドレス" => "dresses", "アクセサリー" => "accessories", "バッグ" => "bags", "靴" => "shoes"}, class: 'form-control' %>
+          </div>
+      <!-- 誰のためのか(enum,integer)    *** -->
+        <div class="field">
+          <%= f.label :使用者 %>
+          <%= f.select :for_who, {"未選択" => "no_choice_whose", "男性" => "man", "女性" => "woman", "その他" => "others"}, class: 'form-control' %>
+        </div>
+      <!-- アイテムサイズ (string)-->
+        <div class="field">
+          <%= f.label :サイズ %>
+          <%= f.select :item_size, {"-" => "-", "XXS" => "XXS", "XS" => "XS", "M" => "M", "L" => "L", "XL" => "XL", "XXL" => "XXL", "others" => "others"}, class: 'form-control' %>
+        </div>
+      <!-- 色 (enum,integer)     ***-->
+        <div class="field">
+          <%= f.label :色 %>
+          <%= f.select :color, {"未選択" => "no_choice_color", "ブラック" => "black", "グレー" => "grey", "グリーン" => "green", "ブルー" => "blue", "茶" => "brown", "ピンク" => "pink", "赤" => "red", "オレンジ" => "orange", "ベージュ" => "beige", "ホワイト" => "white"}, class: 'form-control' %>
+        </div>
+      <!-- スタイル・ジャンル(enum,integer)   *** -->
+        <div class="field">
+          <%= f.label :スタイルジャンル %>
+          <%= f.select :style_genre, {"未選択" => "no_choice_style_genre", "クール" => "cool", "キュート" => "cute", "シンプル" => "simple", "クラッシック" => "classic", "エレガント" => "elegant"}, class: 'form-control' %>
+        </div>
+      <!-- シーン (enum,integer)     ***-->
+        <div class="field">
+          <%= f.label :シーン %>
+          <%= f.select :scene, {"未選択" => "no_choice_scene", "フォーマル" => "formal", "カジュアル" => "casual"}, class: 'form-control' %>
+
+        </div>
+      <!-- シーズン(enum,integer)    *** -->
+        <div class="field">
+          <%= f.label :シーズン %>
+          <%= f.select :season, {"未選択" => "no_choice_season", "春" => "spring", "夏" => "summer", "秋" => "autumn", "冬" => "winter"}, class: 'form-control' %>
+        </div>
+      <!-- 価格帯 (string)-->
+        <div class="field">
+          <%= f.label :価格帯 %>
+          <%= f.select :price_range, {"-" => "0", "~$10" => "~$10", "~$50" => "~$50", "~$100" => "~$100", "~$200" => "~$200", "~$300" => "~$300", "~$400" => "~$400", "~$500" => "~$500", "~$1000" => "~$1000", "$1000~" => "$1000~"}, class: 'form-control' %>
+        </div>
+        <!-- いつまでに欲しいか(datetime) -->
+        <div class="field">
+          <%= f.label :いつまで %>
+          <%= f.date_select :deadline %>
+        </div>
+
+
+  </div>
+</ul>
+<!-- 開いたときの内容おわり   -->
+
+</div>
+
+
+<div class="ui divider"></div>
+
+<!-- トグルボタン -->
+<div class="ui toggle checkbox">
+  <input type="checkbox" name="pet">
+  <label>Set to Private</label>
+</div>
+
+  <%= f.submit "SEND", class: "ui big basic blue button" %>
+
+
+<% end %>
+
+</div>
+
+
+
+<script type="text/javascript">
+  $('#post_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>

@@ -1,0 +1,47 @@
+
+ja:
+  enums:
+    post:
+      product:
+        no_choice_product: 未選択
+        outerwears: アウターウェア
+        tops: トップス
+        bottoms: ボトムス
+        dresses: ドレス
+        accessories: アクセサリー
+        bags: バッグ
+        shoes: 靴
+      for_who:
+        no_choice_whose: 未選択
+        man: 男性
+        woman: 女性
+        others: その他  
+      color:
+        no_choice_color: 未選択
+        black: 黒
+        grey: グレー
+        green: 緑
+        blue: 青
+        brown: 茶
+        pink: ピンク
+        red: 赤
+        orange: オレンジ
+        beige: ベージュ
+        white: 白
+      style_genre:
+        no_choice_style_genre: 未選択
+        cool: 男性
+        cute: 女性
+        simple: その他
+        classic: クラッシック
+        elegant: エレガント
+      scene:
+        no_choice_scene: 未選択
+        formal: フォーマル
+        casual: カジュアル
+      season:
+        no_choice_season: 未選択
+        spring: 春
+        summer: 夏
+        autumn: 秋
+        winter: 冬

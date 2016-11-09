@@ -1,0 +1,138 @@
+
+<!--
+*****
+０）ログインしていないとき。〜home.html.erbで使用〜　LandingPage
+*****
+-->
+<% unless logged_in? %>
+      <!-- 最新の2０件だけとってきて（postした人のアカウントがpublic; trueの分だけ）表示するようにした。（static_pagesコントローラーで設定している。） -->
+      <% if post.user.public? %>
+          <!-- どこかを押すと、ログインpathでログインへ誘導するようにしている。 -->
+          <div class="ui feed">
+            <div class="event">
+              <div class="content">
+                <!-- 名前＆アバター -->
+                <a><%= link_to post.user.name, login_path %></a>
+                <div class="ui avatar image">
+                  <%= link_to gravatar_for(post.user, size: 50), login_path %>
+                </div>
+                  <!-- 日時 -->
+                  <div class="date">
+                    <%= time_ago_in_words(post.created_at) %><%= t '_post.ago' %>
+                  </div>
+                <div class="ui segment">
+                  <!-- ポスト　コンテント -->
+                    <%= post.content %><br>
+                  <!-- ポストイメージ -->
+                  <div class="extra images">
+                    <a><%= image_tag post.picture.url if post.picture? %></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+      <% end %>
+<% end %>
+
+
+<!--
+****
+１）ログインしたあと。　ポストしたのが本人のとき。　〜show.html.erbで使用〜
+****
+ -->
+<% if logged_in? && current_user?(post.user) %>
+
+<div class="ui feed">
+
+  <div class="event">
+    <div class="content">
+      <!-- 名前＆アバター -->
+      <a><%= link_to post.user.name, post.user %></a>
+      <div class="ui avatar image">
+        <%= link_to gravatar_for(post.user, size: 50), post.user %>
+      </div>
+        <!-- 日時 -->
+        <div class="date">
+          <%= time_ago_in_words(post.created_at) %><%= t '_post.ago' %>
+        </div>
+      <div class="ui segment">
+        <!-- ポスト　コンテント -->
+          <%= post.content %><br>
+        <!-- ポストイメージ -->
+        <div class="extra images">
+          <a><%= image_tag post.picture.url if post.picture? %></a>
+        </div>
+        <!-- ポストしたユーザーのみ見れるリンク -->
+        <% if current_user?(post.user) %>
+            <!-- このポストを詳しくみる -->
+                <i class="search icon"></i>
+                <%= link_to '詳細', post %>
+            <!-- このポストを削除する -->
+                <i class="trash icon"></i>
+                <%= link_to "削除", post, method: :delete, data: { confirm: "You sure?" } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+      <!-- コメント数表示 & もらったスタイリングコメントへのリンク-->
+      <div class="ui large blue label">
+        <i class="idea icon"></i>
+        <%= post.scomments.count %>
+        <a class="detail"><%= link_to 'スタイリング', post %></a>
+      </div>
+      <!-- スタイリングを送る -->
+      <% if logged_in? && current_user.stylist? %>
+        <div class="ui middle green basic button">
+            <div class="summary">
+              <i class="pencil icon"></i>
+              <%= link_to 'スタイリングを提案する', post %>
+            </div>
+        </div>
+      <% end %>
+    <div class="ui divider"></div>
+  </div>
+
+<!--
+  ****
+  ２）ポストした本人以外がログインした場合
+  ****
+-->
+
+<% else %>
+
+<!-- ポストした人がpublic; trueのみポストをみせる。-->
+<% if post.user.public? %>
+    <div class="ui feed">
+      <div class="event">
+        <div class="content">
+            <!-- 日時 -->
+            <div class="date">
+              <%= time_ago_in_words(post.created_at) %><%= t '_post.ago' %>
+            </div>
+
+          <div class="ui segment">
+            <!-- ポスト　コンテント -->
+              <%= post.content %><br>
+            <!-- ポストイメージ -->
+            <div class="extra images">
+              <a><%= image_tag post.picture.url if post.picture? %></a>
+            </div>
+          </div>
+
+          <!-- ログインしている人が、スタイリストなら、スタイリングを送るボタンがみれる -->
+          <% if current_user.stylist? %>
+            <div class="ui middle green basic button">
+                <div class="summary">
+                  <i class="pencil icon"></i>
+                  <%= link_to 'スタイリングを提案する', post %>
+                </div>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+      <div class="ui divider"></div>
+    </div>
+<% end %>
+
+
+<% end %>

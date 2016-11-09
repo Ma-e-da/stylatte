@@ -1,0 +1,94 @@
+<!-- 選択したPost内容 -->
+<h3>This post is created by <%= link_to @post.user.name, @post.user %> </h3>
+    <div class="ui card">
+      <%= image_tag @post.picture.url if @post.picture? %>
+    </div>
+<div class="ui segment">
+  <%= @post.content %>
+
+  <div class="ui divider"></div>
+
+
+  <table class="ui very compact table">
+  <thead>
+    <tr><th>other choices</th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td>product</td>
+      <td><%= @post.product_i18n %></td>
+
+
+    </tr>
+    <tr>
+      <td>For</td>
+      <td><%= @post.for_who_i18n %></td>
+
+    </tr>
+    <tr>
+      <td>Size</td>
+      <td><%= @post.item_size %></td>
+
+    </tr>
+    <tr>
+      <td>Color</td>
+      <td><%= @post.color_i18n %></td>
+
+    </tr>
+    <tr>
+      <td>style_genre</td>
+      <td><%= @post.style_genre_i18n %></td>
+
+    </tr>
+    <tr>
+      <td>scene</td>
+      <td><%= @post.scene_i18n %></td>
+
+    </tr>
+    <tr>
+      <td>season</td>
+      <td><%= @post.season_i18n %></td>
+
+    </tr>
+    <tr>
+      <td>price_range</td>
+      <td><%= @post.price_range %></td>
+    </tr>
+    <tr>
+      <td>deadline</td>
+      <td><%= @post.deadline %></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+    <div class="date">
+      <%= time_ago_in_words(@post.created_at) %><%= t '_post.ago' %>
+    </div>
+</div>
+
+
+<!-- コメント数 & 一覧 （ポストした人のみ見れる）-->
+<% if current_user?(@post.user) %>
+  <div class="ui large blue label">
+    <i class="idea icon"></i>
+    <%= @post.scomments.count %>
+    <a class="detail">stylings getting now</a>
+  </div>
+
+<!-- もらったコメント一覧 -->
+  <%= render @post.scomments %>
+
+<% end %>
+
+
+
+
+<!-- このポストへコメントを送るフォーム（スタイリストならみんな見れる） -->
+<% if logged_in? && current_user.stylist? %>
+  <%= render 'scomments/scomment_form' %>
+<% end %>
