@@ -97,10 +97,9 @@
   ****
 -->
 
-<% else %>
-
 <!-- ポストした人がpublic; trueのみポストをみせる。-->
-<% if post.user.public? %>
+<% elsif logged_in? && post.user.public? %>
+
     <div class="ui feed">
       <div class="event">
         <div class="content">
@@ -119,7 +118,7 @@
           </div>
 
           <!-- ログインしている人が、スタイリストなら、スタイリングを送るボタンがみれる -->
-          <% if logged_in? && current_user.stylist? %>
+          <% if current_user.stylist? %>
             <div class="ui middle green basic button">
                 <div class="summary">
                   <i class="pencil icon"></i>
@@ -132,7 +131,6 @@
       </div>
       <div class="ui divider"></div>
     </div>
-<% end %>
 
 
 <% end %>
