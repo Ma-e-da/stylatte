@@ -10,7 +10,7 @@
 </a>
 だった。 -->
 
-<a href="http://192.168.99.100:3000">STYLATTE</a>
+<a href="http://192.168.99.100:3000/ja">STYLATTE</a>
 
 
 <!-- PCとタブレットのみ表示 -->
@@ -23,7 +23,7 @@
   <% @user ||= current_user %>
   <%= link_to gravatar_for(current_user, size: 50), current_user %>
   <% else %>
-  <span><%= link_to "Log in", login_path %></span>
+  <span><%= link_to "ログイン", login_path %></span>
   <% end %>
 </a>
 
@@ -57,7 +57,7 @@
   <!-- アイコン -->
             <a href="#paradeiser-more" id="paradeiser-dropdown">
 
-                <span>MENU</span>
+                <span>メニュー</span>
             </a>
   <!-- 開いた後の中身 -->
             <ul class="paradeiser_children" id="paradeiser-more">
