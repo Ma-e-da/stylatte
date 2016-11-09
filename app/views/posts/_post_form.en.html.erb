@@ -36,47 +36,47 @@
 <!-- 開いたときの内容 -->
 <ul>
 <div class="ui form">
-      <!-- アイテムの種類 -->
+      <!-- アイテムの種類 (enum,integer)  ***-->
         <div class="field">
           <%= f.label :product %>
-            <%= f.select :product, {"-" => "-", "outerwear" => "outerwear", "tops" => "tops", "bottoms" => "bottoms", "others" => "others"}, class: 'form-control' %>
+            <%= f.select :product, [["no_choice_product"],["outerwears"],["tops"], ["bottoms"], ["dresses"], ["accessories"], ["bags"], ["shoes"]], class: 'form-control' %>
           </div>
-      <!-- 誰のためのか -->
+      <!-- 誰のためのか(enum,integer)    *** -->
         <div class="field">
           <%= f.label :for %>
-          <%= f.select :for_who, {"-" => "0", "MEN" => "1", "WOMEN" => "2", "Others" => "3", "DOGS/CATS" => "4"}, class: 'form-control' %>
+          <%= f.select :for_who, [["no_choice_whose"],["man"],["woman"], ["others"]], class: 'form-control' %>
         </div>
-      <!-- サイズ -->
+      <!-- アイテムサイズ (string)-->
         <div class="field">
-          <%= f.label :size %>
-          <%= f.select :size, {"-" => "0", "XXS" => "1", "XS" => "2", "M" => "3", "L" => "4", "XL" => "4", "XXL" => "4", "others" => "4"}, class: 'form-control' %>
+          <%= f.label :item_size %>
+          <%= f.select :item_size, {"-" => "-", "XXS" => "XXS", "XS" => "XS", "M" => "M", "L" => "L", "XL" => "XL", "XXL" => "XXL", "others" => "others"}, class: 'form-control' %>
         </div>
-      <!-- 色 -->
+      <!-- 色 (enum,integer)     ***-->
         <div class="field">
           <%= f.label :color %>
-          <%= f.select :color, {"-" => "0", "BLACK" => "1", "WOMEN" => "2", "Others" => "3", "DOGS/CATS" => "4"}, class: 'form-control' %>
+          <%= f.select :color, [["no_choice_color"],["black"],["grey"], ["green"], ["blue"], ["brown"], ["pink"], ["red"], ["orange"], ["beige"], ["white"]], class: 'form-control' %>
         </div>
-      <!-- スタイル・ジャンル -->
+      <!-- スタイル・ジャンル(enum,integer)   *** -->
         <div class="field">
           <%= f.label :style_genre %>
-          <%= f.select :color, {"-" => "0", "COOL" => "1", "SIMPLE" => "2", "CUTE" => "3", "ELEGANT" => "4", "CLASSIC" => "5", "VINTAGE" => "6"}, class: 'form-control' %>
+          <%= f.select :style_genre, [["no_choice_style_genre"],["cool"],["cute"], ["simple"], ["classic"], ["elegant"]], class: 'form-control' %>
         </div>
-      <!-- シーン -->
+      <!-- シーン (enum,integer)     ***-->
         <div class="field">
           <%= f.label :scene %>
-          <%= f.select :scene, {"-" => "0", "Formal" => "1", "Casual" => "2"}, class: 'form-control' %>
+          <%= f.select :scene, [["no_choice_scene"],["formal"],["casual"]], class: 'form-control' %>
         </div>
-      <!-- シーズン -->
+      <!-- シーズン(enum,integer)    *** -->
         <div class="field">
           <%= f.label :season %>
-          <%= f.select :season, {"-" => "0", "spring" => "1", "summer" => "2", "automn" => "3", "winter" => "4"}, class: 'form-control' %>
+          <%= f.select :season, [["no_choice_season"],["spring"],["summer"], ["autumn"], ["winter"]], class: 'form-control' %>
         </div>
-      <!-- 価格帯 -->
+      <!-- 価格帯 (string)-->
         <div class="field">
           <%= f.label :price_range %>
-          <%= f.select :season, {"-" => "0", "spring" => "1", "summer" => "2", "automn" => "3", "winter" => "4"}, class: 'form-control' %>
+          <%= f.select :price_range, {"-" => "0", "~$10" => "~$10", "~$50" => "~$50", "~$100" => "~$100", "~$200" => "~$200", "~$300" => "~$300", "~$400" => "~$400", "~$500" => "~$500", "~$1000" => "~$1000", "$1000~" => "$1000~"}, class: 'form-control' %>
         </div>
-        <!-- いつまでに欲しいか -->
+        <!-- いつまでに欲しいか(datetime) -->
         <div class="field">
           <%= f.label :deadline %>
           <%= f.date_select :deadline %>
