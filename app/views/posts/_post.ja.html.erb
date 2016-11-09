@@ -119,7 +119,7 @@
           </div>
 
           <!-- ログインしている人が、スタイリストなら、スタイリングを送るボタンがみれる -->
-          <% if current_user.stylist? %>
+          <% if logged_in? && current_user.stylist? %>
             <div class="ui middle green basic button">
                 <div class="summary">
                   <i class="pencil icon"></i>
