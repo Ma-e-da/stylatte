@@ -1,56 +1,121 @@
+<title>Home | Stylatte</title>
 
+<!-- Folder; static_pages, File; home.en.html.erb -->
+
+<!--............Copyright.................
+Copyright 2016, Stylatte.
+.....................-->
+
+<!--*******SUMARRY OF THIS FILE***************
+
+[1] After login
+[2] Before login
+
+**************************-->
+
+
+
+
+
+<!--***[1] After login ***
+
+Rendering to
+
+1.shared/user_info
+2.shared/stats
+3.posts/post_form(post is a variable at "home action" of static_pages_controller)
+4.shared/feed(feed_items is a variable at "home action" of static_pages_controller)
+
+***-->
 
 <% if logged_in? %>
 
 <div class="ui two column stackable grid">
 
-<!-- ユーザーinfoとstats -->
-  <div class="six wide column">
-  <%= render 'shared/user_info' %>
-  <%= render 'shared/stats' %>
 
-  <!-- ポストフォーム -->
+  <div class="six wide column">
+    <!-- 1.render to user_info  -->
+    <%= render 'shared/user_info' %>
+    <!-- 2.render to stats -->
+    <%= render 'shared/stats' %>
+    <!-- 3.render to post_form -->
     <%= render 'posts/post_form' %>
   </div>
 
-<!-- フィード -->
+
   <div class="ten wide column">
+    <!--4. render to feed -->
     <%= render 'shared/feed' %>
   </div>
 
 </div>
 
 <!-- 広告欄  -->
-  <!-- <div class="ui banner ad">
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:468px;height:60px"
-         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-         data-ad-slot="XXXXXXXXXXXXXXXX"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div> -->
+<!-- <div class="ui banner ad">
+<ins class="adsbygoogle"
+style="display:inline-block;width:468px;height:60px"
+data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+data-ad-slot="XXXXXXXXXXXXXXXX"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div> -->
+
+
+
+
+<!--***[2] Before login***
+
+Rendering to
+
+1.posts(variable at "home action" of static_pages_controller)
+
+***-->
+
 
 <% else %>
 
-
-<div class="ui compact green message">
-  <p>Get all the best styling from all over the world. For free.</p>
-  <%= link_to "Log in", login_path %>
-  <p>New user? Sign up now!</p><%= link_to "sign up", signup_path %>
+<!-- Top Message -->
+<div class="ui vertical stripe intro segment">
+  <div class="ui stackable very relaxed center aligned grid container">
+      <div class="twelve wide column">
+        <img alt="Stylatte" src="/assets/stylatte_logo_7.png" >
+        <h1 class="ui header">Get all the best stylings from all over the world. </h1>
+        <p>- For free -<%= link_to "Need Help?", help_path %></p>
+      </div>
+  </div>
+  <div class="custom_wrap_for_custom_button">
+    <button class="custom_button_1">
+      <%= link_to "Log in", login_path %>
+    </button>
+  </div>
 </div>
 
-<!-- ランディングページ (公開一覧ポスト)なにか押したら、sessions/new〜ログインページに移る。（できたらHoverで出てくるようにする。）-->
-<div class="ui two column stackable grid">
-
-  <div class="twelve wide column">
-    <h2>Posts</h2>
-    <%= render @posts %>
+<!-- New Post list -->
+<div class="ui vertical stripe intro segment">
+  <div class="ui stackable very relaxed center aligned grid container">
+    <div class="twelve wide column">
+      <h1 class="ui header">Waiting a new Styling</h1>
+      <p>Why don't you join us?</p>
+      <%= render @posts %>
+    </div>
   </div>
-
-  <div class="four wide column">
-  </div>
-
 </div>
+
+<!-- Bottom Message -->
+  <div class="ui message">
+    <h3>Explore more?  Please log in.</h3>
+      <%= link_to "Log in", login_path %>
+    <p>New user? Sign up now!</p><%= link_to "sign up", signup_path %>
+    <p><%= link_to "Need Help?", help_path %></p>
+  </div>
 
 <% end %>
+
+
+
+
+
+<!-- +......NOTE.....+
+
++...........+-->
