@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The change you wanted was rejected (422)</title>
+  <title>We're sorry(503)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   body {
@@ -36,6 +36,17 @@
     color: #black;
     line-height: 1.5em;
   }
+  h2 {
+    font-size: 100%;
+    color: #red;
+    line-height: 1.5em;
+  }
+
+  p {
+    font-size: 100%;
+    color: #black;
+    line-height: 1.5em;
+  }
 
   div.dialog > p {
     margin: 0 0 1em;
@@ -55,11 +66,19 @@
 </head>
 
 <body>
-  <!-- This file lives in public/422.html -->
+  <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
-      <h1>422<br>The change you wanted was rejected.</h1>
-      <p>Maybe you tried to change something<br> you didn't have access to...</p>
+      <h1>We're sorry!</h1>
+      <h2>Error code:503</h2>
+      <p>Our servers are busy right now...<br>
+         So Stylatte is temporarily unavailable.<br>
+         We are working hard to fix the problem.<br>
+         Keep an eye on our Twitter account<br>
+         or try to visit later.</p>
+         Stay tuned...<br>
+      <h2>Thank you for your patience. </h2>
+      <a href="https://twitter.com/stylatte2016" target="_blank">Twitter</a>
     </div>
   </div>
 </body>

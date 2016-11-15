@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>We're sorry (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   body {
@@ -23,7 +23,7 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: #black solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     background-color: white;
@@ -33,7 +33,18 @@
 
   h1 {
     font-size: 100%;
-    color: #730E15;
+    color: #black;
+    line-height: 1.5em;
+  }
+  h2 {
+    font-size: 100%;
+    color: #red;
+    line-height: 1.5em;
+  }
+
+  p {
+    font-size: 100%;
+    color: #black;
     line-height: 1.5em;
   }
 
@@ -58,9 +69,17 @@
   <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
-      <h1>We're sorry, but something went wrong.</h1>
+        <h1>We're sorry!</h1>
+        <h2>Error code:500</h2>
+        <p>We're sorry, but something went wrong.<br>
+           So Stylatte is temporarily unavailable.<br>
+           We are working hard to fix the problem.<br>
+           Keep an eye on our Twitter account<br>
+           or try to visit later.</p>
+           Stay tuned...<br>
+        <h2>Thank you for your patience. </h2>
+        <a href="https://twitter.com/stylatte2016" target="_blank">Twitter</a>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
 </body>
 </html>
