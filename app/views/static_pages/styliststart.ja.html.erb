@@ -1,0 +1,192 @@
+<title>Stylist status | Stylatte</title>
+
+<!-- Folder; static_pages, File; home.en.html.erb -->
+
+<!--............Copyright.................
+Copyright 2016, Stylatte.
+.....................-->
+
+<!--*******SUMARRY OF THIS FILE***************
+* Header
+
+* Login
+  [1] Before Login
+  [2] After Login (to Edit Profile action)
+  [3]After Login and alreadt stylist. (update stylist status action)
+
+* FAQ
+
+* Contact us
+**************************-->
+
+<!--** Header ** -->
+  <div class="ui stackable very relaxed center aligned grid container">
+      <div class="column">
+        <h1 class="ui header">Your idea may help someone.</h1>
+        <p>STEPS FOR STYLINGYou need to make account first, and go to edit profile page, and check stylist.</p>
+      </div>
+  </div>
+
+
+<!-- ** Login ** -->
+
+<!--[1] Before Login (to Login action) -->
+<% unless logged_in? %>
+  <!-- steps -->
+  <h2>Steps for styling</h2>
+  <div class="ui center aligned container">
+        <div class="ui ordered steps">
+          <div class="link step">
+            <i class="yellow user icon"></i>
+            <div class="content">
+              <div class="title">Make account</div>
+              <div class="description">check "stylist" on Edit page.</div>
+            </div>
+          </div>
+          <div class="step">
+            <i class="users icon"></i>
+            <div class="content">
+              <div class="title">Find users</div>
+              <div class="description">who're waiting styling </div>
+            </div>
+          </div>
+          <div class="link step">
+            <i class="star icon"></i>
+            <div class="content">
+              <div class="title">Suppose</div>
+              <div class="description">styling and get stars.</div>
+            </div>
+          </div>
+        </div>
+  </div>
+  <!-- button to action -->
+  <div class="ui two column center aligned divided very relaxed stackable grid container">
+    <div class="row">
+      <div class="column">
+        <h2 class="ui icon header">
+          Let's become a stylist!
+        </h2>
+        <p>Semantic is <b>designed completely with em</b>tablet and mobile.</p>
+      </div>
+
+      <div class="column">
+        <button class="ui green basic button"><%= link_to "Log in", login_path %></button>
+      </div>
+    </div>
+  </div>
+  <!-- Easy Explanation -->
+  <div class="ui basic segment">
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+  </div>
+<% end %>
+
+<!-- [2]After Login (to Edit Profile action) -->
+<% if logged_in? %>
+
+<% end %>
+
+<!-- [3]After Login and alreadt stylist. (update stylist status action) -->
+<% if logged_in? && current_user.stylist? %>
+
+<% end %>
+
+
+
+<!--**  FAQ ** -->
+  <h2>FAQ</h2>
+    <h5 class="ui top attached header">
+      Dogs
+    </h5>
+  <div class="ui attached segment">
+    <p>Dogs are one type of animal</p>
+  </div>
+
+    <h5 class="ui attached header">
+      Cats
+    </h5>
+  <div class="ui attached segment">
+    <p>Cats are thought of as being related to dogs, but only humans think this.</p>
+  </div>
+
+    <h5 class="ui attached header">
+      Lions
+    </h5>
+  <div class="ui attached segment">
+    <p>Humans don't think of lions as being like cats, but they are.</p>
+  </div>
+
+  <div class="ui bottom attached warning message">
+    <i class="warning icon"></i>
+    You've reached the end of this content segment!
+  </div>
+
+
+<!--** Contact us **-->
+<h2>Need more info? contact us.</h2>
+<p>There is the way for company to promote your own brands items!</p>
+
+
+
+<!-- +......NOTE.....+
+
+pricelist (from http://wegraphics.net/downloads/free-responsive-pricing-table/)
+
+<section id="pricePlans">
+		<ul id="plans">
+			<li class="plan">
+				<ul class="planContainer">
+					<li class="title"><h2>Stylist</h2></li>
+					<li class="price"><p>Free</p></li>
+					<li>
+						<ul class="options">
+							<li>2x <span>option 1</span></li>
+							<li>Free <span>option 2</span></li>
+							<li>Unlimited <span>option 3</span></li>
+							<li>Unlimited <span>option 4</span></li>
+							<li>1x <span>option 5</span></li>
+						</ul>
+					</li>
+					<li class="button"><a href="#">Purchase</a></li>
+				</ul>
+			</li>
+
+			<li class="plan">
+				<ul class="planContainer">
+					<li class="title"><h2 class="bestPlanTitle">Stylist-Plus</h2></li>
+					<li class="price"><p class="bestPlanPrice">$20/month</p></li>
+					<li>
+						<ul class="options">
+							<li>2x <span>option 1</span></li>
+							<li>Free <span>option 2</span></li>
+							<li>Unlimited <span>option 3</span></li>
+							<li>Unlimited <span>option 4</span></li>
+							<li>1x <span>option 5</span></li>
+						</ul>
+					</li>
+					<li class="button"><a class="bestPlanButton" href="#">Purchase</a></li>
+				</ul>
+			</li>
+
+			<li class="plan">
+				<ul class="planContainer">
+					<li class="title"><h2>Stylist-Premium</h2></li>
+					<li class="price"><p>$30/<span>month</span></p></li>
+					<li>
+						<ul class="options">
+							<li>2x <span>option 1</span></li>
+							<li>Free <span>option 2</span></li>
+							<li>Unlimited <span>option 3</span></li>
+							<li>Unlimited <span>option 4</span></li>
+							<li>1x <span>option 5</span></li>
+						</ul>
+					</li>
+					<li class="button"><a href="#">Purchase</a></li>
+				</ul>
+			</li>
+		</ul>
+    <div id="credits">by <a href="http://wegraphics.net/">WeGraphics</a></div>
+	</section>
+
+
+
++...........+-->

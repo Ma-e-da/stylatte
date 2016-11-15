@@ -1,0 +1,59 @@
+<h3 class="ui horizontal divider header">
+  <i class="bar chart icon"></i>
+  Styling Status
+</h3>
+
+<table class="ui very basic table">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td><%= @user.name %></td>
+
+    </tr>
+    <tr>
+      <td>Stylist Status</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>My Stylings</td>
+      <td><%= @scomments.count %><%= link_to "  (Stylings You sent) ", sent_path %></td>
+    </tr>
+
+    <tr>
+      <td>自分が送ったスタイリングの内、すでに投票をもらったスタイリングコメントの数</td>
+      <td><%= @ratings.count %><i class="empty star icon"></i></td>
+    </tr>
+    <tr>
+      <td>Star Sum</td>
+      <td><%= @total_rating %><i class="empty star icon"></i></td>
+
+
+    </tr>
+    <tr>
+      <td>Star Average</td>
+      <td><%= @average_rating %><i class="empty star icon"></i></td>
+
+    </tr>
+  </tbody>
+</table>
+
+<div class="ui divider"></div>
+
+<div class="ui bulleted list">
+  <div class="item">
+    Why don't you explore a bit?<%= link_to "Go Exploring, Find Users", users_path %>
+
+  </div>
+  <div class="item">
+    <%= link_to "Upgrade stylist status & Stylist status FAQ", styliststart_path %>
+  </div>
+  <div class="item">
+    <%= link_to " Stylings You sent ", sent_path %>
+  </div>
+</div>
