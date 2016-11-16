@@ -1,8 +1,26 @@
 <title>Edit Profile | Stylatte</title>
 
+<!-- Folder; static_pages, File; home.en.html.erb -->　
+
+<!--............Copyright.................　　
+Copyright 2016, Stylatte.
+.....................-->
+
+<!--*******SUMARRY OF THIS FILE***************
+
+[1]
+[2]
+
+**************************-->
+
+
+
+
+
 <!-- ユーザーアカウント閉鎖 (報告と同じようにadminへDeleteされる)-->
 <!-- とりあえずは、アラームが出て今の所ログアウトする。 -->
 <h2>Deactivate my account</h2>
+<p>Once you delete your account, there is no going back. Please be certain.</p>
 <button class="ui red basic button"><%= link_to "Delete Account", logout_path, method: "delete", data: { confirm: "You sure?１５日後に完全に削除されます。それまでなら再度ログインできます。" } %></button>
 
 
@@ -19,7 +37,6 @@
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <p>Username will be publicly displayed. You can use Nickname here.<%= link_to "Learn more.", styliststart_path %></p>
 
 <!-- Email -->
   <div class="field">
@@ -94,6 +111,7 @@
     <div class="gravatar_edit">
       <%= gravatar_for @user %>
       <a href="http://gravatar.com/emails">change an avatar</a>
+      <p>Profile picture</p>
     </div>
 
 
@@ -207,3 +225,10 @@
     }
   });
 </script>
+
+
+<!-- +......NOTE.....+
+
++ 
+
++...........+-->

@@ -1,4 +1,18 @@
-＞＞users/newページはじまり
+<title>Sign Up | Stylatte</title>　　
+
+<!-- Folder; static_pages, File; home.en.html.erb -->　
+
+<!--............Copyright.................　　
+Copyright 2016, Stylatte.
+.....................-->
+
+<!--*******SUMARRY OF THIS FILE***************
+
+[1]
+[2]
+
+**************************-->
+
 
 Free, you can get advices from cool friends all over world.
 <p>Info here.<%= link_to "FAQ", help_path %></p>
@@ -16,11 +30,15 @@ Free, you can get advices from cool friends all over world.
       <label>Name</label>
       <%= f.text_field :name, class: 'form-control' %>
       <p>You can use nickname here, which is shown to other users and can be changed afterward on EditPage.</p>
+      <p>Username is publicly displayed. You can use Nickname here. And you can change later.</p>
+
     </div>
 
     <div class="field">
       <label>E-mail</label>
       <%= f.email_field :email, class: 'form-control', placeholder: "joe@schmoe.com"  %>
+      <p> Your email address is kept private, and will be used for account-related notifications (e.g. account changes and billing receipts) as well as any web-based GitHub operations (e.g. edits and merges).
+
     </div>
 
     <div class="field">
@@ -40,4 +58,14 @@ Free, you can get advices from cool friends all over world.
   <% end %>
 </div>
 <p>I understand <%= link_to "Private Policy", policy_path %></p>
+<p>We store your personal data in the United States. See our privacy policy for more information.</p>
 This site uses cookies to store your preferences for site-specific language and display options.
+
+
+
+
+<!-- +......NOTE.....+
+
++ 
+
++...........+-->
