@@ -1,12 +1,14 @@
 module ApplicationHelper
 
-  # ページごとの完全なタイトルを返す
-  def full_title(page_title = '')
-    base_title = "Stylatte"
-    if page_title.empty?
-      base_title
+  # タイトル
+  def full_title(page_title)
+      base_title = "StyLatte"
+      if page_title.empty?
+        base_title
+      else
+        "#{page_title} | #{base_title}"
+      end
     end
-  end
 
   # 現在のユーザーのstylistカラムにt入っていたら、trueを返す
   def stylist?
