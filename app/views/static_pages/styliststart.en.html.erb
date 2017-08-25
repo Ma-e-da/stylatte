@@ -22,7 +22,11 @@ Copyright 2016, Stylatte.
   <div class="ui stackable very relaxed center aligned grid container">
       <div class="column">
         <h1 class="ui header">Your idea may help someone.</h1>
-        <p>STEPS FOR STYLINGYou need to make account first, and go to edit profile page, and check stylist.</p>
+        <!-- Easy Explanation -->
+        <div class="ui basic segment">
+          <p>You need to make account first, and go to edit profile page, and check stylist.</p>
+        </div>
+        <p>STEPS FOR STYLING</p>
       </div>
   </div>
 
@@ -58,30 +62,112 @@ Copyright 2016, Stylatte.
           </div>
         </div>
   </div>
-  <!-- button to action -->
-  <div class="ui two column center aligned divided very relaxed stackable grid container">
-    <div class="row">
-      <div class="column">
-        <h2 class="ui icon header">
-          Let's become a stylist!
-        </h2>
-        <p>Semantic is <b>designed completely with em</b>tablet and mobile.</p>
-      </div>
 
-      <div class="column">
-        <button class="ui green basic button"><%= link_to "Log in", login_path %></button>
-      </div>
-    </div>
-  </div>
-  <!-- Easy Explanation -->
-  <div class="ui basic segment">
-    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-  </div>
+  <table class="ui definition table">
+    <thead>
+      <tr>
+        <th></th>
+      <th>Stylist</th>
+      <th>Stylist PLUS</th>
+      <th>Stylist Premium</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Price</td>
+        <td>Free $0</td>
+        <td>$10/month</td>
+        <td>$50/month</td>
+      </tr>
+      <tr>
+        <td>Definition</td>
+        <td>a</td>
+        <td>2B</td>
+        <td>2B</td>
+      </tr>
+      <tr>
+        <td>Suppose To Users</td>
+        <td>Possible</td>
+        <td>Possible</td>
+        <td>Possible</td>
+      </tr>
+      <tr>
+        <td>Search Customers</td>
+        <td>-</td>
+        <td>Can search by multiple conditions</td>
+        <td>Can search by all conditions</td>
+      </tr>
+      <tr>
+        <td>Marketing Analysis</td>
+        <td>-</td>
+        <td>-</td>
+        <td>You can use </td>
+      </tr>
+      <tr>
+        <td>PURCHASE</td>
+        <td><button class="ui green basic button"><%= link_to "Log in", login_path %></button></td>
+        <td><div class="ui button">BUY</div></td>
+        <td><div class="ui button">BUY</div></td>
+      </tr>
+    </tbody>
+  </table>
+
 <% end %>
 
 <!-- [2]After Login (to Edit Profile action) -->
 <% if logged_in? %>
+  <h3 class="ui header">Why don't you suppose?</h3>
+  <div class="ui segment">Now All course are free!!</div>
 
+
+  <table class="ui definition table">
+    <thead>
+      <tr>
+        <th></th>
+      <th>Stylist</th>
+      <th>Stylist PLUS</th>
+      <th>Stylist Premium</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Price</td>
+        <td>Free $0</td>
+        <td>$10/month</td>
+        <td>$50/month</td>
+      </tr>
+      <tr>
+        <td>Definition</td>
+        <td>a</td>
+        <td>2B</td>
+        <td>2B</td>
+      </tr>
+      <tr>
+        <td>Suppose To Users</td>
+        <td>Possible</td>
+        <td>Possible</td>
+        <td>Possible</td>
+      </tr>
+      <tr>
+        <td>Search Customers</td>
+        <td>-</td>
+        <td>Can search by multiple conditions</td>
+        <td>Can search by all conditions</td>
+      </tr>
+      <tr>
+        <td>Marketing Analysis</td>
+        <td>-</td>
+        <td>-</td>
+        <td>You can use </td>
+      </tr>
+      <tr>
+        <td>PURCHASE</td>
+        <td><div class="ui button">BUY</div></td>
+        <td><div class="ui button">BUY</div></td>
+        <td><div class="ui button">BUY</div></td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>
 
 <!-- [3]After Login and alreadt stylist. (update stylist status action) -->
@@ -94,30 +180,33 @@ Copyright 2016, Stylatte.
 <!--**  FAQ ** -->
   <h2>FAQ</h2>
     <h5 class="ui top attached header">
-      Dogs
+      For free what can I do?
     </h5>
   <div class="ui attached segment">
     <p>Dogs are one type of animal</p>
   </div>
 
     <h5 class="ui attached header">
-      Cats
+      What is the payment method?
     </h5>
   <div class="ui attached segment">
     <p>Cats are thought of as being related to dogs, but only humans think this.</p>
   </div>
 
     <h5 class="ui attached header">
-      Lions
+      Can I change the course in the same month?
+    </h5>
+  <div class="ui attached segment">
+    <p>Humans don't think of lions as being like cats, but they are.</p>
+  </div>
+    <h5 class="ui attached header">
+      What is the marketing analysis system?
     </h5>
   <div class="ui attached segment">
     <p>Humans don't think of lions as being like cats, but they are.</p>
   </div>
 
-  <div class="ui bottom attached warning message">
-    <i class="warning icon"></i>
-    You've reached the end of this content segment!
-  </div>
+
 
 
 <!--** Contact us **-->
