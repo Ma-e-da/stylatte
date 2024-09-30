@@ -7,26 +7,24 @@ rails:4.2.6
 * Development Tools
 
 Docker: DockerHub
-Bitbucket:
-Atom:
+Bitbucket
+Atom
 
-* System dependencies
-
-* Configuration
 
 * server
 AWS: ElasticBeanstalk
 Sakura
+GCP
 
 
 * Storage
-develoment:Local file system
-production:AWS S3 <= fog
+AWS S3 <= fog
+GCP Database
 
 
 * Database
 develoment: sqlite3
-Production: mysql2
+Production: mysql2 /GCP SQLite
 
 
 * PictureUploader
@@ -40,5 +38,6 @@ ImageMagick(gem:MiniMagick)
 Byebug
 
 
-* Services (job queues, cache servers, search engines, etc.)
-* Deployment instructions
+* System dependencies
+
+* Configuration
