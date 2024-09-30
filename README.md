@@ -1,43 +1,39 @@
-== README
+# README 
 
-* Ruby version
-ruby:2.3.0
-rails:4.2.6
+# Version
+* ruby:2.3.0
+* rails:4.2.6
 
-* Development Tools
+# Development Tools
 
-Docker: DockerHub
-Bitbucket
-Atom
-
-
-* server
-AWS: ElasticBeanstalk
-Sakura
-GCP
+* Docker: DockerHub
+* Bitbucket
+* Atom
 
 
-* Storage
-AWS S3 <= fog
-GCP Database
+# Server
+* AWS: ElasticBeanstalk
+* Sakura
+* GCP
 
 
-* Database
-develoment: sqlite3
-Production: mysql2 /GCP SQLite
+# Storage
+* AWS S3 <= fog
+* GCP Database
 
 
-* PictureUploader
-CarrierWave
-Fog?
+#  Database
+* develoment: sqlite3
+* Production: mysql2 /GCP SQLite
 
-* PictureReSize
-ImageMagick(gem:MiniMagick)
 
-* How to run the test
+#  PictureUploader
+* CarrierWave
+
+#  PictureReSize Changer
+* ImageMagick(gem:MiniMagick)
+
+# Test
 Byebug
 
 
-* System dependencies
-
-* Configuration
